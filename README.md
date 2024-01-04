@@ -1,6 +1,13 @@
 
 ## Platforms
 
+### Platforms Data
+
+- Name
+- Average Cost Per Click (CPC)
+
+### Platforms Added
+
 - LinkedIn
 - Xing
 - Facebook
