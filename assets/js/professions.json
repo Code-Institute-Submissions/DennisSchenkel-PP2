@@ -1,159 +1,160 @@
-[
-    {
-    "profession": "Software Developer",
-    "platforms": {
-        "linkedin": "good",
-        "xing": "useless",
-        "facebook": "okay",
-        "instagram": "great",
-        "twitter": "good",
-        "tiktok": "okay",
-        "youtube": "great",
-        "twitch": "good",
-        "googlesearch": "good",
-        "googledisplay": "okay",
-        "bing": "okay",
-        "stackoverflow": "perfect",
-        "reddit": "great",
-        "spotify": "okay"
+{ 
+    "professions": [
+        {
+        "profession": "Software Developer",
+        "platforms": {
+            "linkedin": "good",
+            "xing": "bad",
+            "facebook": "okay",
+            "instagram": "great",
+            "twitter": "good",
+            "tiktok": "okay",
+            "youtube": "great",
+            "twitch": "good",
+            "googlesearch": "good",
+            "googledisplay": "okay",
+            "bingsearch": "okay",
+            "stackoverflow": "perfect",
+            "reddit": "great",
+            "spotify": "okay"
+            },
+        "demandMultiplier": 1.75,
+        "seniorityMultiplier": {
+            "senior": 2.5,
+            "midlevel": 1.75,
+            "junior": 1.5,
+            "student": 1.25
+            }
         },
-    "demandMultiplier": 1.75,
-    "seniorityMultiplier": {
-        "senior": 2.5,
-        "midlevel": 1.75,
-        "junior": 1.5,
-        "student": 1.25
-        }
-    },
-    {
-    "profession": "Software Architect",
-    "platforms": {
-        "linkedin": "good",
-        "xing": "useless",
-        "facebook": "okay",
-        "instagram": "great",
-        "twitter": "good",
-        "tiktok": "okay",
-        "youtube": "great",
-        "twitch": "good",
-        "googlesearch": "good",
-        "googledisplay": "okay",
-        "bing": "okay",
-        "stackoverflow": "perfect",
-        "reddit": "great",
-        "spotify": "okay"
+        {
+        "profession": "Software Architect",
+        "platforms": {
+            "linkedin": "good",
+            "xing": "bad",
+            "facebook": "okay",
+            "instagram": "great",
+            "twitter": "good",
+            "tiktok": "okay",
+            "youtube": "great",
+            "twitch": "good",
+            "googlesearch": "good",
+            "googledisplay": "okay",
+            "bingsearch": "okay",
+            "stackoverflow": "perfect",
+            "reddit": "great",
+            "spotify": "okay"
+            },
+        "demandMultiplier": 1.75,
+        "seniorityMultiplier": {
+            "senior": 2.5,
+            "midlevel": 1.75,
+            "junior": 1.5,
+            "student": 1.25
+            }
         },
-    "demandMultiplier": 1.75,
-    "seniorityMultiplier": {
-        "senior": 2.5,
-        "midlevel": 1.75,
-        "junior": 1.5,
-        "student": 1.25
-        }
-    },
-    {
-    "profession": "Project Manager (Software)",
-    "platforms": {
-        "linkedin": "good",
-        "xing": "useless",
-        "facebook": "okay",
-        "instagram": "great",
-        "twitter": "okay",
-        "tiktok": "okay",
-        "youtube": "great",
-        "twitch": "good",
-        "googlesearch": "good",
-        "googledisplay": "okay",
-        "bing": "okay",
-        "stackoverflow": "great",
-        "reddit": "great",
-        "spotify": "good"
+        {
+        "profession": "Project Manager (Software)",
+        "platforms": {
+            "linkedin": "good",
+            "xing": "bad",
+            "facebook": "okay",
+            "instagram": "great",
+            "twitter": "okay",
+            "tiktok": "okay",
+            "youtube": "great",
+            "twitch": "good",
+            "googlesearch": "good",
+            "googledisplay": "okay",
+            "bingsearch": "okay",
+            "stackoverflow": "great",
+            "reddit": "great",
+            "spotify": "good"
+            },
+        "demandMultiplier": 1.5,
+        "seniorityMultiplier": {
+            "senior": 1.9,
+            "midlevel": 1.7,
+            "junior": 1.3,
+            "student": 1.15
+            }
         },
-    "demandMultiplier": 1.5,
-    "seniorityMultiplier": {
-        "senior": 1.9,
-        "midlevel": 1.7,
-        "junior": 1.3,
-        "student": 1.15
-        }
-    },
-    {
-    "profession": "Marketing Manager",
-    "platforms": {
-        "linkedin": "perfect",
-        "xing": "good",
-        "facebook": "okay",
-        "instagram": "great",
-        "twitter": "okay",
-        "tiktok": "good",
-        "youtube": "perfect",
-        "twitch": "good",
-        "googlesearch": "great",
-        "googledisplay": "okay",
-        "bing": "okay",
-        "stackoverflow": "useles",
-        "reddit": "okay",
-        "spotify": "good"
+        {
+        "profession": "Marketing Manager",
+        "platforms": {
+            "linkedin": "perfect",
+            "xing": "good",
+            "facebook": "okay",
+            "instagram": "great",
+            "twitter": "okay",
+            "tiktok": "good",
+            "youtube": "perfect",
+            "twitch": "good",
+            "googlesearch": "great",
+            "googledisplay": "okay",
+            "bingsearch": "okay",
+            "stackoverflow": "bad",
+            "reddit": "okay",
+            "spotify": "good"
+            },
+        "demandMultiplier": 1.25,
+        "seniorityMultiplier": {
+            "senior": 1.75,
+            "midlevel": 1.4,
+            "junior": 1.2,
+            "student": 1
+            }
         },
-    "demandMultiplier": 1.25,
-    "seniorityMultiplier": {
-        "senior": 1.75,
-        "midlevel": 1.4,
-        "junior": 1.2,
-        "student": 1
-        }
-    },
-    {
-    "profession": "Sales Manager",
-    "platforms": {
-        "linkedin": "perfect",
-        "xing": "good",
-        "facebook": "good",
-        "instagram": "great",
-        "twitter": "okay",
-        "tiktok": "good",
-        "youtube": "great",
-        "twitch": "okay",
-        "googlesearch": "great",
-        "googledisplay": "okay",
-        "bing": "good",
-        "stackoverflow": "useles",
-        "reddit": "useles",
-        "spotify": "okay"
+        {
+        "profession": "Sales Manager",
+        "platforms": {
+            "linkedin": "perfect",
+            "xing": "good",
+            "facebook": "good",
+            "instagram": "great",
+            "twitter": "okay",
+            "tiktok": "good",
+            "youtube": "great",
+            "twitch": "okay",
+            "googlesearch": "great",
+            "googledisplay": "okay",
+            "bingsearch": "good",
+            "stackoverflow": "bad",
+            "reddit": "bad",
+            "spotify": "okay"
+            },
+        "demandMultiplier": 1.15,
+        "seniorityMultiplier": {
+            "senior": 2.25,
+            "midlevel": 1.6,
+            "junior": 1,
+            "student": 1
+            }
         },
-    "demandMultiplier": 1.15,
-    "seniorityMultiplier": {
-        "senior": 2.25,
-        "midlevel": 1.6,
-        "junior": 1,
-        "student": 1
+        {
+        "profession": "HR Manager",
+        "platforms": {
+            "linkedin": "perfect",
+            "xing": "great",
+            "facebook": "great",
+            "instagram": "great",
+            "twitter": "okay",
+            "tiktok": "good",
+            "youtube": "good",
+            "twitch": "bad",
+            "googlesearch": "great",
+            "googledisplay": "okay",
+            "bingsearch": "good",
+            "stackoverflow": "bad",
+            "reddit": "bad",
+            "spotify": "okay"
+            },
+        "demandMultiplier": 1,
+        "seniorityMultiplier": {
+            "senior": 1.8,
+            "midlevel": 1.6,
+            "junior": 1.2,
+            "student": 1
+            }
         }
-    },
-    {
-    "profession": "HR Manager",
-    "platforms": {
-        "linkedin": "perfect",
-        "xing": "great",
-        "facebook": "great",
-        "instagram": "great",
-        "twitter": "okay",
-        "tiktok": "good",
-        "youtube": "good",
-        "twitch": "useless",
-        "googlesearch": "great",
-        "googledisplay": "okay",
-        "bing": "good",
-        "stackoverflow": "useles",
-        "reddit": "useles",
-        "spotify": "okay"
-        },
-    "demandMultiplier": 1,
-    "seniorityMultiplier": {
-        "senior": 1.8,
-        "midlevel": 1.6,
-        "junior": 1.2,
-        "student": 1
-        }
-    },
-
-]
+    ]
+}
