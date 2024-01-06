@@ -20,8 +20,7 @@ h1, h2, h3 {
 }
 .content {
     max-width: 540px;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 50px;
 }
 
 
@@ -50,13 +49,58 @@ header {
 }
 
 
-
 main {
     background-color: lightgrey;
     padding: 20px 20px 100px 20px;
     display: flex;
-    height: fit-content%;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#form_1 {
+    max-width: 540px;
+}
+
+.form_element {
+    padding: 20px 0px 20px 0px;
+}
+
+#profession_dropdown {
+    width: 100%;
+    height: 40px;
+    border-radius: 1cap;
+    padding: 0px 10px 0px 10px;
+    margin: 0px 20px 0px 20px;
+    width: calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: -moz-calc(100% - 40px);
+    width: -o-calc(100% - 40px);
+}
+
+.seniority_radio {
+    margin: 0px 5px 0px 20px;
+}
+
+
+
+/* Buttons for step navigation */
+.nav_buttons {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+}
+
+.buttons {
+    width: 150px;
+    padding: 15px 40px 15px 40px;
+    background-color: white;
+    border: none;
+    border-radius: 1cap;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .5);}
+
+.buttons:hover {
+    background-color: gray;
 }
 
 
