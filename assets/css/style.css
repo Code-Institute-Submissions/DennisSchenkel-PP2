@@ -1,3 +1,69 @@
-p {
-    color: red;
+/* Import Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+/* Overwrite browser default */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* General styles */
+body {
+    font-family: Lato, Helvetica, sans-serif;
+}
+h1, h2, h3 {
+    line-height: 1.6;
+    font-weight: 600;
+}
+.title {
+    text-align: center;
+}
+.content {
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Header & Steps styling */
+header {
+    background-color: lightskyblue;
+    padding: 20px 50px 20px 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.steps_group {
+    padding: 20px 0px 20px 0px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+}
+.step {
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+main {
+    background-color: lightgrey;
+    padding: 20px 20px 100px 20px;
+    display: flex;
+    height: fit-content%;
+    justify-content: center;
+}
+
+
+footer {
+    padding: 20px 20px 20px 20px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
 }
