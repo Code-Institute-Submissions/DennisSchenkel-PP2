@@ -1,20 +1,19 @@
+// General ------------------------------------
+
 // Import professions.json
 import professions from "../data/professions.json" assert { type: 'json' };
 
 // Import platforms.json
 import platforms from "../data/platforms.json" assert { type: 'json' };
 
-// console.log(platforms.platforms[0].platform);
-
-// console.log(professions.professions[1].profession);
-
-// General ------------------------------------
-
 // Parameters for calculation Arrey(Profession, Seniority, Array{Selectet Platforms}, Budget)
 let parameters = {};
 
+// console.log(platforms.platforms[0].platform);
+// console.log(professions.professions[1].profession);
 
-// Functions to be used
+
+// Header ------------------------------------
 
 function processSteps() {
 
@@ -26,8 +25,7 @@ function processSteps() {
 
     // Start Button
 let nextBtn0 = document.getElementById("next_btn_0");
-nextBtn0.addEventListener("click", loadStep1);
-
+nextBtn0.addEventListener("click", htmlStep1);
 
 
 // HTML Content ------------------------------------
@@ -97,7 +95,6 @@ let newContentDivHTML4 = `
 
 // Step 1 ------------------------------------
 
-
 /**
  * Load Professions to dropdown
  * Fills the professions dropdown with the elements defined in the professions.json.
@@ -116,11 +113,8 @@ function loadProfessions() {
 
 };
 
-
-/**
- * Load Step 1 Logic
- */
-function step1(event) {
+/** Step 1 Logic */
+function logicStep1(event) {
     
     // Get selected profession
     let selectedProfession = document.getElementById("profession_dropdown");
@@ -148,23 +142,19 @@ function step1(event) {
         alert("Please select a seniority level you are looking for!");
     };
 
-    // loadstep2(event)
+    // htmlStep2(event)
     console.log(parameters);
-    loadStep2(event);
+    htmlStep2(event);
 };
 
-/**
- * Load Step 1 Next Button
- */
+/** Buttons Step 1 */
 function btnStep1() {
     let nextBtn1 = document.getElementById("next_btn_1");
-    nextBtn1.addEventListener("click", step1);
+    nextBtn1.addEventListener("click", logicStep1);
 };
 
-/**
- * Loading HTML for step 1 (After everything else is loaded)
- */
-function loadStep1(event) {
+/** Load Step 1 HTML */
+function htmlStep1(event) {
     
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML1;
@@ -174,18 +164,34 @@ function loadStep1(event) {
 };
 
 
-
 // Step 2 ------------------------------------
-
 
     // If logo of platform is selected the logo becomes colored. 
     // In one object all platforms are included with value "false". 
     // If selected, value changes to "true".
     // With click on next platforms with "true" are added to parameters object.
 
+/** Logic Step 2 */
+function logicStep2(event) {
 
 
-function loadStep2(event) {
+    htmlStep3(event);
+
+};
+
+/** Buttons Step 2 */
+function btnStep2() {
+    // Step 2 Next Button
+    let nextBtn2 = document.getElementById("next_btn_2");
+    nextBtn2.addEventListener("click", logicStep2);
+    
+    // Step 2 Previous Button
+    let previousBtn2 = document.getElementById("previous_btn_2");
+    previousBtn2.addEventListener("click", htmlStep1);
+};
+
+/** Load Step 2 HTML */
+function htmlStep2(event) {
     
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML2;
@@ -193,79 +199,59 @@ function loadStep2(event) {
     btnStep2();
 };
 
-    // Step 1 Logic
-function step2(event) {
-
-
-    loadStep3(event);
-
-};
-
-    // Step 2 Next Button
-function btnStep2() {
-    let nextBtn2 = document.getElementById("next_btn_2");
-    nextBtn2.addEventListener("click", step2);
-    
-    // Step 2 Previous Button
-    let previousBtn2 = document.getElementById("previous_btn_2");
-    previousBtn2.addEventListener("click", loadStep1);
-};
-
-
-
 
 // Step 3 ------------------------------------
 
-
-
     // Validation if Budget is bigger then 200€ and smaller then 20.000€
 
-function loadStep3(event) {
+/** Logic Step 3 */
+function logicStep3(event) {
+
+    
+    htmlStep4(event)
+
+};
+
+/** Buttons Step 3 */
+function btnStep3() {
+    // Step 3 Next Button
+    let nextBtn3 = document.getElementById("next_btn_3");
+    nextBtn3.addEventListener("click", logicStep3);
+    
+    // Step 3 Previous Button
+    let previousBtn3 = document.getElementById("previous_btn_3");
+    previousBtn3.addEventListener("click", htmlStep2);
+};
+
+/** Load Step 3 HTML */
+function htmlStep3(event) {
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML3;
 
     btnStep3();
 };
 
-    // Step 1 Logic
-function step3(event) {
-
-    
-    loadStep4(event)
-
-};
-
-function btnStep3() {
-    // Step 3 Next Button
-    let nextBtn3 = document.getElementById("next_btn_3");
-    nextBtn3.addEventListener("click", step3);
-    
-    // Step 3 Previous Button
-    let previousBtn3 = document.getElementById("previous_btn_3");
-    previousBtn3.addEventListener("click", loadStep2);
-};
-
 
 // Step 4 ------------------------------------
 
-
-function loadStep4(event) {
-    let contentDiv = document.getElementById("content_div");
-    contentDiv.innerHTML = newContentDivHTML4;
-
-    btnStep4();};
-
-    // Step 4 Logic (Calculate results)
-function step4(event) {
+/** Logic Step 4 */
+function logicStep4(event) {
 
     // Change HTML to start or previous
 
 };
 
-    // Step 4 Next Button - Restart - Goes back to index.html
-
+/** Buttons Step 4 */
 function btnStep4() {
     // Step 4 Previous Button
     let previousBtn4 = document.getElementById("previous_btn_4");
-    previousBtn4.addEventListener("click", loadStep3);
+    previousBtn4.addEventListener("click", htmlStep3);
+};
+
+/** Load Step 4 HTML */
+function htmlStep4(event) {
+    let contentDiv = document.getElementById("content_div");
+    contentDiv.innerHTML = newContentDivHTML4;
+
+    btnStep4();
 };
