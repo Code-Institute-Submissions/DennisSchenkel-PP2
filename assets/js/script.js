@@ -30,6 +30,71 @@ nextBtn0.addEventListener("click", loadStep1);
 
 
 
+// HTML Content ------------------------------------
+
+    // HTML Step 1
+let newContentDivHTML1 = `
+<form id="form_1">
+    <div class="form_element">
+        <label><h2>Select profession you are trying to reach?</h2></label><br>                        
+        <select id="profession_dropdown" name="profession">
+        <option value="Profession">Profession</option>
+        </select>
+    </div>
+
+    <div class="form_element">
+        <label><h2>What level of seniority are you looking for?</h2></label><br>
+        <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
+        <label for="html">Senior</label><br>
+        <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
+        <label for="css">Midlevel</label><br>
+        <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
+        <label for="javascript">Junior</label><br>
+        <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
+        <label for="javascript">Student</label><br>
+    </div>
+
+    <div class="nav_buttons">
+        <!-- Button to start page - No JS like the rest -->
+        <a href="index.html">
+            <button type="button" class="buttons" id="previous_btn_1">Previous</button>
+        </a>
+        <button type="button" class="buttons" id="next_btn_1">Next</button>
+    </div>
+</form>
+`;
+
+    // HTML Step 2
+let newContentDivHTML2 = `
+<p>Step 2</p>
+<div class="nav_buttons">
+    <button type="button" class="buttons" id="previous_btn_2">Previous</button>
+    <button type="button" class="buttons" id="next_btn_2">Next</button>
+</div>
+`;
+
+    // HTML Step 3
+let newContentDivHTML3 = `
+<p>Step 3</p>
+<div class="nav_buttons">
+    <button type="button" class="buttons" id="previous_btn_3">Previous</button>
+    <button type="button" class="buttons" id="next_btn_3">Results</button>
+</div>
+`;
+
+    // HTML Step 4
+let newContentDivHTML4 = `
+<p>Step 4</p>
+<div class="nav_buttons">
+    <button type="button" class="buttons" id="previous_btn_4">Previous</button>
+    <!-- Button to start page - No JS like the rest -->
+    <a href="index.html">
+        <button type="button" class="buttons" id="next_btn_4">Restart</button>
+    </a>
+</div>
+`;
+
+
 // Step 1 ------------------------------------
 
 
@@ -85,13 +150,13 @@ function step1(event) {
 
     // loadstep2(event)
     console.log(parameters);
-
+    loadStep2(event);
 };
 
 /**
  * Load Step 1 Next Button
  */
-function nextBtn1() {
+function btnStep1() {
     let nextBtn1 = document.getElementById("next_btn_1");
     nextBtn1.addEventListener("click", step1);
 };
@@ -102,42 +167,10 @@ function nextBtn1() {
 function loadStep1(event) {
     
     let contentDiv = document.getElementById("content_div");
-    let newContentDivHTML = `
-        <form id="form_1">
-        <div class="form_element">
-            <label><h2>Select profession you are trying to reach?</h2></label><br>                        
-            <select id="profession_dropdown" name="profession">
-            <option value="Profession">Profession</option>
-            </select>
-        </div>
-
-        <div class="form_element">
-            <label><h2>What level of seniority are you looking for?</h2></label><br>
-            <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
-            <label for="html">Senior</label><br>
-            <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
-            <label for="css">Midlevel</label><br>
-            <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
-            <label for="javascript">Junior</label><br>
-            <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
-            <label for="javascript">Student</label><br>
-        </div>
-
-        <div class="nav_buttons">
-            <!-- Button to start page - No JS like the rest -->
-            <a href="index.html">
-                <button type="button" class="buttons" id="previous_btn_1">Previous</button>
-            </a>
-            <button type="button" class="buttons" id="next_btn_1">Next</button>
-        </div>
-        </form>
-    `
-    ;
-
-    contentDiv.innerHTML = newContentDivHTML;
+    contentDiv.innerHTML = newContentDivHTML1;
 
     loadProfessions();
-    nextBtn1();
+    btnStep1();
 };
 
 
@@ -153,26 +186,30 @@ function loadStep1(event) {
 
 
 function loadStep2(event) {
-    // Load HTML of step2
+    
+    let contentDiv = document.getElementById("content_div");
+    contentDiv.innerHTML = newContentDivHTML2;
+
+    btnStep2();
 };
 
     // Step 1 Logic
 function step2(event) {
 
 
-
-    // loadstep3(event)
+    loadStep3(event);
 
 };
 
     // Step 2 Next Button
-let nextBtn2 = document.getElementById("next_btn_2");
-nextBtn2.addEventListener("click", step2);
+function btnStep2() {
+    let nextBtn2 = document.getElementById("next_btn_2");
+    nextBtn2.addEventListener("click", step2);
     
     // Step 2 Previous Button
-let previousBtn2 = document.getElementById("previous_btn_2");
-previousBtn2.addEventListener("click", loadStep1);
-    
+    let previousBtn2 = document.getElementById("previous_btn_2");
+    previousBtn2.addEventListener("click", loadStep1);
+};
 
 
 
@@ -184,33 +221,39 @@ previousBtn2.addEventListener("click", loadStep1);
     // Validation if Budget is bigger then 200€ and smaller then 20.000€
 
 function loadStep3(event) {
-    // Load HTML of step3
+    let contentDiv = document.getElementById("content_div");
+    contentDiv.innerHTML = newContentDivHTML3;
+
+    btnStep3();
 };
 
     // Step 1 Logic
 function step3(event) {
 
     
-    // loadstep4(event)
+    loadStep4(event)
 
 };
 
+function btnStep3() {
     // Step 3 Next Button
-let nextBtn3 = document.getElementById("next_btn_3");
-nextBtn3.addEventListener("click", step3);
+    let nextBtn3 = document.getElementById("next_btn_3");
+    nextBtn3.addEventListener("click", step3);
     
     // Step 3 Previous Button
-let previousBtn3 = document.getElementById("previous_btn_3");
-previousBtn3.addEventListener("click", loadStep2);
-
+    let previousBtn3 = document.getElementById("previous_btn_3");
+    previousBtn3.addEventListener("click", loadStep2);
+};
 
 
 // Step 4 ------------------------------------
 
 
 function loadStep4(event) {
-    // Load HTML of step4
-};
+    let contentDiv = document.getElementById("content_div");
+    contentDiv.innerHTML = newContentDivHTML4;
+
+    btnStep4();};
 
     // Step 4 Logic (Calculate results)
 function step4(event) {
@@ -221,7 +264,8 @@ function step4(event) {
 
     // Step 4 Next Button - Restart - Goes back to index.html
 
+function btnStep4() {
     // Step 4 Previous Button
-let previousBtn4 = document.getElementById("previous_btn_4");
-previousBtn4.addEventListener("click", loadStep3);
-    
+    let previousBtn4 = document.getElementById("previous_btn_4");
+    previousBtn4.addEventListener("click", loadStep3);
+};
