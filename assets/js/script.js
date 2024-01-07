@@ -32,52 +32,55 @@ nextBtn0.addEventListener("click", htmlStep1);
 
     // HTML Step 1
 let newContentDivHTML1 = `
-<form id="form_1">
-    <div class="form_element">
-        <label><h2>Select profession you are trying to reach?</h2></label><br>                        
-        <select id="profession_dropdown" name="profession">
-        <option value="Profession">Profession</option>
-        </select>
-    </div>
+    <form id="form_1">
+        <div class="form_element">
+            <label><h2>Select profession you are trying to reach?</h2></label><br>                        
+            <select id="profession_dropdown" name="profession">
+            <option value="Profession">Profession</option>
+            </select>
+        </div>
 
-    <div class="form_element">
-        <label><h2>What level of seniority are you looking for?</h2></label><br>
-        <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
-        <label for="html">Senior</label><br>
-        <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
-        <label for="css">Midlevel</label><br>
-        <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
-        <label for="javascript">Junior</label><br>
-        <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
-        <label for="javascript">Student</label><br>
-    </div>
+        <div class="form_element">
+            <label><h2>What level of seniority are you looking for?</h2></label><br>
+            <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
+            <label for="html">Senior</label><br>
+            <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
+            <label for="css">Midlevel</label><br>
+            <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
+            <label for="javascript">Junior</label><br>
+            <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
+            <label for="javascript">Student</label><br>
+        </div>
 
-    <div class="nav_buttons">
-        <!-- Button to start page - No JS like the rest -->
-        <a href="index.html">
-            <button type="button" class="buttons" id="previous_btn_1">Previous</button>
-        </a>
-        <button type="button" class="buttons" id="next_btn_1">Next</button>
-    </div>
-</form>
+        <div class="nav_buttons">
+            <!-- Button to start page - No JS like the rest -->
+            <a href="index.html">
+                <button type="button" class="buttons" id="previous_btn_1">Previous</button>
+            </a>
+            <button type="button" class="buttons" id="next_btn_1">Next</button>
+        </div>
+    </form>
 `;
 
     // HTML Step 2
 let newContentDivHTML2 = `
-<p>Step 2</p>
-<div class="nav_buttons">
-    <button type="button" class="buttons" id="previous_btn_2">Previous</button>
-    <button type="button" class="buttons" id="next_btn_2">Next</button>
-</div>
+    <h2>Choose the platforms to use</h2>
+                    
+    <div id="platform-imgs">
+    </div>
+    <div class="nav_buttons">
+        <button type="button" class="buttons" id="previous_btn_2">Previous</button>
+        <button type="button" class="buttons" id="next_btn_2">Next</button>
+    </div>
 `;
 
     // HTML Step 3
 let newContentDivHTML3 = `
-<p>Step 3</p>
-<div class="nav_buttons">
-    <button type="button" class="buttons" id="previous_btn_3">Previous</button>
-    <button type="button" class="buttons" id="next_btn_3">Results</button>
-</div>
+    <p>Step 3</p>
+    <div class="nav_buttons">
+        <button type="button" class="buttons" id="previous_btn_3">Previous</button>
+        <button type="button" class="buttons" id="next_btn_3">Results</button>
+    </div>
 `;
 
     // HTML Step 4
@@ -192,11 +195,12 @@ function btnStep2() {
 
 /** Load Step 2 HTML */
 function htmlStep2(event) {
-    
+
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML2;
 
     btnStep2();
+    images();
 };
 
 
@@ -255,3 +259,30 @@ function htmlStep4(event) {
 
     btnStep4();
 };
+
+
+
+
+
+
+
+
+
+
+console.log(platforms.platforms[0].imgUnelectedURL);
+
+
+
+function images() {
+    let imgSelected = platforms.platforms[0].imgUnelectedURL;
+    console.log(imgSelected);
+
+
+    let platformImages = document.getElementById("platform-imgs");
+
+    let platformImgs = `<img class="platform-images" src="${imgSelected}">`;
+
+    platformImages.innerHTML = platformImgs;
+
+};
+

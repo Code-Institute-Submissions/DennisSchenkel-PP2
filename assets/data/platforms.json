@@ -2,7 +2,9 @@
     "platforms": [
         {
             "platform": "LinkedIn",
-            "platformAvgCPC": 18.43
+            "platformAvgCPC": 18.43,
+            "imgUnelectedURL": "/assets/images/linkedin-unselected.png",
+            "imgSelectedURL": "/assets/images/linkedin-selected.png"
         },
         {
             "platform": "Xing",

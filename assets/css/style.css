@@ -82,7 +82,10 @@ main {
     margin: 0px 5px 0px 20px;
 }
 
-
+/* Platform images at step 2 */
+.platform-images {
+    height: 70px;
+}
 
 /* Buttons for step navigation */
 .nav_buttons {
@@ -104,6 +107,7 @@ main {
 }
 
 
+/* Footer */
 footer {
     padding: 20px 20px 20px 20px;
     background-color: black;
