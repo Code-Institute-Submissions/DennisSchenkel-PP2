@@ -60,3 +60,14 @@
 ## ToDos
 
 - Aria labeling
+
+
+
+## Assets & Tools used
+
+- Platform logos by FontAwesome
+- Fonts by GoogleFonts
+
+- Adobe Illustrator
+- Balsamiq
+- Visual Studio Code
