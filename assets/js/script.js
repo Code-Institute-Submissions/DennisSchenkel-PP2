@@ -23,14 +23,14 @@ function processSteps() {
 
 // Start Page ------------------------------------
 
-    // Start Button
+// Start: Button
 let nextBtn0 = document.getElementById("next_btn_0");
 nextBtn0.addEventListener("click", htmlStep1);
 
 
 // HTML Content ------------------------------------
 
-    // HTML Step 1
+// Step 1 HTML
 let newContentDivHTML1 = `
     <form id="form_1">
         <div class="form_element">
@@ -62,7 +62,7 @@ let newContentDivHTML1 = `
     </form>
 `;
 
-    // HTML Step 2
+// Step 2 HTML
 let newContentDivHTML2 = `
     <h2>Choose the platforms to use</h2>
                     
@@ -74,7 +74,7 @@ let newContentDivHTML2 = `
     </div>
 `;
 
-    // HTML Step 3
+// Step 3 HTML
 let newContentDivHTML3 = `
     <p>Step 3</p>
     <div class="nav_buttons">
@@ -83,7 +83,7 @@ let newContentDivHTML3 = `
     </div>
 `;
 
-    // HTML Step 4
+// Step 4 HTML
 let newContentDivHTML4 = `
 <p>Step 4</p>
 <div class="nav_buttons">
@@ -99,7 +99,7 @@ let newContentDivHTML4 = `
 // Step 1 ------------------------------------
 
 /**
- * Load Professions to dropdown
+ * Step 1: Load Professions to dropdown
  * Fills the professions dropdown with the elements defined in the professions.json.
  * Professions are added to the dropdown by adding the html by using a for loop.
  */
@@ -116,7 +116,7 @@ function loadProfessions() {
 
 };
 
-/** Step 1 Logic */
+/** Step 1: Logic */
 function logicStep1(event) {
     
     // Get selected profession
@@ -150,13 +150,13 @@ function logicStep1(event) {
     htmlStep2(event);
 };
 
-/** Buttons Step 1 */
+/** Step 1: Buttons */
 function btnStep1() {
     let nextBtn1 = document.getElementById("next_btn_1");
     nextBtn1.addEventListener("click", logicStep1);
 };
 
-/** Load Step 1 HTML */
+/** Step 1: Load HTML */
 function htmlStep1(event) {
     
     let contentDiv = document.getElementById("content_div");
@@ -174,7 +174,7 @@ function htmlStep1(event) {
     // If selected, value changes to "true".
     // With click on next platforms with "true" are added to parameters object.
 
-/** Logic Step 2 */
+/** Step 2: Logic */
 function logicStep2(event) {
 
 
@@ -182,7 +182,7 @@ function logicStep2(event) {
 
 };
 
-/** Buttons Step 2 */
+/** Step 2 Buttons */
 function btnStep2() {
     // Step 2 Next Button
     let nextBtn2 = document.getElementById("next_btn_2");
@@ -193,14 +193,56 @@ function btnStep2() {
     previousBtn2.addEventListener("click", htmlStep1);
 };
 
-/** Load Step 2 HTML */
+/** 
+ * Step 2: Platform Logo List 
+ * Loads the platform logos from sources defined in the platform.json.
+ * Each logo is added by a for loop.
+ */
+function loadLogos() {
+    
+    let platformImages = document.getElementById("platform-imgs");
+    let logoList = "";
+
+    // Loading logo for each platform and declaring a unique ID for each.
+    for (let i in platforms.platforms) {
+        let imgSelected = platforms.platforms[i].imgLogoURL;
+        let platformName = platforms.platforms[i].platform;
+
+        logoList += `<div class="img-raster-element"><img class="platform-logos" id="${platformName}" src="${imgSelected}"></div>`;
+
+        platformImages.innerHTML = logoList;
+
+    };
+
+    // Adding event listeners to each logo.
+    for (let i in platforms.platforms) {
+ 
+        let platformName = platforms.platforms[i].platform;
+        let logoSelect = document.getElementById(`${platformName}`);
+        console.log(logoSelect);
+        
+        logoSelect.addEventListener('click', select);
+
+    };
+
+};
+
+
+/** Step 2: Select and unselect function for logos */
+function select() {
+    console.log("das hat geklappt "+this.id)
+};
+
+
+
+/** Step 2: Load HTML */
 function htmlStep2(event) {
 
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML2;
 
     btnStep2();
-    images();
+    loadLogos();
 };
 
 
@@ -208,7 +250,7 @@ function htmlStep2(event) {
 
     // Validation if Budget is bigger then 200€ and smaller then 20.000€
 
-/** Logic Step 3 */
+/** Step 3: Logic */
 function logicStep3(event) {
 
     
@@ -216,7 +258,7 @@ function logicStep3(event) {
 
 };
 
-/** Buttons Step 3 */
+/** Step 3: Buttons */
 function btnStep3() {
     // Step 3 Next Button
     let nextBtn3 = document.getElementById("next_btn_3");
@@ -227,7 +269,7 @@ function btnStep3() {
     previousBtn3.addEventListener("click", htmlStep2);
 };
 
-/** Load Step 3 HTML */
+/** Step 3: Load HTML */
 function htmlStep3(event) {
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML3;
@@ -238,21 +280,21 @@ function htmlStep3(event) {
 
 // Step 4 ------------------------------------
 
-/** Logic Step 4 */
+/** Step 4: Logic*/
 function logicStep4(event) {
 
     // Change HTML to start or previous
 
 };
 
-/** Buttons Step 4 */
+/** Step 4: Buttons */
 function btnStep4() {
     // Step 4 Previous Button
     let previousBtn4 = document.getElementById("previous_btn_4");
     previousBtn4.addEventListener("click", htmlStep3);
 };
 
-/** Load Step 4 HTML */
+/** Step 4: Load HTML */
 function htmlStep4(event) {
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML4;
@@ -269,20 +311,8 @@ function htmlStep4(event) {
 
 
 
-console.log(platforms.platforms[0].imgUnelectedURL);
+// console.log(platforms.platforms[0].imgUnelectedURL);
 
 
 
-function images() {
-    let imgSelected = platforms.platforms[0].imgUnelectedURL;
-    console.log(imgSelected);
-
-
-    let platformImages = document.getElementById("platform-imgs");
-
-    let platformImgs = `<img class="platform-images" src="${imgSelected}">`;
-
-    platformImages.innerHTML = platformImgs;
-
-};
 

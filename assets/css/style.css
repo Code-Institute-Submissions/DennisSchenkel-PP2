@@ -10,16 +10,18 @@
 /* General styles */
 body {
     font-family: Lato, Helvetica, sans-serif;
+    background-color: lightgrey;
 }
 h1, h2, h3 {
     line-height: 1.6;
     font-weight: 600;
+    text-align: center;
 }
 .title {
     text-align: center;
 }
 .content {
-    max-width: 540px;
+    width: 540px;
     margin-bottom: 50px;
 }
 
@@ -50,7 +52,6 @@ header {
 
 
 main {
-    background-color: lightgrey;
     padding: 20px 20px 100px 20px;
     display: flex;
     flex-direction: column;
@@ -82,9 +83,36 @@ main {
     margin: 0px 5px 0px 20px;
 }
 
-/* Platform images at step 2 */
-.platform-images {
+
+
+/* Platform logos at step 2 */
+#platform-imgs {
+    display: grid; 
+    grid-template-rows: auto; 
+    grid-template-columns: 25% 25% 25% 25%; 
+}
+
+.img-raster-element {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.platform-logos {
     height: 70px;
+    padding: 25px 25px 25px 25px; 
+    opacity: 50%;
+}
+
+.platform-logos:hover {
+    opacity: 100%;
+}
+
+.platform-logos-selected {
+    height: 70px;
+    padding: 25px 25px 25px 25px; 
+    opacity: 100%;
 }
 
 /* Buttons for step navigation */
@@ -114,4 +142,19 @@ footer {
     color: white;
     display: flex;
     justify-content: center;
+}
+
+
+/* Medie query: tablet and larger (576px and down) */
+@media screen and (max-width: 576px) {
+    /* Change width of content area */
+    .content {
+        width: 350px;
+    }
+
+    /* Change size platform logos */
+    .platform-logos {
+        height: 60px;
+    }
+    
 }
