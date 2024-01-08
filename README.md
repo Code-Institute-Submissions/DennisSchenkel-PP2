@@ -71,3 +71,10 @@
 - Adobe Illustrator
 - Balsamiq
 - Visual Studio Code
+
+
+
+## Notice
+
+- For a real world project I would prefere to have a selection of multiple professions with an input field.
+- With consideration of time and scope for this project, I decided to go with the selection of only one profession with a dropdown.
