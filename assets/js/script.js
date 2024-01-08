@@ -155,7 +155,7 @@ function logicStep1(event) {
     };
 
     // htmlStep2(event)
-    console.log(parameters);
+    console.log(parameters); // Delete later
     htmlStep2(event);
 };
 
@@ -228,32 +228,36 @@ function loadLogos() {
  
         let platformName = platforms.platforms[i].platform;
         let logoSelect = document.getElementById(platformName);        
-        logoSelect.addEventListener('click', select);
+        logoSelect.addEventListener('click', selectPlatforms);
 
     };
+
+    // Create array within parameters object for selected platforms
+    parameters.platforms = [];
+
 };
 
 
 /** Step 2: Select and unselect function for logos */
-function select() {
-    console.log("What worked! "+this.id+" was selected!") // Delete later
+function selectPlatforms() {
+    console.log("That worked! "+this.id+" was selected!") // Delete later
     let selectingLogo = document.getElementById(this.id);
     
-    console.log(selectingLogo); // Delete later
-
-    if (selectingLogo.className === "platform-logos-selected") {
-        selectingLogo.className = "platform-logos"
-    } else {
+    // Changing logo to selected or unselected and adding/removing it from parameters array
+    if (selectingLogo.className === "platform-logos") {
         selectingLogo.className = "platform-logos-selected"
+        // Add selected platform to platforms array inside parameters object
+        parameters.platforms.push(this.id);
+    } else {
+        selectingLogo.className = "platform-logos";
+        // Find index of selected platform in array
+        let index = parameters.platforms.indexOf(this.id);
+        // Remove selected platform from array
+        parameters.platforms.splice(index, 1);
     };
 
-    console.log(selectingLogo); // Delete later
-
-    console.log(selectingLogo.className); // Delete later
-
-
-    // if element is in array in object -> delete it and change css to unselected
-    // else add element to array in object and change css to selected
+    console.log(parameters); // Delete later
+    console.log(parameters.platforms); // Delete later
 
 };
 
