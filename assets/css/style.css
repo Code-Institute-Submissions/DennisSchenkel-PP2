@@ -84,7 +84,6 @@ main {
 }
 
 
-
 /* Platform logos at step 2 */
 #platform-imgs {
     display: grid; 
@@ -96,6 +95,7 @@ main {
     display: flex;
     align-items: center;
     flex-direction: column;
+    align-content: center;
     padding-bottom: 30px;
 }
 
@@ -114,6 +114,27 @@ main {
     padding: 25px 25px 15px 25px; 
     opacity: 100%;
 }
+
+/* Butget form at step 3 */
+
+#budget-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;}
+
+#budget {
+    height: 50px;
+    width: 250px;
+    font-size: 1.6rem;
+    padding: 5px 10px 5px 10px;
+    margin: 50px 20px 20px 20px;
+    border-radius: 1cap;
+}
+
+#currency-symbol {
+    font-size: 2rem;
+}
+
 
 /* Buttons for step navigation */
 .nav_buttons {
@@ -157,4 +178,4 @@ footer {
         height: 60px;
     }
     
-}
+} 

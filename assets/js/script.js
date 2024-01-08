@@ -28,61 +28,60 @@ nextBtn0.addEventListener("click", htmlStep1);
 
 // Step 1 HTML
 let newContentDivHTML1 = `
-    <form id="form_1">
-        <div class="form_element">
-            <label><h2>Select profession you are trying to reach?</h2></label><br>                        
-            <select id="profession_dropdown" name="profession">
-            <option value="Profession">Profession</option>
-            </select>
-        </div>
+<form id="form_1">
+    <div class="form_element">
+        <label><h2>Select profession you are trying to reach?</h2></label><br>                        
+        <select id="profession_dropdown" name="profession">
+        <option value="Profession">Profession</option>
+        </select>
+    </div>
 
-        <div class="form_element">
-            <label><h2>What level of seniority are you looking for?</h2></label><br>
-            <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
-            <label for="html">Senior</label><br>
-            <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
-            <label for="css">Midlevel</label><br>
-            <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
-            <label for="javascript">Junior</label><br>
-            <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
-            <label for="javascript">Student</label><br>
-        </div>
+    <div class="form_element">
+        <label><h2>What level of seniority are you looking for?</h2></label><br>
+        <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
+        <label for="html">Senior</label><br>
+        <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
+        <label for="css">Midlevel</label><br>
+        <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
+        <label for="javascript">Junior</label><br>
+        <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
+        <label for="javascript">Student</label><br>
+    </div>
 
-        <div class="nav_buttons">
-            <!-- Button to start page - No JS like the rest -->
-            <a href="index.html">
-                <button type="button" class="buttons" id="previous_btn_1">Previous</button>
-            </a>
-            <button type="button" class="buttons" id="next_btn_1">Next</button>
-        </div>
-    </form>
+    <div class="nav_buttons">
+        <!-- Button to start page - No JS like the rest -->
+        <a href="index.html">
+            <button type="button" class="buttons" id="previous_btn_1">Previous</button>
+        </a>
+        <button type="button" class="buttons" id="next_btn_1">Next</button>
+    </div>
+</form>
 `;
 
 // Step 2 HTML
 let newContentDivHTML2 = `
-    <h2>Choose the platforms to use</h2>
-                    
-    <div id="platform-imgs">
-    </div>
-    <div class="nav_buttons">
-        <button type="button" class="buttons" id="previous_btn_2">Previous</button>
-        <button type="button" class="buttons" id="next_btn_2">Next</button>
-    </div>
+<h2>Choose the platforms to use</h2>
+                
+<div id="platform-imgs">
+</div>
+<div class="nav_buttons">
+    <button type="button" class="buttons" id="previous_btn_2">Previous</button>
+    <button type="button" class="buttons" id="next_btn_2">Next</button>
+</div>
 `;
 
 // Step 3 HTML
 let newContentDivHTML3 = `
-<div class="content">
-    <h2>What is your budget?</h2>
-    <p>Step 3</p>
+<h2>What is your budget?</h2>
+<div id="budget-form">
     <form>
-        <input type="number" id="budget">
+        <input type="number" id="budget" required><span id="currency-symbol">€</span>
     </form>
     <p>Please make sure to enter a budget of at least 300€ and not more then 20.000€.</p>
-    <div class="nav_buttons">
-        <button type="button" class="buttons" id="previous_btn_3">Previous</button>
-        <button type="button" class="buttons" id="next_btn_3">Results</button>
-    </div>
+</div>
+<div class="nav_buttons">
+    <button type="button" class="buttons" id="previous_btn_3">Previous</button>
+    <button type="button" class="buttons" id="next_btn_3">Results</button>
 </div>
 `;
 
@@ -270,8 +269,6 @@ function selectPlatforms() {
 
 // Step 3 ------------------------------------
 
-    // Validation if Budget is bigger then 200€ and smaller then 20.000€
-
 /** Step 3: Logic */
 function logicStep3(event) {
 
@@ -286,8 +283,6 @@ function logicStep3(event) {
     };
 
     console.log(parameters); // Delete later
-
-
 };
 
 /** Step 3: Buttons */
