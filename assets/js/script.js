@@ -76,22 +76,31 @@ let newContentDivHTML2 = `
 
 // Step 3 HTML
 let newContentDivHTML3 = `
+<div class="content">
+    <h2>What is your budget?</h2>
     <p>Step 3</p>
+    <form>
+        <input type="number">
+    </form>
     <div class="nav_buttons">
         <button type="button" class="buttons" id="previous_btn_3">Previous</button>
         <button type="button" class="buttons" id="next_btn_3">Results</button>
     </div>
+</div>
 `;
 
 // Step 4 HTML
 let newContentDivHTML4 = `
-<p>Step 4</p>
-<div class="nav_buttons">
-    <button type="button" class="buttons" id="previous_btn_4">Previous</button>
-    <!-- Button to start page - No JS like the rest -->
-    <a href="index.html">
-        <button type="button" class="buttons" id="next_btn_4">Restart</button>
-    </a>
+<div class="content">
+    <h2>Results</h2>
+    <p>Step 4</p>
+    <div class="nav_buttons">
+        <button type="button" class="buttons" id="previous_btn_4">Previous</button>
+        <!-- Button to start page - No JS like the rest --!>
+        <a href="index.html">
+            <button type="button" class="buttons" id="next_btn_4">Restart</button>
+        </a>
+    </div>
 </div>
 `;
 
@@ -208,7 +217,7 @@ function loadLogos() {
         let imgSelected = platforms.platforms[i].imgLogoURL;
         let platformName = platforms.platforms[i].platform;
 
-        logoList += `<div class="img-raster-element"><img class="platform-logos" id="${platformName}" src="${imgSelected}"></div>`;
+        logoList += `<div class="img-raster-element"><img id="${platformName}" class="platform-logos" src="${imgSelected}"><p>${platformName}</p></div>`;
 
         platformImages.innerHTML = logoList;
 
@@ -218,19 +227,34 @@ function loadLogos() {
     for (let i in platforms.platforms) {
  
         let platformName = platforms.platforms[i].platform;
-        let logoSelect = document.getElementById(`${platformName}`);
-        console.log(logoSelect);
-        
+        let logoSelect = document.getElementById(platformName);        
         logoSelect.addEventListener('click', select);
 
     };
-
 };
 
 
 /** Step 2: Select and unselect function for logos */
 function select() {
-    console.log("das hat geklappt "+this.id)
+    console.log("What worked! "+this.id+" was selected!") // Delete later
+    let selectingLogo = document.getElementById(this.id);
+    
+    console.log(selectingLogo); // Delete later
+
+    if (selectingLogo.className === "platform-logos-selected") {
+        selectingLogo.className = "platform-logos"
+    } else {
+        selectingLogo.className = "platform-logos-selected"
+    };
+
+    console.log(selectingLogo); // Delete later
+
+    console.log(selectingLogo.className); // Delete later
+
+
+    // if element is in array in object -> delete it and change css to unselected
+    // else add element to array in object and change css to selected
+
 };
 
 
