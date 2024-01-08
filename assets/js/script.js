@@ -76,8 +76,9 @@ let newContentDivHTML3 = `
     <h2>What is your budget?</h2>
     <p>Step 3</p>
     <form>
-        <input type="number">
+        <input type="number" id="budget">
     </form>
+    <p>Please make sure to enter a budget of at least 300€ and not more then 20.000€.</p>
     <div class="nav_buttons">
         <button type="button" class="buttons" id="previous_btn_3">Previous</button>
         <button type="button" class="buttons" id="next_btn_3">Results</button>
@@ -122,19 +123,22 @@ function logicStep1(event) {
     // Selected seniority is checked and added to parameters object
     if (senior.checked) {
         parameters.seniority = senior.value;
+        htmlStep2(event);
     } else if (midlevel.checked) {
         parameters.seniority = midlevel.value;
+        htmlStep2(event);
     } else if (junior.checked) {
         parameters.seniority = junior.value;
+        htmlStep2(event);
     } else if(student.checked) {
         parameters.seniority = student.value;
+        htmlStep2(event);
     } else {
         alert("Please select a seniority level you are looking for!");
     };
 
     // htmlStep2(event)
     console.log(parameters); // Delete later
-    htmlStep2(event);
 };
 
 /** Step 1: Buttons */
@@ -271,8 +275,18 @@ function selectPlatforms() {
 /** Step 3: Logic */
 function logicStep3(event) {
 
+    let budget = document.getElementById("budget");
+    console.log(budget.value);
     
-    htmlStep4(event)
+    if (budget.value >= 300 && budget.value <= 20000) {
+        parameters.budget = budget.value;
+        htmlStep4(event);
+    } else {
+        alert("Your budget has to between 300€ and 20.000€")
+    };
+
+    console.log(parameters); // Delete later
+
 
 };
 
