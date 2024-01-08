@@ -9,16 +9,12 @@ import platforms from "../data/platforms.json" assert { type: 'json' };
 // Parameters for calculation Arrey(Profession, Seniority, Array{Selectet Platforms}, Budget)
 let parameters = {};
 
-// console.log(platforms.platforms[0].platform);
-// console.log(professions.professions[1].profession);
-
 
 // Header ------------------------------------
 
 function processSteps() {
 
 };
-
 
 
 // Start Page ------------------------------------
@@ -107,24 +103,6 @@ let newContentDivHTML4 = `
 
 // Step 1 ------------------------------------
 
-/**
- * Step 1: Load Professions to dropdown
- * Fills the professions dropdown with the elements defined in the professions.json.
- * Professions are added to the dropdown by adding the html by using a for loop.
- */
-function loadProfessions() {
-
-    let professionDropdown = document.getElementById("profession_dropdown");
-    let newDropdownHTML = "";
-    
-    for (let i in professions.professions) {
-        newDropdownHTML += `<option value="${professions.professions[i].profession}">${professions.professions[i].profession}</option>`;
-    };
-    
-    professionDropdown.innerHTML = newDropdownHTML;
-
-};
-
 /** Step 1: Logic */
 function logicStep1(event) {
     
@@ -175,20 +153,36 @@ function htmlStep1(event) {
     btnStep1();
 };
 
+/** Step 1: Load Professions to dropdown
+ * Fills the professions dropdown with the elements defined in the professions.json.
+ * Professions are added to the dropdown by adding the html by using a for loop.
+ */
+function loadProfessions() {
+
+    let professionDropdown = document.getElementById("profession_dropdown");
+    let newDropdownHTML = "";
+    
+    for (let i in professions.professions) {
+        newDropdownHTML += `<option value="${professions.professions[i].profession}">${professions.professions[i].profession}</option>`;
+    };
+    
+    professionDropdown.innerHTML = newDropdownHTML;
+
+};
+
 
 // Step 2 ------------------------------------
-
-    // If logo of platform is selected the logo becomes colored. 
-    // In one object all platforms are included with value "false". 
-    // If selected, value changes to "true".
-    // With click on next platforms with "true" are added to parameters object.
 
 /** Step 2: Logic */
 function logicStep2(event) {
 
+    // Logos are loaded by function loadLogos().
+    // loadLogos() triggerd by loading HTML.
+
+    // Selection of platforms managed by function selectPlatforms().
+    // selectPlatforms() is triggered by eventListener.
 
     htmlStep3(event);
-
 };
 
 /** Step 2 Buttons */
@@ -202,8 +196,17 @@ function btnStep2() {
     previousBtn2.addEventListener("click", htmlStep1);
 };
 
-/** 
- * Step 2: Platform Logo List 
+/** Step 2: Load HTML */
+function htmlStep2(event) {
+
+    let contentDiv = document.getElementById("content_div");
+    contentDiv.innerHTML = newContentDivHTML2;
+
+    loadLogos();
+    btnStep2();
+};
+
+/** Step 2: Platform Logo List 
  * Loads the platform logos from sources defined in the platform.json.
  * Each logo is added by a for loop.
  */
@@ -237,8 +240,7 @@ function loadLogos() {
 
 };
 
-
-/** Step 2: Select and unselect function for logos */
+/** Step 2: Select and unselect logos */
 function selectPlatforms() {
     console.log("That worked! "+this.id+" was selected!") // Delete later
     let selectingLogo = document.getElementById(this.id);
@@ -259,18 +261,6 @@ function selectPlatforms() {
     console.log(parameters); // Delete later
     console.log(parameters.platforms); // Delete later
 
-};
-
-
-
-/** Step 2: Load HTML */
-function htmlStep2(event) {
-
-    let contentDiv = document.getElementById("content_div");
-    contentDiv.innerHTML = newContentDivHTML2;
-
-    btnStep2();
-    loadLogos();
 };
 
 
@@ -329,18 +319,6 @@ function htmlStep4(event) {
 
     btnStep4();
 };
-
-
-
-
-
-
-
-
-
-
-// console.log(platforms.platforms[0].imgUnelectedURL);
-
 
 
 
