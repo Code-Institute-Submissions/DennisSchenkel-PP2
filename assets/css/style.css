@@ -39,15 +39,46 @@ header {
     gap: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .step {
     height: 60px;
     width: 60px;
     background-color: white;
     border-radius: 100%;
+    border-style: solid;
+    border-width: 4px;
+    border-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.step_active {
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 4px;
+    border-color: lightslategray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+
+}
+
+.step_done {
+    height: 60px;
+    width: 60px;
+    background-color:lightslategrey;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
 }
 
 

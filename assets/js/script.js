@@ -12,7 +12,30 @@ let parameters = {};
 
 // Header ------------------------------------
 
-function processSteps() {
+function processSteps(stepNumber) {
+    
+    // Highlight active step
+    let getStep = document.getElementById("step_"+(stepNumber));
+    let getStepBack = document.getElementById("step_"+(stepNumber+1));
+
+    // If you go back, this will check the step you have been at and change it back to not active and not done.
+    if (stepNumber > 1) {
+        let getStepBefore = document.getElementById("step_"+(stepNumber-1));
+
+        if (getStepBefore.parentNode.className = "step_active") {
+            getStepBefore.parentNode.className = "step_done";
+        }
+    }
+
+    // Marks the current step as active
+    if (getStep.parentNode.className = "step") {
+        getStep.parentNode.className = "step_active";
+    }
+
+    // Marks the previously compleated step as done
+    if  (getStepBack.parentNode.className = "step_active") {//
+        getStepBack.parentNode.className = "step";
+    }
 
 };
 
@@ -149,9 +172,12 @@ function btnStep1() {
 /** Step 1: Load HTML */
 function htmlStep1(event) {
     
+    let stepNumber = 1;
+
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML1;
 
+    processSteps(stepNumber);
     loadProfessions();
     btnStep1();
 };
@@ -189,7 +215,8 @@ function logicStep2(event) {
 };
 
 /** Step 2 Buttons */
-function btnStep2() {
+function btnStep2(stepNumber) {
+
     // Step 2 Next Button
     let nextBtn2 = document.getElementById("next_btn_2");
     nextBtn2.addEventListener("click", logicStep2);
@@ -202,11 +229,14 @@ function btnStep2() {
 /** Step 2: Load HTML */
 function htmlStep2(event) {
 
+    let stepNumber = 2;
+
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML2;
 
+    processSteps(stepNumber);
     loadLogos();
-    btnStep2();
+    btnStep2(stepNumber);
 };
 
 /** Step 2: Platform Logo List 
@@ -286,7 +316,7 @@ function logicStep3(event) {
 };
 
 /** Step 3: Buttons */
-function btnStep3() {
+function btnStep3(stepNumber) {
     // Step 3 Next Button
     let nextBtn3 = document.getElementById("next_btn_3");
     nextBtn3.addEventListener("click", logicStep3);
@@ -298,10 +328,15 @@ function btnStep3() {
 
 /** Step 3: Load HTML */
 function htmlStep3(event) {
+
+    let stepNumber = 3;
+
     let contentDiv = document.getElementById("content_div");
+
     contentDiv.innerHTML = newContentDivHTML3;
 
-    btnStep3();
+    processSteps(stepNumber);
+    btnStep3(stepNumber);
 };
 
 
@@ -315,7 +350,7 @@ function logicStep4(event) {
 };
 
 /** Step 4: Buttons */
-function btnStep4() {
+function btnStep4(stepNumber) {
     // Step 4 Previous Button
     let previousBtn4 = document.getElementById("previous_btn_4");
     previousBtn4.addEventListener("click", htmlStep3);
@@ -323,10 +358,14 @@ function btnStep4() {
 
 /** Step 4: Load HTML */
 function htmlStep4(event) {
+   
+    let stepNumber = 4;
+   
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML4;
 
-    btnStep4();
+    processSteps(stepNumber);
+    btnStep4(stepNumber);
 };
 
 
