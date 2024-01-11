@@ -25,6 +25,7 @@ function processSteps(stepNumber) {
     if (stepNumber > 1) {
         let getStepBefore = document.getElementById("step_"+(stepNumber-1));
 
+        // Marks the previously compleated step as done
         if (getStepBefore.parentNode.className = "step_active") {
             getStepBefore.parentNode.className = "step_done";
         }
@@ -35,11 +36,12 @@ function processSteps(stepNumber) {
         getStep.parentNode.className = "step_active";
     }
 
-    // Marks the previously compleated step as done
-    if  (getStepBack.parentNode.className = "step_active") {
-        getStepBack.parentNode.className = "step";
+    // Marks the next step as not active if the user went a step back
+    if  (stepNumber < 4) {
+        if (getStepBack.parentNode.className = "step_active") {
+            getStepBack.parentNode.className = "step";
+        }
     }
-
 };
 
 

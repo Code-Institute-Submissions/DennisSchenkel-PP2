@@ -82,7 +82,12 @@ header {
     font-weight: 800;
 }
 
+#step_name {
+    display: flex;
+    justify-content: center;
+}
 
+/* Main */
 main {
     padding: 20px 20px 100px 20px;
     display: flex;
@@ -90,7 +95,7 @@ main {
     align-items: center;
 }
 
-
+/* Input fields at step 1 */
 #form_1 {
     max-width: 540px;
 }
@@ -114,7 +119,6 @@ main {
 .seniority_radio {
     margin: 0px 5px 0px 20px;
 }
-
 
 /* Platform logos at step 2 */
 #platform-imgs {
@@ -148,7 +152,6 @@ main {
 }
 
 /* Butget form at step 3 */
-
 #budget-form {
     display: flex;
     align-items: center;
