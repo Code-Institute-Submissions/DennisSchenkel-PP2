@@ -154,7 +154,6 @@ function logicStep1(event) {
     
     // Get selected profession
     let selectedProfession = document.getElementById("profession_dropdown");
-    console.log(selectedProfession.value);
 
     // Selected profession is added to parameters object
     parameters.profession = selectedProfession.value;
@@ -195,6 +194,10 @@ function btnStep1() {
 /** Step 1: Load HTML */
 function htmlStep1(event) {
     
+
+                                                                logicStep4()        // Delete later - Test only
+
+
     let stepNumber = 1;
 
     stepName(stepNumber)
@@ -368,9 +371,41 @@ function htmlStep3(event) {
 // Step 4 ------------------------------------
 
 /** Step 4: Logic*/
-function logicStep4(event) {
+function logicStep4() {
 
-    // Change HTML to start or previous
+
+
+
+    let seniorityMultiplier = professions.professions[1].profession;
+
+    console.log(seniorityMultiplier);
+
+
+    console.log("Job "+professions.professions[1].profession);                          // Profession name
+    console.log("Demand multi "+professions.professions[1].demandMultiplier);           // Demand multiplier
+    console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);       // Seniority multiplier (senior)
+    console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);   // Seniority multiplier (midlevel)
+    console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);       // Seniority multiplier (junior)
+    console.log("Student "+professions.professions[1].seniorityMultiplier.student);     // Seniority multiplier (student)
+
+    for (let i in platforms.platforms) {
+        console.log("CPC "+platforms.platforms[i].platformAvgCPC);                      // Avg platform CPC
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 };
 
@@ -387,6 +422,8 @@ function htmlStep4(event) {
     let stepNumber = 4;
    
     stepName(stepNumber)
+
+    logicStep4()
 
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML4;
