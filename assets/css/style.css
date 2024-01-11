@@ -11,6 +11,7 @@
 body {
     font-family: Lato, Helvetica, sans-serif;
     background-color: lightgrey;
+    min-height: 100%;
 }
 h1, h2, h3 {
     line-height: 1.6;
@@ -189,11 +190,15 @@ main {
 
 /* Footer */
 footer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
     padding: 20px 20px 20px 20px;
     background-color: black;
     color: white;
     display: flex;
     justify-content: center;
+    border-top-left-radius: 1cap;
 }
 
 
