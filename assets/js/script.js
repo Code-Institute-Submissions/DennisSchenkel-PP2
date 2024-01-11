@@ -44,6 +44,19 @@ function processSteps(stepNumber) {
     }
 };
 
+function stepName(stepNumber) {
+    let stepName = document.getElementById("step_name");
+
+    if (stepNumber == 1) {
+        stepName.innerHTML = `<p>Step 1: Select talent to reach</p>`;
+    } if (stepNumber == 2) {
+        stepName.innerHTML = `<p>Step 2: Choose platforms to use</p>`;
+    } if (stepNumber == 3) {
+        stepName.innerHTML = `<p>Step 3: Define budget to allocate</p>`;
+    } if (stepNumber == 4) {
+        stepName.innerHTML = `<p>Step 4: Results & recommendations</p>`;
+    }
+}
 
 // Start Page ------------------------------------
 
@@ -184,6 +197,8 @@ function htmlStep1(event) {
     
     let stepNumber = 1;
 
+    stepName(stepNumber)
+
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML1;
 
@@ -240,6 +255,8 @@ function btnStep2(stepNumber) {
 function htmlStep2(event) {
 
     let stepNumber = 2;
+
+    stepName(stepNumber)
 
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML2;
@@ -337,6 +354,8 @@ function htmlStep3(event) {
 
     let stepNumber = 3;
 
+    stepName(stepNumber)
+
     let contentDiv = document.getElementById("content_div");
 
     contentDiv.innerHTML = newContentDivHTML3;
@@ -367,6 +386,8 @@ function htmlStep4(event) {
    
     let stepNumber = 4;
    
+    stepName(stepNumber)
+
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML4;
 
