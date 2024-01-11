@@ -12,6 +12,9 @@ let parameters = {};
 
 // Header ------------------------------------
 
+/** processSteps 
+ * This changes the steps bubbles in the header, depending on the step the user is at 
+ */
 function processSteps(stepNumber) {
     
     // Highlight active step
@@ -42,9 +45,14 @@ function processSteps(stepNumber) {
 
 // Start Page ------------------------------------
 
-// Start: Button
-let nextBtn0 = document.getElementById("next_btn_0");
-nextBtn0.addEventListener("click", htmlStep1);
+/** Start: Start Button functionality */
+function startButton () {
+    let nextBtn0 = document.getElementById("next_btn_0");
+    nextBtn0.addEventListener("click", htmlStep1);
+}
+
+// Trigger the startButton function at the start of the app
+startButton();
 
 
 // HTML Content ------------------------------------
