@@ -33,7 +33,7 @@ function processSteps(stepNumber) {
     }
 
     // Marks the previously compleated step as done
-    if  (getStepBack.parentNode.className = "step_active") {//
+    if  (getStepBack.parentNode.className = "step_active") {
         getStepBack.parentNode.className = "step";
     }
 
@@ -53,22 +53,22 @@ nextBtn0.addEventListener("click", htmlStep1);
 let newContentDivHTML1 = `
 <form id="form_1">
     <div class="form_element">
-        <label><h2>Select profession you are trying to reach?</h2></label><br>                        
+        <label for="profession_dropdown"><h2>Select profession you are trying to reach?</h2></label><br>                        
         <select id="profession_dropdown" name="profession">
         <option value="Profession">Profession</option>
         </select>
     </div>
 
     <div class="form_element">
-        <label><h2>What level of seniority are you looking for?</h2></label><br>
-        <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
-        <label for="html">Senior</label><br>
-        <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
-        <label for="css">Midlevel</label><br>
-        <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
-        <label for="javascript">Junior</label><br>
-        <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
-        <label for="javascript">Student</label><br>
+        <h2>What level of seniority are you looking for?</h2><br>
+        <input type="radio" class="seniority_radio" id="senior_lvl" name="senior_lvl" value="Senior">
+        <label for="senior_lvl">Senior</label><br>
+        <input type="radio" class="seniority_radio" id="mid_lvl" name="mid_lvl" value="Midlevel">
+        <label for="mid_lvl">Midlevel</label><br>
+        <input type="radio" class="seniority_radio" id="junior_lvl" name="junior_lvl" value="Junior">
+        <label for="junior_lvl">Junior</label><br>
+        <input type="radio" class="seniority_radio" id="student_lvl" name="student_lvl" value="Student">
+        <label for="student_lvl">Student</label><br>
     </div>
 
     <div class="nav_buttons">
@@ -95,9 +95,9 @@ let newContentDivHTML2 = `
 
 // Step 3 HTML
 let newContentDivHTML3 = `
-<h2>What is your budget?</h2>
 <div id="budget-form">
     <form>
+        <label for="budget"><h2>What is your budget?</h2></label>
         <input type="number" id="budget" required><span id="currency-symbol">€</span>
     </form>
     <p>Please make sure to enter a budget of at least 300€ and not more then 20.000€.</p>
@@ -256,7 +256,6 @@ function loadLogos() {
         logoList += `<div class="img-raster-element"><img id="${platformName}" class="platform-logos" src="${imgSelected}"><p>${platformName}</p></div>`;
 
         platformImages.innerHTML = logoList;
-
     };
 
     // Adding event listeners to each logo.
@@ -270,7 +269,6 @@ function loadLogos() {
 
     // Create array within parameters object for selected platforms
     parameters.platforms = [];
-
 };
 
 /** Step 2: Select and unselect logos */
@@ -292,8 +290,6 @@ function selectPlatforms() {
     };
 
     console.log(parameters); // Delete later
-    console.log(parameters.platforms); // Delete later
-
 };
 
 
