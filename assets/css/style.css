@@ -23,7 +23,6 @@ h1, h2, h3 {
 }
 .content {
     width: 540px;
-    margin-bottom: 50px;
 }
 
 
@@ -42,6 +41,7 @@ header {
     justify-content: center;
     align-items: center;
 }
+
 .step {
     height: 60px;
     width: 60px;
@@ -83,6 +83,7 @@ header {
 }
 
 #step_name {
+    margin: 10px 0px 0px 0px;
     display: flex;
     justify-content: center;
 }
