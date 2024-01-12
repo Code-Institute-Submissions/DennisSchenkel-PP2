@@ -379,11 +379,35 @@ function logicStep4() {
     getMultipliers();
 
 
+
+    getPlatformAndCPC();
+
+
+
+    // console.log(parameters.platforms["2"]);
+
+    // console.log("Job "+professions.professions[1].profession);                          // Profession name
+    // console.log("Demand multi "+professions.professions[1].demandMultiplier);           // Demand multiplier
+    // console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);       // Seniority multiplier (senior)
+    // console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);   // Seniority multiplier (midlevel)
+    // console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);       // Seniority multiplier (junior)
+    // console.log("Student "+professions.professions[1].seniorityMultiplier.student);     // Seniority multiplier (student)
+
+    // for (let i in platforms.platforms) {
+    //     console.log("CPC "+platforms.platforms[i].platformAvgCPC);                      // Avg platform CPC
+    // }
+
+
+    // console.log(parameters.profession);     // Profession from parameters object
+    // console.log(parameters.seniority);      // Senioritx from parameters object
+    // console.log(parameters.platforms);      // Platforms array from parameters object
+
+    // console.log(parameters.budget);         // Budget from parameters object
 };
 
 
 
-/** Gets multipliers from selected prodession in parameters object */
+/** Gets multipliers from selected profession in parameters object */
 function getMultipliers() {
 
     let i = 0;
@@ -400,6 +424,34 @@ function getMultipliers() {
         console.log(parameters.profession); 
     }
 };
+
+
+
+
+/** Gets platform name and associated CPC of selected platforms in parameter objects.  
+ *  Fills two new arrays with those values.
+ *  Each associated pair has the same index in each array.
+*/
+function getPlatformAndCPC() {
+    let resultPlatforms = [];
+    let resultCPC = [];
+    
+    // Push every selected Platform in a seperate array
+    for (let i in parameters.platforms) {     
+        let p = parameters.platforms[i];
+        resultPlatforms.push(p);
+
+    // Search for CPC assosiated to selected platforms and push it to seperate array
+    let object = platforms.platforms;
+    let indexSelector = object.find(n => n.platform == p);
+    let platformCPC = indexSelector.platformAvgCPC;
+        resultCPC.push(platformCPC)
+        
+    };
+
+    console.log(resultPlatforms);
+    console.log(resultCPC);
+}
 
 
 
