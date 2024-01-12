@@ -195,7 +195,7 @@ function btnStep1() {
 function htmlStep1(event) {
     
 
-                                                                logicStep4()        // Delete later - Test only
+               //                                                 logicStep4()        // Delete later - Test only
 
 
     let stepNumber = 1;
@@ -373,41 +373,36 @@ function htmlStep3(event) {
 /** Step 4: Logic*/
 function logicStep4() {
 
+    let resultProfession = parameters.profession;
+    let resultBudget = parameters.budget;
 
-
-
-    let seniorityMultiplier = professions.professions[1].profession;
-
-    console.log(seniorityMultiplier);
-
-
-    console.log("Job "+professions.professions[1].profession);                          // Profession name
-    console.log("Demand multi "+professions.professions[1].demandMultiplier);           // Demand multiplier
-    console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);       // Seniority multiplier (senior)
-    console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);   // Seniority multiplier (midlevel)
-    console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);       // Seniority multiplier (junior)
-    console.log("Student "+professions.professions[1].seniorityMultiplier.student);     // Seniority multiplier (student)
-
-    for (let i in platforms.platforms) {
-        console.log("CPC "+platforms.platforms[i].platformAvgCPC);                      // Avg platform CPC
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    getMultipliers();
 
 
 };
+
+
+
+/** Gets multipliers from selected prodession in parameters object */
+function getMultipliers() {
+
+    let i = 0;
+
+    if (professions.professions[i].profession =! parameters.profession) {
+        console.log(parameters.profession);     
+    } else {
+
+        let demandMultiplier = professions.professions[i].demandMultiplier;
+        let seniorityMultiplier = professions.professions[i].seniorityMultiplier.senior;
+
+        let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;           // Important!!
+        console.log("Candidate searched multiplier: "+candidateSearchedMultiplier);       // Important!!
+        console.log(parameters.profession); 
+    }
+};
+
+
+
 
 /** Step 4: Buttons */
 function btnStep4(stepNumber) {
