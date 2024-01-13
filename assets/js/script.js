@@ -380,9 +380,13 @@ function logicStep4() {
 
 
 
-    getPlatformAndCPC();
+    let resultPlatforms = [];
+    let resultCPC = [];
 
+    getPlatformAndCPC(resultPlatforms, resultCPC);
 
+    console.log(resultPlatforms);
+    console.log(resultCPC);
 
     // console.log(parameters.platforms["2"]);
 
@@ -432,9 +436,11 @@ function getMultipliers() {
  *  Fills two new arrays with those values.
  *  Each associated pair has the same index in each array.
 */
-function getPlatformAndCPC() {
-    let resultPlatforms = [];
-    let resultCPC = [];
+
+
+
+function getPlatformAndCPC(resultPlatforms, resultCPC) {
+
     
     // Push every selected Platform in a seperate array
     for (let i in parameters.platforms) {     
@@ -449,8 +455,6 @@ function getPlatformAndCPC() {
         
     };
 
-    console.log(resultPlatforms);
-    console.log(resultCPC);
 }
 
 
