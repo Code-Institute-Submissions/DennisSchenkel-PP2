@@ -414,19 +414,20 @@ function logicStep4() {
 function getMultipliers() {
 
     let i = 0;    
-    let s = parameters.seniority;                                                                             
+    let seniority = parameters.seniority;                                                                             
 
-    if (professions.professions[i].profession == parameters.profession) {
+    for (i in professions.professions) {
+        if (professions.professions[i].profession == parameters.profession) {
 
-        let demandMultiplier = professions.professions[i].demandMultiplier;
-        let seniorityMultiplier = professions.professions[i].seniorityMultiplier[s.toLowerCase()];  // ToLowerCase because caseing in json and parameters is different
- 
-        let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
+            let demandMultiplier = professions.professions[i].demandMultiplier;
+            let seniorityMultiplier = professions.professions[i].seniorityMultiplier[seniority.toLowerCase()];  // ToLowerCase because caseing in json and parameters is different
+    
+            let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
 
-        parameters.multipliers = candidateSearchedMultiplier;       
+            parameters.multipliers = candidateSearchedMultiplier;   
+            console.log("yes")    
 
-    } else {
-        i++;
+        }  
 
     }
 };
@@ -449,7 +450,6 @@ function getPlatformName(resultPlatforms) {
     };
 }
 
-
 /** Search for CPC assosiated to selected platforms and push it to seperate array */ 
 function  getPlatformCPC(resultCPC) {    
     for (let i in parameters.platforms) {     
@@ -461,8 +461,6 @@ function  getPlatformCPC(resultCPC) {
             resultCPC.push(platformCPC);
     }
 }
-
-
 
 /** Search for platform rating for each selected platform and push it to seperate array */
 function  getPlatformRating(resultRatings) {
@@ -479,11 +477,6 @@ function  getPlatformRating(resultRatings) {
         }
     }
 }
-
-
-
-
-
 
 /** Step 4: Buttons */
 function btnStep4(stepNumber) {
