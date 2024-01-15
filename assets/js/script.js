@@ -152,34 +152,9 @@ let newContentDivHTML4 = `
 /** Step 1: Logic */
 function logicStep1(event) {
     
-    // Get selected profession
-    let selectedProfession = document.getElementById("profession_dropdown");
-
-    // Selected profession is added to parameters object
-    parameters.profession = selectedProfession.value;
-
-    // Get selected seniority
-    let senior = document.getElementById('senior_lvl');
-    let midlevel = document.getElementById('mid_lvl');
-    let junior = document.getElementById('junior_lvl');
-    let student = document.getElementById('student_lvl');
-
-    // Selected seniority is checked and added to parameters object
-    if (senior.checked) {
-        parameters.seniority = senior.value;
-        htmlStep2(event);
-    } else if (midlevel.checked) {
-        parameters.seniority = midlevel.value;
-        htmlStep2(event);
-    } else if (junior.checked) {
-        parameters.seniority = junior.value;
-        htmlStep2(event);
-    } else if(student.checked) {
-        parameters.seniority = student.value;
-        htmlStep2(event);
-    } else {
-        alert("Please select a seniority level you are looking for!");
-    };
+    getProfesssion();
+    getSeniority();
+    getMultipliers();
 
     // htmlStep2(event)
     console.log(parameters); // Delete later
@@ -222,6 +197,63 @@ function loadProfessions() {
     professionDropdown.innerHTML = newDropdownHTML;
 
 };
+
+/** Step 1: Get selected profession out of dropdown and add it to parameters */
+function getProfesssion() {
+    // Get selected profession
+    let selectedProfession = document.getElementById("profession_dropdown");
+
+    // Selected profession is added to parameters object
+    parameters.profession = selectedProfession.value;
+};
+
+/** Step 1: Get selected seniority level out of form and add it to parameters */
+function getSeniority() {
+    // Get selected seniority
+    let senior = document.getElementById('senior_lvl');
+    let midlevel = document.getElementById('mid_lvl');
+    let junior = document.getElementById('junior_lvl');
+    let student = document.getElementById('student_lvl');
+
+    // Selected seniority is checked and added to parameters object
+    if (senior.checked) {
+        parameters.seniority = senior.value;
+        htmlStep2(event);
+    } else if (midlevel.checked) {
+        parameters.seniority = midlevel.value;
+        htmlStep2(event);
+    } else if (junior.checked) {
+        parameters.seniority = junior.value;
+        htmlStep2(event);
+    } else if(student.checked) {
+        parameters.seniority = student.value;
+        htmlStep2(event);
+    } else {
+        alert("Please select a seniority level you are looking for!");
+    };
+};
+
+/** Step 1: Gets multipliers from selected profession in parameters object */
+function getMultipliers() {
+
+    let i = 0;    
+    let seniority = parameters.seniority;                                                                             
+
+    for (i in professions.professions) {
+        if (professions.professions[i].profession == parameters.profession) {
+
+            let demandMultiplier = professions.professions[i].demandMultiplier;
+            let seniorityMultiplier = professions.professions[i].seniorityMultiplier[seniority.toLowerCase()];  // ToLowerCase because caseing in json and parameters is different
+    
+            let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
+
+            parameters.multipliers = candidateSearchedMultiplier;     
+
+        }  
+    }
+};
+
+
 
 
 // Step 2 ------------------------------------
@@ -324,15 +356,7 @@ function selectPlatforms() {
 /** Step 3: Logic */
 function logicStep3(event) {
 
-    let budget = document.getElementById("budget");
-    // console.log(budget.value);                                                                            // Delete later
-    
-    if (budget.value >= 300 && budget.value <= 20000) {
-        parameters.budget = budget.value;
-        htmlStep4(event);
-    } else {
-        alert("Your budget has to between 300€ and 20.000€")
-    };
+    getBudget();
 
     console.log(parameters);                                                                                     // Delete later
 };
@@ -363,100 +387,54 @@ function htmlStep3(event) {
     btnStep3(stepNumber);
 };
 
+/** Step 3: Get budget from form and send it to the parameters object */
+function getBudget() {
+    let budget = document.getElementById("budget");
+    
+    if (budget.value >= 300 && budget.value <= 20000) {
+        parameters.budget = budget.value;
+        htmlStep4(event);
+    } else {
+        alert("Your budget has to between 300€ and 20.000€")
+    };
+}
+
 
 // Step 4 ------------------------------------
 
 /** Step 4: Logic*/
 function logicStep4() {
 
-    let resultProfession = parameters.profession;
-    let resultBudget = parameters.budget;
-
-    let resultMultipliers = parameters.multipliers;
-
-    getMultipliers();
-
-
     // Create arrays to fill with selected platforms and associated CPCs
     let resultPlatforms = [];
-    let resultCPC = [];
+    let resultCPCs = [];
     let resultRatings = [];
 
+    // Trigger functions to get values for the calculation of the end result
     getPlatformName(resultPlatforms);
-    getPlatformCPC(resultCPC);
+    getPlatformCPC(resultCPCs);
     getPlatformRating(resultRatings);
+  
+
+    // Create globel variables for easier work
+    let resultProfession = parameters.profession;
+    let resultBudget = parameters.budget;
+    let resultMultipliers = parameters.multipliers;
+
+
+
+    calculateResults();
+
+
 
 
     console.log(resultPlatforms);
-    console.log(resultCPC);
+    console.log(resultCPCs);
     console.log(resultRatings);
-
     console.log("Multipliers are: "+parameters.multipliers);
 
 
 };
-
-/** Gets multipliers from selected profession in parameters object */
-function getMultipliers() {
-
-    let i = 0;    
-    let seniority = parameters.seniority;                                                                             
-
-    for (i in professions.professions) {
-        if (professions.professions[i].profession == parameters.profession) {
-
-            let demandMultiplier = professions.professions[i].demandMultiplier;
-            let seniorityMultiplier = professions.professions[i].seniorityMultiplier[seniority.toLowerCase()];  // ToLowerCase because caseing in json and parameters is different
-    
-            let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
-
-            parameters.multipliers = candidateSearchedMultiplier;     
-
-        }  
-    }
-};
-
-// Gets platform name and associated CPC of selected platforms in parameter objects.  
-//  Fills two new arrays with those values.
-//  Each associated pair has the same index in each array.
-
-/** Search for name of selected platform and push it to seperate array */
-function getPlatformName(resultPlatforms) {
- 
-    // Push every selected Platform in a seperate array
-    for (let i in parameters.platforms) {     
-        let p = parameters.platforms[i];       // Name of the platform
-        resultPlatforms.push(p);
-    };
-}
-
-/** Search for CPC assosiated to selected platforms and push it to seperate array */ 
-function  getPlatformCPC(resultCPC) {    
-    for (let i in parameters.platforms) {     
-        let p = parameters.platforms[i];       // Name of the platform
-    
-        let platformCPCObject = platforms.platforms;
-        let platformIndexSelector = platformCPCObject.find(n => n.platform == p);
-        let platformCPC = platformIndexSelector.platformAvgCPC;
-            resultCPC.push(platformCPC);
-    }
-}
-
-/** Search for platform rating for each selected platform and push it to seperate array */
-function  getPlatformRating(resultRatings) {
-
-    for (let i in parameters.platforms) {     
-        let p = parameters.platforms[i];       // Name of the platform
-
-        for (let y in professions.professions) {
-            if (professions.professions[y].profession == parameters.profession) {
-                let ratingResult = professions.professions[y].rating[p.toLowerCase()];  // toLowerCase because platforms in json are in low case and in parameters in high case
-
-                resultRatings.push(ratingResult);
-            }
-        }
-    }
-}
 
 /** Step 4: Buttons */
 function btnStep4(stepNumber) {
@@ -480,6 +458,58 @@ function htmlStep4(event) {
     processSteps(stepNumber);
     btnStep4(stepNumber);
 };
+
+// Gets platform name and associated CPC of selected platforms in parameter objects.  
+//  Fills two new arrays with those values.
+//  Each associated pair has the same index in each array.
+
+/** Step 4: Search for name of selected platform and push it to seperate array */
+function getPlatformName(resultPlatforms) {
+ 
+    // Push every selected Platform in a seperate array
+    for (let i in parameters.platforms) {     
+        let p = parameters.platforms[i];       // Name of the platform
+        resultPlatforms.push(p);
+    };
+};
+
+/** Step 4: Search for CPC assosiated to selected platforms and push it to seperate array */ 
+function  getPlatformCPC(resultCPCs) {    
+    for (let i in parameters.platforms) {     
+        let p = parameters.platforms[i];       // Name of the platform
+    
+        let platformCPCObject = platforms.platforms;
+        let platformIndexSelector = platformCPCObject.find(n => n.platform == p);
+        let platformCPC = platformIndexSelector.platformAvgCPC;
+            resultCPCs.push(platformCPC);
+    }
+};
+
+/** Step 4: Search for platform rating for each selected platform and push it to seperate array */
+function  getPlatformRating(resultRatings) {
+
+    for (let i in parameters.platforms) {     
+        let p = parameters.platforms[i];       // Name of the platform
+
+        for (let y in professions.professions) {
+            if (professions.professions[y].profession == parameters.profession) {
+                let ratingResult = professions.professions[y].rating[p.toLowerCase()];  // toLowerCase because platforms in json are in low case and in parameters in high case
+
+                resultRatings.push(ratingResult);
+            }
+        }
+    }
+};
+
+/** Step 4:        */
+function calculateResults() {
+
+
+
+};
+
+
+
 
 
 
