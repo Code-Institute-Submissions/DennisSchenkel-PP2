@@ -193,10 +193,6 @@ function btnStep1() {
 
 /** Step 1: Load HTML */
 function htmlStep1(event) {
-    
-
-               //                                                 logicStep4()        // Delete later - Test only
-
 
     let stepNumber = 1;
 
@@ -303,7 +299,7 @@ function loadLogos() {
 
 /** Step 2: Select and unselect logos */
 function selectPlatforms() {
-    console.log("That worked! "+this.id+" was selected!") // Delete later
+    // console.log("That worked! "+this.id+" was selected!")                                                      // Delete later
     let selectingLogo = document.getElementById(this.id);
     
     // Changing logo to selected or unselected and adding/removing it from parameters array
@@ -319,7 +315,7 @@ function selectPlatforms() {
         parameters.platforms.splice(index, 1);
     };
 
-    console.log(parameters); // Delete later
+    // console.log(parameters);                                                                                 // Delete later
 };
 
 
@@ -329,7 +325,7 @@ function selectPlatforms() {
 function logicStep3(event) {
 
     let budget = document.getElementById("budget");
-    console.log(budget.value);
+    // console.log(budget.value);                                                                            // Delete later
     
     if (budget.value >= 300 && budget.value <= 20000) {
         parameters.budget = budget.value;
@@ -338,7 +334,7 @@ function logicStep3(event) {
         alert("Your budget has to between 300€ and 20.000€")
     };
 
-    console.log(parameters); // Delete later
+    console.log(parameters);                                                                                     // Delete later
 };
 
 /** Step 3: Buttons */
@@ -376,17 +372,26 @@ function logicStep4() {
     let resultProfession = parameters.profession;
     let resultBudget = parameters.budget;
 
-    getMultipliers();
+    let multipliers = [];
+
+    getMultipliers(multipliers);
 
 
-
+    // Create arrays to fill with selected platforms and associated CPCs
     let resultPlatforms = [];
     let resultCPC = [];
+    let resultRatings = [];
 
-    getPlatformAndCPC(resultPlatforms, resultCPC);
+    getPlatformName(resultPlatforms);
+    getPlatformCPC(resultCPC);
+    getPlatformRating(resultRatings);
+
 
     console.log(resultPlatforms);
     console.log(resultCPC);
+    console.log(resultRatings);
+
+    console.log("Multipliers are: "+multipliers);
 
     // console.log(parameters.platforms["2"]);
 
@@ -412,50 +417,82 @@ function logicStep4() {
 
 
 /** Gets multipliers from selected profession in parameters object */
-function getMultipliers() {
+function getMultipliers(multipliers) {
 
-    let i = 0;
+    let i = 0;                                                                                                      // <----       Hier ist kein variabler wert genommen, sondern nur "senior" das muss korrigiert werden
 
-    if (professions.professions[i].profession =! parameters.profession) {
-        console.log(parameters.profession);     
-    } else {
+    if (professions.professions[i].profession == parameters.profession) {
+        
+        let s = parameters.seniority;
 
         let demandMultiplier = professions.professions[i].demandMultiplier;
-        let seniorityMultiplier = professions.professions[i].seniorityMultiplier.senior;
-
+        let seniorityMultiplier = professions.professions[i].seniorityMultiplier.s;                                // <----       Hier ist kein variabler wert genommen, sondern nur "senior" das muss korrigiert werden
+ 
         let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;           // Important!!
         console.log("Candidate searched multiplier: "+candidateSearchedMultiplier);       // Important!!
-        console.log(parameters.profession); 
+
+        multipliers.push(candidateSearchedMultiplier);       
+
+    } else {
+        i++;
+
     }
 };
 
 
 
 
-/** Gets platform name and associated CPC of selected platforms in parameter objects.  
- *  Fills two new arrays with those values.
- *  Each associated pair has the same index in each array.
-*/
+// Gets platform name and associated CPC of selected platforms in parameter objects.  
+//  Fills two new arrays with those values.
+//  Each associated pair has the same index in each array.
 
 
-
-function getPlatformAndCPC(resultPlatforms, resultCPC) {
-
-    
+/** Search for name of selected platform and push it to seperate array */
+function getPlatformName(resultPlatforms) {
+ 
     // Push every selected Platform in a seperate array
     for (let i in parameters.platforms) {     
-        let p = parameters.platforms[i];
+        let p = parameters.platforms[i];       // Name of the platform
         resultPlatforms.push(p);
-
-    // Search for CPC assosiated to selected platforms and push it to seperate array
-    let object = platforms.platforms;
-    let indexSelector = object.find(n => n.platform == p);
-    let platformCPC = indexSelector.platformAvgCPC;
-        resultCPC.push(platformCPC)
-        
     };
-
 }
+
+
+/** Search for CPC assosiated to selected platforms and push it to seperate array */ 
+function  getPlatformCPC(resultCPC) {    
+    for (let i in parameters.platforms) {     
+        let p = parameters.platforms[i];       // Name of the platform
+    
+        let platformCPCObject = platforms.platforms;
+        let platformIndexSelector = platformCPCObject.find(n => n.platform == p);
+        let platformCPC = platformIndexSelector.platformAvgCPC;
+            resultCPC.push(platformCPC);
+    }
+}
+
+
+
+
+
+/** Search for platform rating for each selected platform and push it to seperate array */
+function  getPlatformRating(resultRatings) {
+
+    for (let i in parameters.platforms) {     
+        let p = parameters.platforms[i];       // Name of the platform
+
+        for (let y in professions.professions) {
+            if (professions.professions[y].profession == parameters.profession) {
+                let ratingResult = professions.professions[y].rating.p;
+
+                console.log(ratingResult+" kkkkkkkkkkkkk");
+
+                resultRatings.push(ratingResult);
+            }
+        }
+    }
+}
+
+
 
 
 
@@ -484,4 +521,9 @@ function htmlStep4(event) {
 };
 
 
+
+
+
+
+console.log("platform rating "+professions.professions[1].rating.xing);           // Platform rating
 
