@@ -372,9 +372,9 @@ function logicStep4() {
     let resultProfession = parameters.profession;
     let resultBudget = parameters.budget;
 
-    let multipliers = [];
+    let resultMultipliers = parameters.multipliers;
 
-    getMultipliers(multipliers);
+    getMultipliers();
 
 
     // Create arrays to fill with selected platforms and associated CPCs
@@ -391,47 +391,39 @@ function logicStep4() {
     console.log(resultCPC);
     console.log(resultRatings);
 
-    console.log("Multipliers are: "+multipliers);
+    console.log("Multipliers are: "+parameters.multipliers);
+
 
     // console.log(parameters.platforms["2"]);
-
-    // console.log("Job "+professions.professions[1].profession);                          // Profession name
-    // console.log("Demand multi "+professions.professions[1].demandMultiplier);           // Demand multiplier
-    // console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);       // Seniority multiplier (senior)
-    // console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);   // Seniority multiplier (midlevel)
-    // console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);       // Seniority multiplier (junior)
-    // console.log("Student "+professions.professions[1].seniorityMultiplier.student);     // Seniority multiplier (student)
-
-    // for (let i in platforms.platforms) {
-    //     console.log("CPC "+platforms.platforms[i].platformAvgCPC);                      // Avg platform CPC
-    // }
-
-
-    // console.log(parameters.profession);     // Profession from parameters object
-    // console.log(parameters.seniority);      // Senioritx from parameters object
-    // console.log(parameters.platforms);      // Platforms array from parameters object
-
-    // console.log(parameters.budget);         // Budget from parameters object
+    // console.log("Job "+professions.professions[1].profession);                           // Profession name
+    // console.log("Demand multi "+professions.professions[1].demandMultiplier);            // Demand multiplier
+    // console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);        // Seniority multiplier (senior)
+    // console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);    // Seniority multiplier (midlevel)
+    // console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);        // Seniority multiplier (junior)
+    // console.log("Student "+professions.professions[1].seniorityMultiplier.student);      // Seniority multiplier (student)
+    //  console.log("CPC "+platforms.platforms[i].platformAvgCPC);                          // Avg platform CPC
+    // console.log(parameters.profession);                                                  // Profession from parameters object
+    // console.log(parameters.seniority);                                                   // Senioritx from parameters object
+    // console.log(parameters.platforms);                                                   // Platforms array from parameters object
+    // console.log(parameters.budget);                                                      // Budget from parameters object
 };
 
 
 
 /** Gets multipliers from selected profession in parameters object */
-function getMultipliers(multipliers) {
+function getMultipliers() {
 
-    let i = 0;                                                                                                      // <----       Hier ist kein variabler wert genommen, sondern nur "senior" das muss korrigiert werden
+    let i = 0;    
+    let s = parameters.seniority;                                                                             
 
     if (professions.professions[i].profession == parameters.profession) {
-        
-        let s = parameters.seniority;
 
         let demandMultiplier = professions.professions[i].demandMultiplier;
-        let seniorityMultiplier = professions.professions[i].seniorityMultiplier.s;                                // <----       Hier ist kein variabler wert genommen, sondern nur "senior" das muss korrigiert werden
+        let seniorityMultiplier = professions.professions[i].seniorityMultiplier[s.toLowerCase()];  // ToLowerCase because caseing in json and parameters is different
  
-        let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;           // Important!!
-        console.log("Candidate searched multiplier: "+candidateSearchedMultiplier);       // Important!!
+        let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
 
-        multipliers.push(candidateSearchedMultiplier);       
+        parameters.multipliers = candidateSearchedMultiplier;       
 
     } else {
         i++;
@@ -472,8 +464,6 @@ function  getPlatformCPC(resultCPC) {
 
 
 
-
-
 /** Search for platform rating for each selected platform and push it to seperate array */
 function  getPlatformRating(resultRatings) {
 
@@ -482,9 +472,7 @@ function  getPlatformRating(resultRatings) {
 
         for (let y in professions.professions) {
             if (professions.professions[y].profession == parameters.profession) {
-                let ratingResult = professions.professions[y].rating.p;
-
-                console.log(ratingResult+" kkkkkkkkkkkkk");
+                let ratingResult = professions.professions[y].rating[p.toLowerCase()];  // toLowerCase because platforms in json are in low case and in parameters in high case
 
                 resultRatings.push(ratingResult);
             }
