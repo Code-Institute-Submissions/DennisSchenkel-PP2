@@ -394,21 +394,7 @@ function logicStep4() {
     console.log("Multipliers are: "+parameters.multipliers);
 
 
-    // console.log(parameters.platforms["2"]);
-    // console.log("Job "+professions.professions[1].profession);                           // Profession name
-    // console.log("Demand multi "+professions.professions[1].demandMultiplier);            // Demand multiplier
-    // console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);        // Seniority multiplier (senior)
-    // console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);    // Seniority multiplier (midlevel)
-    // console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);        // Seniority multiplier (junior)
-    // console.log("Student "+professions.professions[1].seniorityMultiplier.student);      // Seniority multiplier (student)
-    //  console.log("CPC "+platforms.platforms[i].platformAvgCPC);                          // Avg platform CPC
-    // console.log(parameters.profession);                                                  // Profession from parameters object
-    // console.log(parameters.seniority);                                                   // Senioritx from parameters object
-    // console.log(parameters.platforms);                                                   // Platforms array from parameters object
-    // console.log(parameters.budget);                                                      // Budget from parameters object
 };
-
-
 
 /** Gets multipliers from selected profession in parameters object */
 function getMultipliers() {
@@ -424,21 +410,15 @@ function getMultipliers() {
     
             let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
 
-            parameters.multipliers = candidateSearchedMultiplier;   
-            console.log("yes")    
+            parameters.multipliers = candidateSearchedMultiplier;     
 
         }  
-
     }
 };
-
-
-
 
 // Gets platform name and associated CPC of selected platforms in parameter objects.  
 //  Fills two new arrays with those values.
 //  Each associated pair has the same index in each array.
-
 
 /** Search for name of selected platform and push it to seperate array */
 function getPlatformName(resultPlatforms) {
@@ -504,7 +484,15 @@ function htmlStep4(event) {
 
 
 
-
-
-console.log("platform rating "+professions.professions[1].rating.xing);           // Platform rating
-
+    // console.log(parameters.platforms["2"]);
+    // console.log("Job "+professions.professions[1].profession);                           // Profession name
+    // console.log("Demand multi "+professions.professions[1].demandMultiplier);            // Demand multiplier
+    // console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);        // Seniority multiplier (senior)
+    // console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);    // Seniority multiplier (midlevel)
+    // console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);        // Seniority multiplier (junior)
+    // console.log("Student "+professions.professions[1].seniorityMultiplier.student);      // Seniority multiplier (student)
+    //  console.log("CPC "+platforms.platforms[i].platformAvgCPC);                          // Avg platform CPC
+    // console.log(parameters.profession);                                                  // Profession from parameters object
+    // console.log(parameters.seniority);                                                   // Senioritx from parameters object
+    // console.log(parameters.platforms);                                                   // Platforms array from parameters object
+    // console.log(parameters.budget);                                                      // Budget from parameters object
