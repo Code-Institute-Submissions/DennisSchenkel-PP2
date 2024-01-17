@@ -121,7 +121,7 @@ let newContentDivHTML3 = `
 <div id="budget-form">
     <form>
         <label for="budget"><h2>What is your budget?</h2></label>
-        <input type="number" id="budget" required><span id="currency-symbol">€</span>
+        <input type="number" id="budget" required value="2000"><span id="currency-symbol">€</span>
     </form>
     <p>Please make sure to enter a budget of at least 300€ and not more then 20.000€.</p>
 </div>
@@ -390,8 +390,8 @@ function getBudget() {
     let budget = document.getElementById("budget");
     
     if (budget.value >= 300 && budget.value <= 20000) {
-        parameters.budget = budget.value;
-        htmlStep4(event);
+        parameters.budget = parseInt(budget.value);
+        htmlStep4();
     } else {
         alert("Your budget has to between 300€ and 20.000€")
     };
@@ -421,7 +421,7 @@ function logicStep4() {
 
 
 
-    calculateResults();
+    calculateResults(resultRatings, resultBudget);
 
 
 
@@ -466,7 +466,8 @@ function getPlatformName(resultPlatforms) {
  
     // Push every selected Platform in a seperate array
     for (let i in parameters.platforms) {     
-        let p = parameters.platforms[i];       // Name of the platform
+        // Name of the platform
+        let p = parameters.platforms[i];
         resultPlatforms.push(p);
     };
 };
@@ -474,7 +475,8 @@ function getPlatformName(resultPlatforms) {
 /** Step 4: Search for CPC assosiated to selected platforms and push it to seperate array */ 
 function  getPlatformCPC(resultCPCs) {    
     for (let i in parameters.platforms) {     
-        let p = parameters.platforms[i];       // Name of the platform
+        // Name of the platform
+        let p = parameters.platforms[i]; 
     
         let platformCPCObject = platforms.platforms;
         let platformIndexSelector = platformCPCObject.find(n => n.platform == p);
@@ -487,7 +489,8 @@ function  getPlatformCPC(resultCPCs) {
 function  getPlatformRating(resultRatings) {
 
     for (let i in parameters.platforms) {     
-        let p = parameters.platforms[i];       // Name of the platform
+        // Name of the platform
+        let p = parameters.platforms[i];
 
         for (let y in professions.professions) {
             if (professions.professions[y].profession == parameters.profession) {
@@ -500,20 +503,71 @@ function  getPlatformRating(resultRatings) {
 };
 
 /** Step 4:        */
-function calculateResults() {
+function calculateResults(resultRatings, resultBudget, resultPlatforms, resultCPCs) {
 
+    // Array with the percentage of the budget allocated to each platform
+    let distributionPercentage = [];
+    // Array with the total amount of budgets allocated to each platform
+    let distributionAmounts = [];
+    // Array with the total amount of clicks for each platform
+    let platformClicks = []
+ 
+    calculatePercentageDistribution(distributionPercentage, resultRatings);
+    calculateAmountDistribution(distributionPercentage,resultBudget, distributionAmounts);
+    calculateClicks(distributionAmounts, resultBudget);
 
-
-
-
-
-
-    
+    console.log("das budget ist: "+resultBudget);                                                                                                // Delete later
+    console.log("Beträge: "+distributionAmounts);   
+    //
 
 };
 
 
 
+/** Step 4: Calculates what percentage of the budget is allocated to each selected platform. */
+function calculatePercentageDistribution(distributionPercentage, resultRatings) {
+    // The total of all rating points given to all platforms that are selected
+    let totalRatingPoints = 0;
+    // The percentage each selected platform holds of the total of rating points
+    let platformPercentage = 0;
+
+    // Calculate total of platform rating points
+    for (let i in resultRatings) {
+        totalRatingPoints = totalRatingPoints + resultRatings[i];
+    };
+
+    console.log("Total rating points are: "+totalRatingPoints);                                                                                                // Delete later
+
+    // Based on total rating points and rating points of each platform this calculate and pushs percentage of budget for each selected platform into array
+    for (let i in resultRatings) {
+        platformPercentage = resultRatings[i] / totalRatingPoints;
+        distributionPercentage.push(parseFloat(platformPercentage.toFixed(2)));
+    };
+    console.log("prozente: "+distributionPercentage);        
+                                                                                                        // Delete late  // Delete later
+};
+
+/** Step 4: Calculates what total amount of the budget is allocated to each selected platform. */
+function calculateAmountDistribution(distributionPercentage, resultBudget, distributionAmounts){
+    let budgetOfPlatform = 0;
+    for (let i in distributionPercentage) {
+        budgetOfPlatform = resultBudget * distributionPercentage[i];
+
+        console.log("Budget je Plattform: "+budgetOfPlatform);   
+        
+        distributionAmounts.push(budgetOfPlatform);
+    }
+};
+
+function calculateClicks(distributionAmounts, resultBudget) {
+    for (let i in distributionAmounts) {
+        platformClicks = resultBudget / distributionAmounts[i];
+
+        console.log("Budget je Plattform: "+platformClicks);   
+        
+        distributionAmounts.push(budgetOfPlatform);
+    }
+};
 
 
 

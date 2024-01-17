@@ -60,6 +60,9 @@
 ## ToDos
 
 - Aria labeling
+- Delete comments
+- Delete empty lines
+- Delete 2000 test Budget
 
 
 
@@ -71,6 +74,14 @@
 - Adobe Illustrator
 - Balsamiq
 - Visual Studio Code
+
+
+## To mention
+- Final budget amount can vary due to rounding errors.
+- I worked with arrays and the indexing in each array has to be consistently the same to the selected platform
+- In a new version of the application I would try working with objects instead of so many arrays
+
+
 
 
 
