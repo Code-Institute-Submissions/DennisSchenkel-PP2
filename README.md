@@ -42,11 +42,11 @@
 
 ### Platform Rating
 
-- Perfect
-- Great
-- Good
-- Okay
-- Bad
+- Perfect (Value 5)
+- Great (Value 4)
+- Good (Value 2)
+- Okay (Value 1)
+- Bad (Value 0)
 
 ### Seniority Levels
 
