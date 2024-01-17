@@ -247,7 +247,7 @@ function getMultipliers() {
     
             let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
 
-            parameters.multipliers = candidateSearchedMultiplier;     
+            parameters.multipliers = parseFloat(candidateSearchedMultiplier);     
 
         }  
     }
@@ -390,7 +390,7 @@ function getBudget() {
     let budget = document.getElementById("budget");
     
     if (budget.value >= 300 && budget.value <= 20000) {
-        parameters.budget = parseInt(budget.value);
+        parameters.budget = Number(budget.value);
         htmlStep4();
     } else {
         alert("Your budget has to between 300€ and 20.000€")
@@ -421,7 +421,7 @@ function logicStep4() {
 
 
 
-    calculateResults(resultRatings, resultBudget);
+    calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers);
 
 
 
@@ -481,7 +481,7 @@ function  getPlatformCPC(resultCPCs) {
         let platformCPCObject = platforms.platforms;
         let platformIndexSelector = platformCPCObject.find(n => n.platform == p);
         let platformCPC = platformIndexSelector.platformAvgCPC;
-            resultCPCs.push(platformCPC);
+            resultCPCs.push(parseFloat(platformCPC));
     }
 };
 
@@ -503,23 +503,39 @@ function  getPlatformRating(resultRatings) {
 };
 
 /** Step 4:        */
-function calculateResults(resultRatings, resultBudget, resultPlatforms, resultCPCs) {
+function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers) {
 
     // Array with the percentage of the budget allocated to each platform
     let distributionPercentage = [];
     // Array with the total amount of budgets allocated to each platform
     let distributionAmounts = [];
+    // Array with the final CPCs for each platform calculated with the average CPC of each platform and the profession multiplier
+    let platformCPC = [];
     // Array with the total amount of clicks for each platform
-    let platformClicks = []
+    let platformClicks = [];
  
     calculatePercentageDistribution(distributionPercentage, resultRatings);
     calculateAmountDistribution(distributionPercentage,resultBudget, distributionAmounts);
-    calculateClicks(distributionAmounts, resultBudget);
+    calculateClicks(distributionAmounts, resultCPCs, platformClicks, resultMultipliers, platformCPC);
+
+
+
+
+
+
+    console.log("The total budget is: "+resultBudget);                                                                                                // Delete later
+    console.log("The budget for each platform is: "+distributionAmounts);                                                                                                // Delete later
+    console.log("The CPC for each platform is: "+platformCPC);                                                                                                // Delete later
+    console.log("The the total amount of clicks for each platform is: "+platformClicks);                                                                                                // Delete later
+
 
     console.log("das budget ist: "+resultBudget);                                                                                                // Delete later
-    console.log("Beträge: "+distributionAmounts);   
+    console.log("Beträge: "+distributionAmounts);                                                                                                 // Delete later  
     //
 
+
+
+    
 };
 
 
@@ -543,8 +559,8 @@ function calculatePercentageDistribution(distributionPercentage, resultRatings) 
         platformPercentage = resultRatings[i] / totalRatingPoints;
         distributionPercentage.push(parseFloat(platformPercentage.toFixed(2)));
     };
-    console.log("prozente: "+distributionPercentage);        
-                                                                                                        // Delete late  // Delete later
+    console.log("prozente: "+distributionPercentage);                                                                                                           // Delete late     
+   
 };
 
 /** Step 4: Calculates what total amount of the budget is allocated to each selected platform. */
@@ -555,18 +571,25 @@ function calculateAmountDistribution(distributionPercentage, resultBudget, distr
 
         console.log("Budget je Plattform: "+budgetOfPlatform);   
         
-        distributionAmounts.push(budgetOfPlatform);
+        distributionAmounts.push(Number(budgetOfPlatform));
     }
 };
 
-function calculateClicks(distributionAmounts, resultBudget) {
-    for (let i in distributionAmounts) {
-        platformClicks = resultBudget / distributionAmounts[i];
+/** Step 4: Calculates the amount of clicks based on the budget of each platform and the calculated CPC for each platform */
+function calculateClicks(distributionAmounts, resultCPCs, platformClicks, resultMultipliers, platformCPC) {
+    let clickPrice = 0;
+    console.log("Die CPCs sind:" +resultMultipliers);                                                                                                        // Delete late
 
-        console.log("Budget je Plattform: "+platformClicks);   
-        
-        distributionAmounts.push(budgetOfPlatform);
+    for (let i in distributionAmounts) {
+        let resultMultipliedCPC = (resultCPCs[i] * resultMultipliers);
+        clickPrice = distributionAmounts[i] / resultMultipliedCPC;
+        platformClicks.push(clickPrice.toFixed(0));
+        platformCPC.push(resultMultipliedCPC);
     }
+    console.log("Die finalen Platform-CPCs sind:" +platformCPC);                                                                                                        // Delete late
+
+    console.log("Clicks je Plattform: "+platformClicks);                                                                                                          // Delete late
+
 };
 
 
