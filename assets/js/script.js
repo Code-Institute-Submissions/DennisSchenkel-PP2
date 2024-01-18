@@ -1,4 +1,4 @@
-// General ------------------------------------------------------------------------------------------------------------
+// ------- General ------------------------------------------------------------------------------------------------------------
 
 // Import professions.json
 import professions from "../data/professions.json" assert { type: 'json' };
@@ -10,7 +10,7 @@ import platforms from "../data/platforms.json" assert { type: 'json' };
 let parameters = {};
 
 
-// Header ------------------------------------------------------------------------------------------------------------
+// ------- Header ------------------------------------------------------------------------------------------------------------
 
 /** processSteps 
  * This changes the steps bubbles in the header, depending on the step the user is at 
@@ -60,7 +60,7 @@ function stepName(stepNumber) {
 }
 
 
-// Start Page ------------------------------------------------------------------------------------------------------------
+// ------- Start Page ------------------------------------------------------------------------------------------------------------
 
 /** Start: Start Button functionality */
 function startButton () {
@@ -73,7 +73,7 @@ function startButton () {
 startButton();
 
 
-// HTML Content ------------------------------------------------------------------------------------------------------------
+// ------- HTML Content ------------------------------------------------------------------------------------------------------------
 
 // Step 1 HTML
 let newContentDivHTML1 = `
@@ -87,14 +87,14 @@ let newContentDivHTML1 = `
 
         <div class="form_element">
             <h2>What level of seniority are you looking for?</h2><br>
-            <input type="radio" class="seniority_radio" id="senior_lvl" name="senior_lvl" value="Senior">
+            <input type="radio" class="seniority_radio" id="senior_lvl" name="seniority" value="Senior">
             <label for="senior_lvl">Senior</label><br>
-            <input type="radio" class="seniority_radio" id="mid_lvl" name="mid_lvl" value="Midlevel">
+            <input type="radio" class="seniority_radio" id="mid_lvl" name="seniority" value="Midlevel">
             <label for="mid_lvl">Midlevel</label><br>
-            <input type="radio" class="seniority_radio" id="junior_lvl" name="junior_lvl" value="Junior">
+            <input type="radio" class="seniority_radio" id="junior_lvl" name="seniority" value="Junior">
             <label for="junior_lvl">Junior</label><br>
-            <input type="radio" class="seniority_radio" id="student_lvl" name="student_lvl" value="Student">
-            <label for="student_lvl">Student</label><br>
+            <input type="radio" class="seniority_radio" id="student_lvl" name="seniority" value="Student">
+            <label for="student_lvl">Student</label>
         </div>
 
         <div class="nav_buttons">
@@ -137,7 +137,7 @@ let newContentDivHTML3 = `
 // Step 4 HTML: Find in function resultToHTML()
 
 
-// Step 1 ------------------------------------------------------------------------------------------------------------
+// ------- Step 1 ------------------------------------------------------------------------------------------------------------
 
 /** Step 1: Logic */
 function logicStep1() {
@@ -254,7 +254,7 @@ function getMultipliers() {
 };
 
 
-// Step 2 ------------------------------------------------------------------------------------------------------------
+// ------- Step 2 ------------------------------------------------------------------------------------------------------------
 
 /** Step 2: Logic */
 function logicStep2() {
@@ -265,7 +265,12 @@ function logicStep2() {
     Selection of platforms managed by function selectPlatforms().
     selectPlatforms() is triggered by eventListener. */
 
-    htmlStep3();
+    // Check if at least 1 platform was selected
+    if (parameters.platforms[0] == null) {
+        alert("You have to select at least 1 platform")
+    } else {
+        htmlStep3();
+    };
 };
 
 /** Step 2 Buttons */
@@ -336,7 +341,6 @@ function loadLogos() {
 
 /** Step 2: Select and unselect logos */
 function selectPlatforms() {
-    // console.log("That worked! "+this.id+" was selected!")                                                      // Delete later
     let selectingLogo = document.getElementById(this.id);
     
     // Changing logo to selected or unselected and adding/removing it from parameters array
@@ -351,12 +355,10 @@ function selectPlatforms() {
         // Remove selected platform from array
         parameters.platforms.splice(index, 1);
     };
-
-    // console.log(parameters);                                                                                 // Delete later
 };
 
 
-// Step 3 ------------------------------------------------------------------------------------------------------------
+// ------- Step 3 ------------------------------------------------------------------------------------------------------------
 
 /** Step 3: Logic */
 function logicStep3() {
@@ -400,6 +402,7 @@ function htmlStep3() {
 function getBudget() {
     let budget = document.getElementById("budget");
     
+    // If budget is within a good range, go to next step. Else give alert
     if (budget.value >= 300 && budget.value <= 20000) {
         parameters.budget = Number(budget.value);
         htmlStep4();
@@ -409,7 +412,7 @@ function getBudget() {
 }
 
 
-// Step 4 ------------------------------------------------------------------------------------------------------------
+// ------- Step 4 ------------------------------------------------------------------------------------------------------------
 
 /** Step 4: Logic*/
 function logicStep4() {
