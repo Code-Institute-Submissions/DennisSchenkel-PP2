@@ -1,4 +1,4 @@
-// General ------------------------------------
+// General ------------------------------------------------------------------------------------------------------------
 
 // Import professions.json
 import professions from "../data/professions.json" assert { type: 'json' };
@@ -10,7 +10,7 @@ import platforms from "../data/platforms.json" assert { type: 'json' };
 let parameters = {};
 
 
-// Header ------------------------------------
+// Header ------------------------------------------------------------------------------------------------------------
 
 /** processSteps 
  * This changes the steps bubbles in the header, depending on the step the user is at 
@@ -44,6 +44,7 @@ function processSteps(stepNumber) {
     }
 };
 
+/** Each step gets its step nameing under the step number in the header */
 function stepName(stepNumber) {
     let stepName = document.getElementById("step_name");
 
@@ -58,10 +59,12 @@ function stepName(stepNumber) {
     }
 }
 
-// Start Page ------------------------------------
+
+// Start Page ------------------------------------------------------------------------------------------------------------
 
 /** Start: Start Button functionality */
 function startButton () {
+    
     let nextBtn0 = document.getElementById("next_btn_0");
     nextBtn0.addEventListener("click", htmlStep1);
 }
@@ -70,7 +73,7 @@ function startButton () {
 startButton();
 
 
-// HTML Content ------------------------------------
+// HTML Content ------------------------------------------------------------------------------------------------------------
 
 // Step 1 HTML
 let newContentDivHTML1 = `
@@ -134,37 +137,47 @@ let newContentDivHTML3 = `
 // Step 4 HTML: Find in function resultToHTML()
 
 
-// Step 1 ------------------------------------
+// Step 1 ------------------------------------------------------------------------------------------------------------
 
 /** Step 1: Logic */
-function logicStep1(event) {
+function logicStep1() {
     
+    // Triggering the functions to get selected profession, seniority and associated multiplier
     getProfesssion();
     getSeniority();
     getMultipliers();
-
-    // htmlStep2(event)
-    console.log(parameters); // Delete later
 };
 
 /** Step 1: Buttons */
 function btnStep1() {
+
+    // Step 1 Next Button
     let nextBtn1 = document.getElementById("next_btn_1");
     nextBtn1.addEventListener("click", logicStep1);
+
+    // Step 1 Previous Button is codet into HTML and leads to index.html
 };
 
 /** Step 1: Load HTML */
-function htmlStep1(event) {
+function htmlStep1() {
 
+    // Define active step number
     let stepNumber = 1;
+    
+    // Process step description in heading is changed
+    processSteps(stepNumber);
 
+    // Change number and text in header
     stepName(stepNumber)
 
+    // Load HTML for active step
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML1;
 
-    processSteps(stepNumber);
+    // Loading all professions and seniority information from professions.json
     loadProfessions();
+
+    // Loading event listener for bottons on page 
     btnStep1();
 };
 
@@ -182,11 +195,11 @@ function loadProfessions() {
     };
     
     professionDropdown.innerHTML = newDropdownHTML;
-
 };
 
 /** Step 1: Get selected profession out of dropdown and add it to parameters */
 function getProfesssion() {
+    
     // Get selected profession
     let selectedProfession = document.getElementById("profession_dropdown");
 
@@ -196,6 +209,7 @@ function getProfesssion() {
 
 /** Step 1: Get selected seniority level out of form and add it to parameters */
 function getSeniority() {
+    
     // Get selected seniority
     let senior = document.getElementById('senior_lvl');
     let midlevel = document.getElementById('mid_lvl');
@@ -235,28 +249,27 @@ function getMultipliers() {
             let candidateSearchedMultiplier = seniorityMultiplier+demandMultiplier;
 
             parameters.multipliers = parseFloat(candidateSearchedMultiplier);     
-
         }  
     }
 };
 
 
-// Step 2 ------------------------------------
+// Step 2 ------------------------------------------------------------------------------------------------------------
 
 /** Step 2: Logic */
-function logicStep2(event) {
+function logicStep2() {
 
-    // Logos are loaded by function loadLogos().
-    // loadLogos() triggerd by loading HTML.
+    /* Logos are loaded by function loadLogos().
+    loadLogos() triggerd by loading HTML.
 
-    // Selection of platforms managed by function selectPlatforms().
-    // selectPlatforms() is triggered by eventListener.
+    Selection of platforms managed by function selectPlatforms().
+    selectPlatforms() is triggered by eventListener. */
 
-    htmlStep3(event);
+    htmlStep3();
 };
 
 /** Step 2 Buttons */
-function btnStep2(stepNumber) {
+function btnStep2() {
 
     // Step 2 Next Button
     let nextBtn2 = document.getElementById("next_btn_2");
@@ -268,17 +281,25 @@ function btnStep2(stepNumber) {
 };
 
 /** Step 2: Load HTML */
-function htmlStep2(event) {
+function htmlStep2() {
 
+    // Define active step number
     let stepNumber = 2;
 
+    // Process step in heading is changed
+    processSteps(stepNumber);
+
+    // Process step description in heading is changed
     stepName(stepNumber)
 
+    // Load HTML for active step
     let contentDiv = document.getElementById("content_div");
     contentDiv.innerHTML = newContentDivHTML2;
 
-    processSteps(stepNumber);
+    // Loading platform and logo information from platforms.json
     loadLogos();
+
+    // Loading event listener for bottons on page 
     btnStep2(stepNumber);
 };
 
@@ -307,7 +328,6 @@ function loadLogos() {
         let platformName = platforms.platforms[i].platform;
         let logoSelect = document.getElementById(platformName);        
         logoSelect.addEventListener('click', selectPlatforms);
-
     };
 
     // Create array within parameters object for selected platforms
@@ -336,18 +356,17 @@ function selectPlatforms() {
 };
 
 
-// Step 3 ------------------------------------
+// Step 3 ------------------------------------------------------------------------------------------------------------
 
 /** Step 3: Logic */
-function logicStep3(event) {
+function logicStep3() {
 
+    // Get budget from form and send it to the parameters object
     getBudget();
-
-    console.log(parameters);                                                                                     // Delete later
 };
 
 /** Step 3: Buttons */
-function btnStep3(stepNumber) {
+function btnStep3() {
     // Step 3 Next Button
     let nextBtn3 = document.getElementById("next_btn_3");
     nextBtn3.addEventListener("click", logicStep3);
@@ -358,17 +377,22 @@ function btnStep3(stepNumber) {
 };
 
 /** Step 3: Load HTML */
-function htmlStep3(event) {
+function htmlStep3() {
 
+    // Define active step number
     let stepNumber = 3;
 
+    // Process step in heading is changed
+    processSteps(stepNumber);
+
+    // Process step description in heading is changed
     stepName(stepNumber)
 
+    // Load HTML for active step
     let contentDiv = document.getElementById("content_div");
-
     contentDiv.innerHTML = newContentDivHTML3;
 
-    processSteps(stepNumber);
+    // Loading event listener for bottons on page 
     btnStep3(stepNumber);
 };
 
@@ -385,7 +409,7 @@ function getBudget() {
 }
 
 
-// Step 4 ------------------------------------
+// Step 4 ------------------------------------------------------------------------------------------------------------
 
 /** Step 4: Logic*/
 function logicStep4() {
@@ -400,47 +424,39 @@ function logicStep4() {
     getPlatformCPC(resultCPCs);
     getPlatformRating(resultRatings);
   
-
     // Create globel variables for easier work
-    let resultProfession = parameters.profession;
     let resultBudget = parameters.budget;
     let resultMultipliers = parameters.multipliers;
 
-
-
+    // Trigger the meta function for calculating the results
     calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers, resultPlatforms);
-
-
-
-
-    // console.log(resultPlatforms);                                                                                                // Delete later 
-    // console.log(resultCPCs);                                                                                                // Delete later 
-    // console.log(resultRatings);                                                                                                // Delete later 
-    // console.log("Multipliers are: "+parameters.multipliers);                                                                                                // Delete later 
-
-
 };
 
 /** Step 4: Buttons */
-function btnStep4(stepNumber) {
+function btnStep4() {
+    
     // Step 4 Previous Button
     let previousBtn4 = document.getElementById("previous_btn_4");
     previousBtn4.addEventListener("click", htmlStep3);
 };
 
 /** Step 4: Load HTML */
-function htmlStep4(event) {
+function htmlStep4() {
    
+    // Define active step number
     let stepNumber = 4;
-   
+
+    // Process step description in heading is changed
     stepName(stepNumber)
 
+    // Process step in heading is changed
+    processSteps(stepNumber);
+
+    // Triggering logic of step 4 to calculate and display results
     logicStep4()
 
-    //    let contentDiv = document.getElementById("content_div");
-    //    contentDiv.innerHTML = newContentDivHTML4;
 
-    processSteps(stepNumber);
+    // Loading event listener for bottons on page 
     btnStep4(stepNumber);
 };
 
@@ -461,6 +477,7 @@ function getPlatformName(resultPlatforms) {
 
 /** Step 4: Search for CPC assosiated to selected platforms and push it to seperate array */ 
 function  getPlatformCPC(resultCPCs) {    
+    
     for (let i in parameters.platforms) {     
         // Name of the platform
         let p = parameters.platforms[i]; 
@@ -489,7 +506,7 @@ function  getPlatformRating(resultRatings) {
     }
 };
 
-/** Step 4:    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa    */
+/** Step 4: Triggers multiple functions to calculate the final resilt, created needed arrays and triggers the generation of step 4 results HTML page */
 function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers, resultPlatforms) {
 
     // Array with the percentage of the budget allocated to each platform
@@ -500,36 +517,19 @@ function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipl
     let platformCPC = [];
     // Array with the total amount of clicks for each platform
     let platformClicks = [];
-
     // Array with objects for each platform with assosiated values
     let listOfResults = [];
 
- 
+    // Triggering multiple functions to calculates values as intermediate step to the final results
     calculatePercentageDistribution(distributionPercentage, resultRatings);
     calculateAmountDistribution(distributionPercentage,resultBudget, distributionAmounts);
     calculateClicks(distributionAmounts, resultCPCs, platformClicks, resultMultipliers, platformCPC);
 
-
+    // Takes calculated results and other information and creates an array of objects where each object stands for one selected platform and its results.
     createListOfResults(platformCPC, platformClicks, distributionAmounts, distributionPercentage, resultPlatforms, resultRatings, listOfResults);
 
-    resultsToHTML(listOfResults)
-
-
-
-    // console.log("The names of all selected platforms are: "+resultPlatforms);                                                                                                // Delete later
-    // console.log("The total budget is: "+resultBudget);                                                                                                // Delete later
-    // console.log("The budget for each platform is: "+distributionAmounts);                                                                                                // Delete later
-    // console.log("The CPC for each platform is: "+platformCPC);                                                                                                // Delete later
-    // console.log("The the total amount of clicks for each platform is: "+platformClicks);                                                                                                // Delete later
-
-
-    // console.log("das budget ist: "+resultBudget);                                                                                                // Delete later
-    // console.log("Beträge: "+distributionAmounts);                                                                                                 // Delete later  
-    
-
-
-
-    
+    // Trigger the creation of the final results step 4 HTML page
+    resultsToHTML(listOfResults) 
 };
 
 /** Step 4: Calculates what percentage of the budget is allocated to each selected platform. */
@@ -544,33 +544,27 @@ function calculatePercentageDistribution(distributionPercentage, resultRatings) 
         totalRatingPoints = totalRatingPoints + resultRatings[i];
     };
 
-    // console.log("Total rating points are: "+totalRatingPoints);                                                                                                // Delete later
-
     // Based on total rating points and rating points of each platform this calculate and pushs percentage of budget for each selected platform into array
     for (let i in resultRatings) {
         platformPercentage = resultRatings[i] / totalRatingPoints;
         distributionPercentage.push(parseFloat(platformPercentage.toFixed(2)));
-    };
-    // console.log("prozente: "+distributionPercentage);                                                                                                           // Delete late     
-   
+    };   
 };
 
 /** Step 4: Calculates what total amount of the budget is allocated to each selected platform. */
 function calculateAmountDistribution(distributionPercentage, resultBudget, distributionAmounts){
+    
     let budgetOfPlatform = 0;
     for (let i in distributionPercentage) {
-        budgetOfPlatform = resultBudget * distributionPercentage[i];
-
-        // console.log("Budget je Plattform: "+budgetOfPlatform);                                                                                                             // Delete late  
-        
+        budgetOfPlatform = resultBudget * distributionPercentage[i];        
         distributionAmounts.push(Number(budgetOfPlatform));
     }
 };
 
 /** Step 4: Calculates the amount of clicks based on the budget of each platform and the calculated CPC for each platform */
 function calculateClicks(distributionAmounts, resultCPCs, platformClicks, resultMultipliers, platformCPC) {
+    
     let clickPrice = 0;
-    // console.log("Die CPCs sind:" +resultMultipliers);                                                                                                           // Delete late                                                                                                         // Delete late
 
     for (let i in distributionAmounts) {
         let resultMultipliedCPC = (resultCPCs[i] * resultMultipliers);
@@ -578,10 +572,6 @@ function calculateClicks(distributionAmounts, resultCPCs, platformClicks, result
         platformClicks.push(clickPrice.toFixed(0));
         platformCPC.push(resultMultipliedCPC.toFixed(2));
     }
-    // console.log("Die finalen Platform-CPCs sind:" +platformCPC);                                                                                                        // Delete late
-
-    // console.log("Clicks je Plattform: "+platformClicks);                                                                                                          // Delete late
-
 };
 
 /** Step 4: Creates a array with all platforms and results in it */
@@ -599,14 +589,14 @@ function createListOfResults(platformCPC, platformClicks, distributionAmounts, d
     }
     listOfResults.sort((a, b) => b.PlatformRating - a.PlatformRating);
 
-    console.log(listOfResults);
+    console.log(listOfResults);                                                                                                 // Delete later
 };
 
 /** Step 4: Created the step 4 HTML page using the array of results created in createListOfResults() */
 function resultsToHTML(listOfResults) {
+    
+    let resultProfession = parameters.profession;
 
-    let resultContent = document.getElementById("content_div");
-           
     let resultContentHTML = `
         <h3>Results</h3>
             <br>
@@ -633,8 +623,8 @@ function resultsToHTML(listOfResults) {
                 </li>
                 <br>
                 `;
-
         };
+
         resultContentHTML += `
             </ol>
             <br>
@@ -656,21 +646,6 @@ function resultsToHTML(listOfResults) {
             </div>
             `;
 
+    let resultContent = document.getElementById("content_div");
     resultContent.innerHTML = resultContentHTML;
-    
 };
-
-
-
-    // console.log(parameters.platforms["2"]);
-    // console.log("Job "+professions.professions[1].profession);                           // Profession name
-    // console.log("Demand multi "+professions.professions[1].demandMultiplier);            // Demand multiplier
-    // console.log("Senior "+professions.professions[1].seniorityMultiplier.senior);        // Seniority multiplier (senior)
-    // console.log("Midlevel "+professions.professions[1].seniorityMultiplier.midlevel);    // Seniority multiplier (midlevel)
-    // console.log("Junior "+professions.professions[1].seniorityMultiplier.junior);        // Seniority multiplier (junior)
-    // console.log("Student "+professions.professions[1].seniorityMultiplier.student);      // Seniority multiplier (student)
-    //  console.log("CPC "+platforms.platforms[i].platformAvgCPC);                          // Avg platform CPC
-    // console.log(parameters.profession);                                                  // Profession from parameters object
-    // console.log(parameters.seniority);                                                   // Senioritx from parameters object
-    // console.log(parameters.platforms);                                                   // Platforms array from parameters object
-    // console.log(parameters.budget);                                                      // Budget from parameters object
