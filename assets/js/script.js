@@ -74,83 +74,64 @@ startButton();
 
 // Step 1 HTML
 let newContentDivHTML1 = `
-<form id="form_1">
-    <div class="form_element">
-        <label for="profession_dropdown"><h2>Select profession you are trying to reach?</h2></label><br>                        
-        <select id="profession_dropdown" name="profession">
-        <option value="Profession">Profession</option>
-        </select>
-    </div>
+    <form id="form_1">
+        <div class="form_element">
+            <label for="profession_dropdown"><h2>Select profession you are trying to reach?</h2></label><br>                        
+            <select id="profession_dropdown" name="profession">
+            <option value="Profession">Profession</option>
+            </select>
+        </div>
 
-    <div class="form_element">
-        <h2>What level of seniority are you looking for?</h2><br>
-        <input type="radio" class="seniority_radio" id="senior_lvl" name="senior_lvl" value="Senior">
-        <label for="senior_lvl">Senior</label><br>
-        <input type="radio" class="seniority_radio" id="mid_lvl" name="mid_lvl" value="Midlevel">
-        <label for="mid_lvl">Midlevel</label><br>
-        <input type="radio" class="seniority_radio" id="junior_lvl" name="junior_lvl" value="Junior">
-        <label for="junior_lvl">Junior</label><br>
-        <input type="radio" class="seniority_radio" id="student_lvl" name="student_lvl" value="Student">
-        <label for="student_lvl">Student</label><br>
-    </div>
+        <div class="form_element">
+            <h2>What level of seniority are you looking for?</h2><br>
+            <input type="radio" class="seniority_radio" id="senior_lvl" name="senior_lvl" value="Senior">
+            <label for="senior_lvl">Senior</label><br>
+            <input type="radio" class="seniority_radio" id="mid_lvl" name="mid_lvl" value="Midlevel">
+            <label for="mid_lvl">Midlevel</label><br>
+            <input type="radio" class="seniority_radio" id="junior_lvl" name="junior_lvl" value="Junior">
+            <label for="junior_lvl">Junior</label><br>
+            <input type="radio" class="seniority_radio" id="student_lvl" name="student_lvl" value="Student">
+            <label for="student_lvl">Student</label><br>
+        </div>
 
-    <div class="nav_buttons">
-        <!-- Button to start page - No JS like the rest -->
-        <a href="index.html">
-            <button type="button" class="buttons" id="previous_btn_1">Previous</button>
-        </a>
-        <button type="button" class="buttons" id="next_btn_1">Next</button>
-    </div>
-</form>
-`;
+        <div class="nav_buttons">
+            <!-- Button to start page - No JS like the rest -->
+            <a href="index.html">
+                <button type="button" class="buttons" id="previous_btn_1">Previous</button>
+            </a>
+            <button type="button" class="buttons" id="next_btn_1">Next</button>
+        </div>
+    </form>
+    `;
 
 // Step 2 HTML
 let newContentDivHTML2 = `
-<h2>Choose the platforms to use</h2>
-                
-<div id="platform-imgs">
-</div>
-<div class="nav_buttons">
-    <button type="button" class="buttons" id="previous_btn_2">Previous</button>
-    <button type="button" class="buttons" id="next_btn_2">Next</button>
-</div>
-`;
+    <h2>Choose the platforms to use</h2>
+                    
+    <div id="platform-imgs">
+    </div>
+    <div class="nav_buttons">
+        <button type="button" class="buttons" id="previous_btn_2">Previous</button>
+        <button type="button" class="buttons" id="next_btn_2">Next</button>
+    </div>
+    `;
 
 // Step 3 HTML
 let newContentDivHTML3 = `
-<div id="budget-form">
-    <form>
-        <label for="budget"><h2>What is your budget?</h2></label>
-        <input type="number" id="budget" required value="2000"><span id="currency-symbol">€</span>
-    </form>
-    <p>Please make sure to enter a budget of at least 300€ and not more then 20.000€.</p>
-</div>
-<div class="nav_buttons">
-    <button type="button" class="buttons" id="previous_btn_3">Previous</button>
-    <button type="button" class="buttons" id="next_btn_3">Results</button>
-</div>
-`;
-
-// Step 4 HTML
-let newContentDivHTML4 = `
-<div class="content">
-    <h2>Results</h2>
-    <p>Platform name</p>
-    <p>Platform budget</p>
-    <p>Platform budget percentage</p>
-    <p>Platform CPC</p>
-    <p>Platform clicks</p>
-    <p>Platform rating "The Platform xyz is rated as 'good' to reach your targeted audience"</p>
-
-    <div class="nav_buttons">
-        <button type="button" class="buttons" id="previous_btn_4">Previous</button>
-        <!-- Button to start page - No JS like the rest --!>
-        <a href="index.html">
-            <button type="button" class="buttons" id="next_btn_4">Restart</button>
-        </a>
+    <div id="budget-form">
+        <form>
+            <label for="budget"><h2>What is your budget?</h2></label>
+            <input type="number" id="budget" required<span id="currency-symbol">€</span>
+        </form>
+        <p>Please make sure to enter a budget of at least 300€ and not more then 20.000€.</p>
     </div>
-</div>
-`;
+    <div class="nav_buttons">
+        <button type="button" class="buttons" id="previous_btn_3">Previous</button>
+        <button type="button" class="buttons" id="next_btn_3">Results</button>
+    </div>
+    `;
+
+// Step 4 HTML: Find in function resultToHTML()
 
 
 // Step 1 ------------------------------------
@@ -301,7 +282,7 @@ function htmlStep2(event) {
     btnStep2(stepNumber);
 };
 
-/** Step 2: Platform Logo List 
+/* Step 2: Platform Logo List 
  * Loads the platform logos from sources defined in the platform.json.
  * Each logo is added by a for loop.
  */
@@ -456,16 +437,16 @@ function htmlStep4(event) {
 
     logicStep4()
 
-    let contentDiv = document.getElementById("content_div");
-    contentDiv.innerHTML = newContentDivHTML4;
+    //    let contentDiv = document.getElementById("content_div");
+    //    contentDiv.innerHTML = newContentDivHTML4;
 
     processSteps(stepNumber);
     btnStep4(stepNumber);
 };
 
-// Gets platform name and associated CPC of selected platforms in parameter objects.  
-//  Fills two new arrays with those values.
-//  Each associated pair has the same index in each array.
+/* Gets platform name and associated CPC of selected platforms in parameter objects.  
+Fills two new arrays with those values.
+Each associated pair has the same index in each array. */
 
 /** Step 4: Search for name of selected platform and push it to seperate array */
 function getPlatformName(resultPlatforms) {
@@ -531,6 +512,9 @@ function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipl
 
     createListOfResults(platformCPC, platformClicks, distributionAmounts, distributionPercentage, resultPlatforms, resultRatings, listOfResults);
 
+    resultsToHTML(listOfResults)
+
+
 
     // console.log("The names of all selected platforms are: "+resultPlatforms);                                                                                                // Delete later
     // console.log("The total budget is: "+resultBudget);                                                                                                // Delete later
@@ -547,8 +531,6 @@ function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipl
 
     
 };
-
-
 
 /** Step 4: Calculates what percentage of the budget is allocated to each selected platform. */
 function calculatePercentageDistribution(distributionPercentage, resultRatings) {
@@ -602,7 +584,7 @@ function calculateClicks(distributionAmounts, resultCPCs, platformClicks, result
 
 };
 
-/** aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+/** Step 4: Creates a array with all platforms and results in it */
 function createListOfResults(platformCPC, platformClicks, distributionAmounts, distributionPercentage, resultPlatforms, resultRatings, listOfResults) {
 
     for (let i in resultPlatforms) {
@@ -620,7 +602,63 @@ function createListOfResults(platformCPC, platformClicks, distributionAmounts, d
     console.log(listOfResults);
 };
 
+/** Step 4: Created the step 4 HTML page using the array of results created in createListOfResults() */
+function resultsToHTML(listOfResults) {
 
+    let resultContent = document.getElementById("content_div");
+           
+    let resultContentHTML = `
+        <h3>Results</h3>
+            <br>
+            <div class="overall-budget">
+               <h4>Your overall Budget is <b>${parameters.budget}€</h4></b><br>
+            <div>
+                <p>We recommend the following distribution of the Budget:</p>            
+            </div>
+            <br>
+        <ol>
+        `;
+
+        for (let i in listOfResults) {
+            let resultElement = listOfResults[i];
+
+            resultContentHTML += `
+                <li>
+                    <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
+                    <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount}€</b></p></div>
+                    <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${resultElement.BudgetPercentage}%</b></p></div>
+                    <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
+                    <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                    <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
+                </li>
+                <br>
+                `;
+
+        };
+        resultContentHTML += `
+            </ol>
+            <br>
+            <div class="additional-recommentation">
+                <p>In consideration of the target audience, your budget and your selected platforms, we would recommend to furthermore use the following platforms:</p>
+            <div>
+            <br>
+            <ul>
+                <li>LinkedIn</li>
+                <li>Stack Overflow</li>
+            </ul>
+            <br>
+            <div class="nav_buttons">
+                <button type="button" class="buttons" id="previous_btn_4">Previous</button>
+                <!-- Button to start page - No JS like the rest --!>
+            <a href="index.html">
+                <button type="button" class="buttons" id="next_btn_4">Restart</button>
+            </a>
+            </div>
+            `;
+
+    resultContent.innerHTML = resultContentHTML;
+    
+};
 
 
 
