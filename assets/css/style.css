@@ -173,16 +173,44 @@ main {
 
 
 /* Results at step 4 */
+
+li {
+    list-style-type: none;
+}
+
 .bad-platform {
-    color: red;
+    background-color: rgba(255, 0, 0, 0.354);
+    padding: 20px 20px 20px 20px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 1cap;
 }
 
 .semibad-platform {
-    color: red;
+    background-color: rgba(210, 105, 30, 0.454);
+    padding: 20px 20px 20px 20px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 1cap;
 }
 
 .mediocre-platform {
-    color: chocolate;
+    background-color: rgba(210, 189, 30, 0.454);
+    padding: 20px 20px 20px 20px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 1cap;
+}
+
+.good-platform {
+    background-color: rgba(152, 160, 13, 0.454);
+    padding: 20px 20px 20px 20px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 1cap;
+}
+
+.top-platform {
+    background-color: rgba(58, 175, 22, 0.454);
+    padding: 20px 20px 20px 20px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 1cap;
 }
 
 /* Buttons for step navigation */
