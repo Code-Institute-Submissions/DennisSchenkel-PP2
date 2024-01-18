@@ -177,6 +177,13 @@ main {
     color: red;
 }
 
+.semibad-platform {
+    color: red;
+}
+
+.mediocre-platform {
+    color: chocolate;
+}
 
 /* Buttons for step navigation */
 .nav_buttons {
