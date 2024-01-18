@@ -135,7 +135,13 @@ let newContentDivHTML3 = `
 let newContentDivHTML4 = `
 <div class="content">
     <h2>Results</h2>
-    <p>Step 4</p>
+    <p>Platform name</p>
+    <p>Platform budget</p>
+    <p>Platform budget percentage</p>
+    <p>Platform CPC</p>
+    <p>Platform clicks</p>
+    <p>Platform rating "The Platform xyz is rated as 'good' to reach your targeted audience"</p>
+
     <div class="nav_buttons">
         <button type="button" class="buttons" id="previous_btn_4">Previous</button>
         <!-- Button to start page - No JS like the rest --!>
@@ -421,15 +427,15 @@ function logicStep4() {
 
 
 
-    calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers);
+    calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers, resultPlatforms);
 
 
 
 
-    console.log(resultPlatforms);
-    console.log(resultCPCs);
-    console.log(resultRatings);
-    console.log("Multipliers are: "+parameters.multipliers);
+    // console.log(resultPlatforms);                                                                                                // Delete later 
+    // console.log(resultCPCs);                                                                                                // Delete later 
+    // console.log(resultRatings);                                                                                                // Delete later 
+    // console.log("Multipliers are: "+parameters.multipliers);                                                                                                // Delete later 
 
 
 };
@@ -502,8 +508,8 @@ function  getPlatformRating(resultRatings) {
     }
 };
 
-/** Step 4:        */
-function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers) {
+/** Step 4:    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa    */
+function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipliers, resultPlatforms) {
 
     // Array with the percentage of the budget allocated to each platform
     let distributionPercentage = [];
@@ -513,25 +519,29 @@ function calculateResults(resultRatings, resultBudget, resultCPCs, resultMultipl
     let platformCPC = [];
     // Array with the total amount of clicks for each platform
     let platformClicks = [];
+
+    // Array with objects for each platform with assosiated values
+    let listOfResults = [];
+
  
     calculatePercentageDistribution(distributionPercentage, resultRatings);
     calculateAmountDistribution(distributionPercentage,resultBudget, distributionAmounts);
     calculateClicks(distributionAmounts, resultCPCs, platformClicks, resultMultipliers, platformCPC);
 
 
+    createListOfResults(platformCPC, platformClicks, distributionAmounts, distributionPercentage, resultPlatforms, resultRatings, listOfResults);
 
 
+    // console.log("The names of all selected platforms are: "+resultPlatforms);                                                                                                // Delete later
+    // console.log("The total budget is: "+resultBudget);                                                                                                // Delete later
+    // console.log("The budget for each platform is: "+distributionAmounts);                                                                                                // Delete later
+    // console.log("The CPC for each platform is: "+platformCPC);                                                                                                // Delete later
+    // console.log("The the total amount of clicks for each platform is: "+platformClicks);                                                                                                // Delete later
 
 
-    console.log("The total budget is: "+resultBudget);                                                                                                // Delete later
-    console.log("The budget for each platform is: "+distributionAmounts);                                                                                                // Delete later
-    console.log("The CPC for each platform is: "+platformCPC);                                                                                                // Delete later
-    console.log("The the total amount of clicks for each platform is: "+platformClicks);                                                                                                // Delete later
-
-
-    console.log("das budget ist: "+resultBudget);                                                                                                // Delete later
-    console.log("Beträge: "+distributionAmounts);                                                                                                 // Delete later  
-    //
+    // console.log("das budget ist: "+resultBudget);                                                                                                // Delete later
+    // console.log("Beträge: "+distributionAmounts);                                                                                                 // Delete later  
+    
 
 
 
@@ -552,14 +562,14 @@ function calculatePercentageDistribution(distributionPercentage, resultRatings) 
         totalRatingPoints = totalRatingPoints + resultRatings[i];
     };
 
-    console.log("Total rating points are: "+totalRatingPoints);                                                                                                // Delete later
+    // console.log("Total rating points are: "+totalRatingPoints);                                                                                                // Delete later
 
     // Based on total rating points and rating points of each platform this calculate and pushs percentage of budget for each selected platform into array
     for (let i in resultRatings) {
         platformPercentage = resultRatings[i] / totalRatingPoints;
         distributionPercentage.push(parseFloat(platformPercentage.toFixed(2)));
     };
-    console.log("prozente: "+distributionPercentage);                                                                                                           // Delete late     
+    // console.log("prozente: "+distributionPercentage);                                                                                                           // Delete late     
    
 };
 
@@ -569,7 +579,7 @@ function calculateAmountDistribution(distributionPercentage, resultBudget, distr
     for (let i in distributionPercentage) {
         budgetOfPlatform = resultBudget * distributionPercentage[i];
 
-        console.log("Budget je Plattform: "+budgetOfPlatform);   
+        // console.log("Budget je Plattform: "+budgetOfPlatform);                                                                                                             // Delete late  
         
         distributionAmounts.push(Number(budgetOfPlatform));
     }
@@ -578,19 +588,38 @@ function calculateAmountDistribution(distributionPercentage, resultBudget, distr
 /** Step 4: Calculates the amount of clicks based on the budget of each platform and the calculated CPC for each platform */
 function calculateClicks(distributionAmounts, resultCPCs, platformClicks, resultMultipliers, platformCPC) {
     let clickPrice = 0;
-    console.log("Die CPCs sind:" +resultMultipliers);                                                                                                        // Delete late
+    // console.log("Die CPCs sind:" +resultMultipliers);                                                                                                           // Delete late                                                                                                         // Delete late
 
     for (let i in distributionAmounts) {
         let resultMultipliedCPC = (resultCPCs[i] * resultMultipliers);
         clickPrice = distributionAmounts[i] / resultMultipliedCPC;
         platformClicks.push(clickPrice.toFixed(0));
-        platformCPC.push(resultMultipliedCPC);
+        platformCPC.push(resultMultipliedCPC.toFixed(2));
     }
-    console.log("Die finalen Platform-CPCs sind:" +platformCPC);                                                                                                        // Delete late
+    // console.log("Die finalen Platform-CPCs sind:" +platformCPC);                                                                                                        // Delete late
 
-    console.log("Clicks je Plattform: "+platformClicks);                                                                                                          // Delete late
+    // console.log("Clicks je Plattform: "+platformClicks);                                                                                                          // Delete late
 
 };
+
+/** aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+function createListOfResults(platformCPC, platformClicks, distributionAmounts, distributionPercentage, resultPlatforms, resultRatings, listOfResults) {
+
+    for (let i in resultPlatforms) {
+        let objectInListOfObjects = {};
+        objectInListOfObjects.PlatformName = resultPlatforms[i];
+        objectInListOfObjects.PlatformRating = resultRatings[i];
+        objectInListOfObjects.BudgetAmount = distributionAmounts[i];
+        objectInListOfObjects.BudgetPercentage = distributionPercentage[i];
+        objectInListOfObjects.PlatformCPC = platformCPC[i];
+        objectInListOfObjects.PlatformClicks = platformClicks[i];
+        listOfResults.push(objectInListOfObjects);
+    }
+    listOfResults.sort((a, b) => b.PlatformRating - a.PlatformRating);
+
+    console.log(listOfResults);
+};
+
 
 
 
