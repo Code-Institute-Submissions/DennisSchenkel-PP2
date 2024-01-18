@@ -172,6 +172,12 @@ main {
 }
 
 
+/* Results at step 4 */
+.bad-platform {
+    color: red;
+}
+
+
 /* Buttons for step navigation */
 .nav_buttons {
     display: flex;

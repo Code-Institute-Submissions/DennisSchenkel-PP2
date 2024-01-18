@@ -598,27 +598,48 @@ function createListOfResults(platformCPC, platformClicks, distributionAmounts, d
 /** Step 4: Created the step 4 HTML page using the array of results created in createListOfResults() */
 function resultsToHTML(listOfResults) {
     
-    let resultProfession = parameters.profession;
-
+    // Define intro text to the result page
     let resultContentHTML = `
         <h3>Results</h3>
             <br>
-            <div class="overall-budget">
-               <h4>Your overall Budget is <b>${parameters.budget}€</h4></b><br>
+            <div class="searched-talent">
+               <p>You are looking for talents that are <b>${parameters.profession}</b></p><br>
             <div>
-                <p>We recommend the following distribution of the Budget:</p>            
+            <div class="overall-budget">
+               <p>Your overall Budget is <b>${parameters.budget}€</b></p><br>
+            <div>
+                <p>Considering these information we recommend the following distribution of your budget:</p>            
             </div>
             <br>
         <ol>
         `;
 
+        // Add the results for each platform on the page
         for (let i in listOfResults) {
             let resultElement = listOfResults[i];
 
-            resultContentHTML += `
+            if (resultElement.PlatformRating === 0) {
+                resultContentHTML += `  
+                <div class="bad-platform">
+                    <p><b>Don't use this platform for reaching your target audience. It will not be of good use.</b></p> 
+                </div>
                 <li>
                     <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
-                    <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount}€</b></p></div>
+                    <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
+                    <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${resultElement.BudgetPercentage}%</b></p></div>
+                    <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
+                    <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                    <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
+                </li>
+                <br>
+                    `;
+
+            } else if (parseInt(i) == 0) {
+                resultContentHTML += 
+                `<p><b>TOP PLATFORM</p><b>
+                <li>
+                    <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
+                    <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
                     <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${resultElement.BudgetPercentage}%</b></p></div>
                     <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
                     <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
@@ -626,8 +647,48 @@ function resultsToHTML(listOfResults) {
                 </li>
                 <br>
                 `;
+            } else if (parseInt(i) == 1) {
+                resultContentHTML += `
+                <p><b>Second best Platform</p><b>    
+                <li>
+                    <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
+                    <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
+                    <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${resultElement.BudgetPercentage}%</b></p></div>
+                    <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
+                    <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                    <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
+                </li>
+                <br>
+                    `;
+            } else if (parseInt(i) == 2) {
+                resultContentHTML += `
+                <p><b>Third best Platform</p><b>    
+                <li>
+                    <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
+                    <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
+                    <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${resultElement.BudgetPercentage}%</b></p></div>
+                    <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
+                    <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                    <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
+                </li>
+                <br>
+                    `;
+            }   else {
+                resultContentHTML += `  
+                <li>
+                    <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
+                    <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
+                    <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${resultElement.BudgetPercentage}%</b></p></div>
+                    <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
+                    <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                    <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
+                </li>
+                <br>
+                    `;
+            }
         };
 
+       // if (no platform is selected, recommend one with rating 5) {} dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         resultContentHTML += `
             </ol>
             <br>
@@ -640,14 +701,18 @@ function resultsToHTML(listOfResults) {
                 <li>Stack Overflow</li>
             </ul>
             <br>
-            <div class="nav_buttons">
-                <button type="button" class="buttons" id="previous_btn_4">Previous</button>
-                <!-- Button to start page - No JS like the rest --!>
-            <a href="index.html">
-                <button type="button" class="buttons" id="next_btn_4">Restart</button>
-            </a>
-            </div>
             `;
+        
+        // Add buttons to the end of the page
+        resultContentHTML += `
+        <div class="nav_buttons">
+            <button type="button" class="buttons" id="previous_btn_4">Previous</button>
+            <!-- Button to start page - No JS like the rest --!>
+        <a href="index.html">
+            <button type="button" class="buttons" id="next_btn_4">Restart</button>
+        </a>
+        </div>
+        `;
 
     let resultContent = document.getElementById("content_div");
     resultContent.innerHTML = resultContentHTML;
