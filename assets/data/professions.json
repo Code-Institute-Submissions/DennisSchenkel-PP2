@@ -18,12 +18,12 @@
             "reddit": 4,
             "spotify": 1
             },
-        "demandMultiplier": 1.75,
+        "demandMultiplier": 1.55,
         "seniorityMultiplier": {
-            "senior": 2.5,
-            "midlevel": 1.75,
-            "junior": 1.5,
-            "student": 1.25
+            "senior": 1.9,
+            "midlevel": 1.5,
+            "junior": 1.25,
+            "student": 1.1
             }
         },
         {
@@ -44,12 +44,12 @@
             "reddit": 4,
             "spotify": 1
             },
-        "demandMultiplier": 1.75,
+        "demandMultiplier": 1.45,
         "seniorityMultiplier": {
-            "senior": 2.5,
-            "midlevel": 1.75,
-            "junior": 1.5,
-            "student": 1.25
+            "senior": 1.8,
+            "midlevel": 1.4,
+            "junior": 1.15,
+            "student": 1.1
             }
         },
         {
@@ -70,12 +70,12 @@
             "reddit": 4,
             "spotify": 2
             },
-        "demandMultiplier": 1.5,
+        "demandMultiplier": 1.2,
         "seniorityMultiplier": {
-            "senior": 1.9,
-            "midlevel": 1.7,
-            "junior": 1.3,
-            "student": 1.15
+            "senior": 1.5,
+            "midlevel": 1.2,
+            "junior": 1.1,
+            "student": 1
             }
         },
         {
@@ -96,11 +96,11 @@
             "reddit": 1,
             "spotify": 2
             },
-        "demandMultiplier": 1.25,
+        "demandMultiplier": 1,
         "seniorityMultiplier": {
-            "senior": 1.75,
-            "midlevel": 1.4,
-            "junior": 1.2,
+            "senior": 1.4,
+            "midlevel": 1.25,
+            "junior": 1.1,
             "student": 1
             }
         },
@@ -122,10 +122,10 @@
             "reddit": 0,
             "spotify": 1
             },
-        "demandMultiplier": 1.15,
+        "demandMultiplier": 1.1,
         "seniorityMultiplier": {
-            "senior": 2.25,
-            "midlevel": 1.6,
+            "senior": 1.6,
+            "midlevel": 1.2,
             "junior": 1,
             "student": 1
             }
@@ -150,9 +150,9 @@
             },
         "demandMultiplier": 1,
         "seniorityMultiplier": {
-            "senior": 1.8,
-            "midlevel": 1.6,
-            "junior": 1.2,
+            "senior": 1.3,
+            "midlevel": 1.1,
+            "junior": 1,
             "student": 1
             }
         }

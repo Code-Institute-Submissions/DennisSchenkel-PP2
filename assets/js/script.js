@@ -591,8 +591,6 @@ function createListOfResults(platformCPC, platformClicks, distributionAmounts, d
         listOfResults.push(objectInListOfObjects);
     }
     listOfResults.sort((a, b) => b.PlatformRating - a.PlatformRating);
-
-    console.log(listOfResults);                                                                                                 // Delete later
 };
 
 /** Step 4: Created the step 4 HTML page using the array of results created in createListOfResults() */
@@ -620,8 +618,7 @@ function resultsToHTML(listOfResults) {
 
             if (resultElement.PlatformRating === 0) {
                 resultContentHTML += `  
-                <div class="bad-platform">
-                    <p><b>Don't use this platform for reaching your target audience. It will not be of good use.</b></p> 
+                <div class="result-element bad-platform">
                     <li>
                         <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
                         <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
@@ -631,12 +628,13 @@ function resultsToHTML(listOfResults) {
                         <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                     </li>
                     <br>
+                    <p><b>Don't use this platform for reaching your target audience.<br>It will not be of good use.</b></p>
+                    <br>
                 </div>
                     `;
             } else if (resultElement.PlatformRating === 1) {
                 resultContentHTML += `  
-                <div class="semibad-platform">
-                    <p><b>This is not a good platform for your purposes. But try it with a little budget</b></p> 
+                <div class="result-element semibad-platform">
                     <li>
                         <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
                         <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
@@ -646,12 +644,13 @@ function resultsToHTML(listOfResults) {
                         <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                     </li>
                     <br>
+                    <p><b>This is not a good platform for your purposes.<br>But try it with a little budget</b></p>
+                    <br>
                 </div>
                     `;
             } else if (resultElement.PlatformRating === 2) {
                 resultContentHTML += `  
-                <div class="mediocre-platform">
-                    <p><b>This platform is okay for your purposes. Use it with a small budget but don't expect it do blow up.</b></p> 
+                <div class="result-element mediocre-platform">
                     <li>
                         <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
                         <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
@@ -660,14 +659,16 @@ function resultsToHTML(listOfResults) {
                         <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
                         <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                     </li>
+                    <br>
+                    <p><b>This platform is okay for your purposes.<br>Use it with a small budget but don't expect it do blow up.</b></p>
                     <br>
                 </div>
 
                     `;        
             } else if (parseInt(i) == 0) {
                 resultContentHTML += 
-                `<div class="top-platform">
-                    <p><b>TOP PLATFORM</b></p>
+                `<div class="result-element top-platform">
+                    <h4>TOP PLATFORM</h4><br>
                     <li>
                         <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
                         <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
@@ -681,8 +682,8 @@ function resultsToHTML(listOfResults) {
                 `;
             } else if (parseInt(i) == 1) {
                 resultContentHTML += `
-                <div class="good-platform">
-                    <p><b>Second best Platform</b></p>    
+                <div class="result-element good-platform">
+                    <h4>Second best Platform</h4><br> 
                     <li>
                         <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
                         <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
@@ -696,8 +697,8 @@ function resultsToHTML(listOfResults) {
                     `;
             } else if (parseInt(i) == 2) {
                 resultContentHTML += `
-                <div class="good-platform">
-                    <p><b>Third best Platform</b></p>    
+                <div class="result-element good-platform">
+                    <h4>Third best Platform</h4><br>
                     <li>
                         <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
                         <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
@@ -712,20 +713,79 @@ function resultsToHTML(listOfResults) {
             };
         };
 
-       // if (no platform is selected, recommend one with rating 5) {} dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-        resultContentHTML += `
-            </ol>
-            <br>
-            <div class="additional-recommentation">
-                <p>In consideration of the target audience, your budget and your selected platforms, we would recommend to furthermore use the following platforms:</p>
-            <div>
-            <br>
-            <ul>
-                <li>LinkedIn</li>
-                <li>Stack Overflow</li>
-            </ul>
-            <br>
-            `;
+        // Check if one or more of the selected platforms has a rating of 5 
+        let giveRecommendarion = false;
+        for (let i in listOfResults) {
+            if (listOfResults[i].PlatformRating === 5) {
+                giveRecommendarion = true;
+            };
+        };
+
+        // If no platform with a rating of 5 has been selected, search for a recommendation.
+        if (giveRecommendarion == false) { 
+
+            // Find which platform, that has not been selected by the user, has a rating of 5 for the selected profession
+            let professionsJSON = professions.professions;
+            for (let i in professionsJSON) {
+                let platformRecommendation = []
+                if (professionsJSON[i].profession == parameters.profession) {
+                
+                    if (professionsJSON[i].rating.linkedin == 5) {
+                        platformRecommendation.push("LinkedIn");
+                    } else if (professionsJSON[i].rating.xing == 5) {
+                        platformRecommendation.push("Xing");
+                    } else if (professionsJSON[i].rating.facebook == 5) {
+                        platformRecommendation.push("Facebook");
+                    } else if (professionsJSON[i].rating.instagram == 5) {
+                        platformRecommendation.push("Instagram");
+                    } else if (professionsJSON[i].rating.twitter == 5) {
+                        platformRecommendation.push("Twitter");
+                    } else if (professionsJSON[i].rating.tiktok == 5) {
+                        platformRecommendation.push("TikTok");
+                    } else if (professionsJSON[i].rating.youtube == 5) {
+                        platformRecommendation.push("YouTube");
+                    } else if (professionsJSON[i].rating.twitch == 5) {
+                        platformRecommendation.push("Twitch");
+                    } else if (professionsJSON[i].rating["google search"] == 5) {
+                        platformRecommendation.push("Google Search");
+                    } else if (professionsJSON[i].rating["google display"] == 5) {
+                        platformRecommendation.push("Google Display");
+                    } else if (professionsJSON[i].rating["bing search"] == 5) {
+                        platformRecommendation.push("Bing Search");
+                    } else if (professionsJSON[i].rating["stack overflow"] == 5) {
+                        platformRecommendation.push("Stack Overflow");
+                    } else if (professionsJSON[i].rating.reddit == 5) {
+                        platformRecommendation.push("Reddit");
+                    } else if (professionsJSON[i].rating.spotify == 5) {
+                        platformRecommendation.push("Spotify");
+                    };
+
+                    // Creating the list with recommended platforms that have not been selected by the user before
+                    let recommendationList = "";
+                    for (let i in platformRecommendation) {
+                        recommendationList += `<li>${platformRecommendation[i]}</li>`;
+                    }
+                    
+                    // Add the final recommendarion to the HTML
+                    resultContentHTML += `
+                    </ol>
+                    <br>
+                        <div class="additional-recommentation">
+                            <h4>Final recommendation!</h4>
+                            <br>
+                            <p>In consideration of the target audience, your budget and your selected platforms, we recommend you to furthermore use the following platform(s):</p>
+                            <br>
+                            <ul>
+                                ${recommendationList}
+                            </ul>
+                        </div>
+                    <br>
+                    `;
+                };
+
+            };
+        }
+
         
         // Add buttons to the end of the page
         resultContentHTML += `

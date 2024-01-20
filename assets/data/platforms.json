@@ -2,7 +2,7 @@
     "platforms": [
         {
             "platform": "LinkedIn",
-            "platformAvgCPC": 6.43,
+            "platformAvgCPC": 4.43,
             "imgLogoURL": "/assets/images/linkedin-selected.png"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "platform": "Facebook",
-            "platformAvgCPC": 4.43,
+            "platformAvgCPC": 2.43,
             "imgLogoURL": "/assets/images/facebook-selected.png"
         },
         {
