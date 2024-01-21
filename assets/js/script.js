@@ -601,10 +601,10 @@ function resultsToHTML(listOfResults) {
         <h3>Results</h3>
             <br>
             <div class="searched-talent">
-               <p>You are looking for talents that are <b>${parameters.profession}</b></p><br>
+               <p>You are looking for: <b>${parameters.profession}</b></p><br>
             <div>
             <div class="overall-budget">
-               <p>Your overall Budget is <b>${parameters.budget}€</b></p><br>
+               <p>Your overall Budget: <b>${parameters.budget}€</b></p><br>
             <div>
                 <p>Considering these information we recommend the following distribution of your budget:</p>            
             </div>

@@ -68,6 +68,7 @@
         - Next step
         - Previous step
     - On the final result page the "Next step" button is called "Restart" and redirects to the index.html
+    - On the right side of the footer on every page is a link to the imprint.html
 
 - Step 1: Profession selection
     - The profession of the taget group can be selected by using a dropdown menu

@@ -16,6 +16,15 @@ body {
 h1, h2, h3 {
     line-height: 1.6;
     font-weight: 600;
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
     text-align: center;
 }
 
@@ -37,7 +46,7 @@ li {
     text-align: center;
 }
 .content {
-    width: 540px;
+    width: 350px;
 }
 
 
@@ -149,10 +158,11 @@ main {
     flex-direction: column;
     align-content: center;
     padding-bottom: 30px;
+    text-align: center;
 }
 
 .platform-logos {
-    height: 70px;
+    height: 60px;
     padding: 25px 25px 15px 25px; 
     opacity: 50%;
 }
@@ -162,7 +172,7 @@ main {
 }
 
 .platform-logos-selected {
-    height: 70px;
+    height: 60px;
     padding: 25px 25px 15px 25px;
     opacity: 100%;
 }
@@ -231,6 +241,7 @@ main {
 }
 
 .additional-recommentation {
+    background-color: white;
     border-radius: 1cap;
     border-color: red;
     border-style: solid;
@@ -270,18 +281,3 @@ footer {
     justify-content: center;
     border-top-left-radius: 1cap;
 }
-
-
-/* Medie query: tablet and larger (576px and down) */
-@media screen and (max-width: 576px) {
-    /* Change width of content area */
-    .content {
-        width: 350px;
-    }
-
-    /* Change size platform logos */
-    .platform-logos {
-        height: 60px;
-    }
-    
-} 
