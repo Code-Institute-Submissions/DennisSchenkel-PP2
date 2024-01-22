@@ -31,8 +31,10 @@ To keep it simple, the tool is designed with a width of 350px and does not use a
 
 ### Color Scheme
 
+The color scheme for the tool is simple and provide a sufficient contrast. More colors are used on the final result page.
 ![Color Scheme - Tool](documentation/images/eaa-colors.png)
 
+The colors used on the final result page 
 ![Color Scheme - Results](documentation/images/eaa-colors-results.png)
 
 

@@ -1,6 +1,3 @@
-/* Import Google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200;300;400;500;600;700&display=swap");
-
 /* Overwrite browser default */
 * {
     padding: 0;
@@ -130,15 +127,11 @@ main {
 }
 
 #profession_dropdown {
-    width: 100%;
+    width: 90%;
     height: 40px;
     border-radius: 1cap;
     padding: 0px 10px 0px 10px;
     margin: 0px 20px 0px 20px;
-    width: calc(100% - 40px);
-    width: -webkit-calc(100% - 40px);
-    width: -moz-calc(100% - 40px);
-    width: -o-calc(100% - 40px);
 }
 
 .seniority_radio {
