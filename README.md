@@ -1,3 +1,129 @@
+<h1 align="center">Embra Ads Assistant</h1>
+
+[Find the deployed project here](https://dennisschenkel.github.io/PP2/)
+
+The Embra Ads Assistant is a tool that helps companies HR department in their effort to reach talents to generate applications and fill open positions with them. The tool helps to find the right platform to place advertising and allocate budget to gain the best results.
+
+![Mockup](documentation/images/mockup.png)
+
+## Table of Contents
+
+## User Experience (UX)
+
+### User Stories
+
+- Find the right platforms to use
+
+- Allocate budgets
+
+- Find new platforms to use
+
+#### First time visitors should be able to
+
+#### Returning visitors should be able to
+
+## Design
+
+Since the focus of the tool is in its functionality, the design is very minimalistic and without images, videos or any special design elements.
+
+To keep it simple, the tool is designed with a width of 350px and does not use any media queries.
+
+
+### Color Scheme
+
+![Color Scheme - Tool](documentation/images/eaa-colors.png)
+
+![Color Scheme - Results](documentation/images/eaa-colors-results.png)
+
+
+### Typography
+
+For the Embra Ads Assistant primarily the font Lato.
+
+- Lato offers a clean and easy to read style and at the same time not to common.
+
+Weights used are:
+- H1, H2, H3: 600
+
+
+### Wireframes
+
+![Index.html wireframes](documentation/wireframes/wireframes.png)
+
+
+## Features
+
+### General features on each page
+
+### Accessibility
+
+## Technologies used
+
+For creating this website, the following technologies have been used.
+
+
+### Languages Used
+
+Languages used are the following:
+- HTML
+- CSS
+- JavaScript
+
+
+### Frameworks, Libraries & Programs Used
+
+- [Visual Studio Code](https://code.visualstudio.com/) - As IDE
+- [GitHub](https://github.com/) - As host for the repository and to deploy the website to make the preview visible to visitors
+- [Git](https://git-scm.com/) - Used as integrated feature in Visual Studio Code for version control in combination with GitHub
+- [Google Fonts](https://fonts.google.com/) - To import the 'Lato' font
+- [Font Awesome](https://fontawesome.com/) - Icons for the platform selection and results. FontAwesome was not integrated by using JavaScript but by downloading in icon files and uploading them to the images directory.
+
+- [Balsamiq](https://balsamiq.com/) - For wireframes
+- [Adobe](https://www.adobe.com/de/products/illustrator.html) Illustrator - For editing the FontAwesome icons.
+- [ui.dev](https://ui.dev/amiresponsive) - For generating the Mockup
+- [coolors] (https://coolors.co/) - For generating the color sheme vizualisation
+- [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) - For performance and accessibility testing
+
+
+## Deployment
+
+This page is deployed on GitHub pages.
+The process of deploying the website are as followed:
+- When logged in to GitHub, the 'Settings' navigation item is to find in the top navigation bar. This has to selected.
+- On the then opening page is a navigation bar on the left side. Here choose 'Pages'.
+- In the now opening settings page the  following settings habe to be made.
+- In the dropdown menu choose 'Deploy from branch'.
+- In the first dropdown below chooss 'main'.
+- In the secon dropdown choose '/root'.
+- After saving these settings the page is deployed.
+- GitHub needs a few seconds and after refreshing the page a button to the deployed page is displayed in the top with 'Visit site' on it.
+
+[Find the deployed project here](https://dennisschenkel.github.io/PP2/)
+
+## Testing
+
+### Validator Testing
+
+### Lighthouse Testing
+
+### Known & unfixed bugs
+
+## Credits
+
+### Content
+
+- All content was written and created by Dennis Schenkel.
+
+###  Media
+
+###  Acknowledgments
+
+- Thanks to Gareth McGirr for providing great mentorship as part of the Code Academy course.
+- Thanks to Kay and the community for awesome weekly calls and exchange.
+
+
+
+
 
 ## Platforms
 
