@@ -145,7 +145,7 @@ Languages used are the following:
 - [Balsamiq](https://balsamiq.com/) - For wireframes
 - [Adobe](https://www.adobe.com/de/products/illustrator.html) Illustrator - For editing the FontAwesome icons.
 - [ui.dev](https://ui.dev/amiresponsive) - For generating the Mockup
-- [coolors] (https://coolors.co/) - For generating the color sheme vizualisation
+- [coolors](https://coolors.co/) - For generating the color sheme vizualisation
 - [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) - For performance and accessibility testing
 
 
@@ -171,10 +171,10 @@ The process of deploying the website are as followed:
 HTML:
 
 W3C HTML validation for the index.html site:
-![Index.html W3C Validator](documentation/images/index-html-valitation.png)
+![Index.html W3C Validator](documentation/images/index-html-validation.png)
 
 W3C HTML validation for the imprint.html site:
-![Imprint.html W3C Validator](documentation/images/imprint-html-valitation.png)
+![Imprint.html W3C Validator](documentation/images/imprint-html-validation.png)
 
 - No errors could be found by the W3C validator.
 
@@ -187,6 +187,7 @@ Jigsaw CSS validation for the styles.css
 
 JavaScrips:
 JSHint validation for the script.hs
+
 ![Style.css Jigsaw Validator](documentation/images/js-validation.png)
 
 - After a first validation multiple missing were added and unnecessary semicolons have been deleted.
