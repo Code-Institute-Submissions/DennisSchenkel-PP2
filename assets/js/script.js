@@ -838,6 +838,8 @@ function resultsToHTML(listOfResults) {
         
         // Add buttons to the end of the page
         resultContentHTML += `
+        <p>The final budget amount and percentage can vary due to rounding mistakes.</p>
+        <br>
         <div class="nav_buttons">
             <button type="button" class="buttons" id="previous_btn_4" aria-label="Go back to step 3">Previous</button>
             <!-- Button to start page - No JS like the rest --!>
