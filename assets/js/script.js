@@ -678,11 +678,6 @@ function resultsToHTML(listOfResults) {
                     resultContentHTML += `  
                     <div class="result-element bad-platform">
                             <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
-                            <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
-                            <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${resultElement.BudgetPercentage * 100}%</b></p></div>
-                            <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
-                            <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
-                            <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                         <br>
                         <p><b>Don't use this platform for reaching your target audience.<br>It will not be of good use.</b></p>
                         <br>
