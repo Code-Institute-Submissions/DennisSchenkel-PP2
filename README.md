@@ -72,6 +72,7 @@ Wireframes for each step of the process the programm leads through.
     - The steps in the header change depending on the active step
     - Steps also change when going back to a previous step
 
+
 - **Navigation**
     - On the front page is only one button to start the process.
     - On all steps within the process the user has two buttons to use.
@@ -80,10 +81,12 @@ Wireframes for each step of the process the programm leads through.
     - On the final result page the "Next step" button is called "Restart" and redirects to the index.html
     - On the right side of the footer on every page is a link to the imprint.html
 
+
 - **Step 1: Profession selection**
     - The profession of the taget group can be selected by using a dropdown menu
     - The level of seniority has to be choosen by using one of four radio buttons
         - If no seniority level was selected, an alert is triggerd and proceesing is not possible until one was selected
+
 
 - **Step 2: Platform selection**
     - Logos change color when hovering over them
@@ -93,9 +96,11 @@ Wireframes for each step of the process the programm leads through.
     - Logos can be deselected and change back their color.
     - At least one platform has to be selected. Otherwise an alert is triggered and proceeding is not possible until one or more platforms have been selected
 
+
 - **Step 3: Budget selection**
     - Budget has to be within a reasonable range of a min. of 300€ and a max. of 20.000€
     - If the choosen budget is not withing that range, an alert is triggerd when trying to go to the next step
+
 
 - **Step 4: Results**
     - Results are ordered by the most fitting platform at the top and going down in quality of the match.
@@ -109,6 +114,7 @@ Wireframes for each step of the process the programm leads through.
         - Don't use platforms
     - If non of the top platforms for the choosen profession has been selected by the user, on the button of the page will appear a recommendation for what additional top platform to use beside the already selected ones.
 
+
 - **Imprint page**
     - Only as placeholder for later
 
@@ -121,14 +127,17 @@ Wireframes for each step of the process the programm leads through.
 - Every profession has a demand multiplier assigned that indicated the demand for talent of this profession in the market.
 - The sum of demand and seniority multiplier is later multiplied with the average platform Cost per Click (CPC) to demonstate rising costs with higher seniority and more demanded talent.
 
+
 **Platform rating and budget allocation**
 - Every profession has a rating for every platform (0 to 5). This indicates how good the platform can be used to reach talent of this profession (5 is the best).
 - The platform rating is later used to calculate the percentage of budget that is allocated to the platform.
 - To calculate the percentage of the budget for each platform, the total amount of rating points of all platforms are summed up and the percentage of each selected platform of this total is the percentage of the budget allocation.
 
+
 **Cost per Click and amount of clicks**
 - With the average CPC (Cost per Click) of each platform and the multiplierst, each platform gets a unique calculated CPC for the selected profession at a selected seniority level.
 - The allocated budget is then devided by the CPC of the platform and the amount of clicks is calculated and rounded to a full number.
+
 
 **Platform recommendation**
 - Platforms are recommended by the rating for the selected profession.
@@ -203,9 +212,11 @@ The process of deploying the website are as followed:
 #### HTML:
 
 W3C HTML validation for the index.html site:
-![Index.html W3C Validator](documentation/images/index-html-validation)
+
+![Index.html W3C Validator](documentation/images/Index-html-validation)
 
 W3C HTML validation for the imprint.html site:
+
 ![Imprint.html W3C Validator](documentation/images/imprint-html-validation.png)
 
 - No errors could be found by the W3C validator.
@@ -214,6 +225,7 @@ W3C HTML validation for the imprint.html site:
 ##### CSS:
 
 Jigsaw CSS validation for the styles.css
+
 ![Style.css Jigsaw Validator](documentation/images/css-validation.png)
 
 - No errors could be found by the Jigsaw validator.
@@ -238,23 +250,29 @@ JSHint validation for the script.hs
 ### Lighthouse Testing
 
 Lighthouse test results for the index.html
+
 ![Lighthouse test for index.html](documentation/images/lighthouse-index.png)
 
 Since Lighthouse only test the frontpage with the standard test, I did snapshot test for all the other steps.
 
 Snapshot test for the start page
+
 ![Lighthouse snapshot test for start](documentation/images/lighthouse-snapshot-start.png)
 
 Snapshot test for step 1
+
 ![Lighthouse snapshot test for step 1](documentation/images/lighthouse-snapshot-step1.png)
 
 Snapshot test for step 2
+
 ![Lighthouse snapshot test for step 2](documentation/images/lighthouse-snapshot-step1.png)
 
 Snapshot test for step 3
+
 ![Lighthouse snapshot test for step 3](documentation/images/lighthouse-snapshot-step1.png)
 
 Snapshot test for step 4
+
 ![Lighthouse snapshot test for step 4](documentation/images/lighthouse-snapshot-step1.png)
 
 
@@ -316,6 +334,7 @@ For this project the following professions where added as data with the integrat
 - Sales Manager
 - HR Manager
 
+
 #### Seniority Levels
 
 For each profession the following four seniority levels are available.
@@ -324,6 +343,7 @@ For each profession the following four seniority levels are available.
 - Midlevel
 - Junior
 - Student
+
 
 #### Profession Data
 
@@ -340,6 +360,7 @@ For each profession the following four seniority levels are available.
 
 - Name
 - Average Cost Per Click (CPC)
+
 
 ### Platforms Added
 
@@ -359,8 +380,6 @@ For each profession the following four seniority levels are available.
 - Spotify
 
 
-
-
 ### Platform Rating
 
 - Perfect (Value 5)
@@ -377,6 +396,8 @@ For each profession the following four seniority levels are available.
 - Check for Aria labeling
 - Delete empty lines
 - Beautify results
+- Tabel of content
+- Manual testing
 - How is the JS file structured, Navi, Buttons, HTML Content, Steps, 
 
 

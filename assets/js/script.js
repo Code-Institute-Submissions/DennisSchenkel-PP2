@@ -489,7 +489,6 @@ function htmlStep4() {
     // Triggering logic of step 4 to calculate and display results
     logicStep4();
 
-
     // Loading event listener for bottons on page 
     btnStep4(stepNumber);
 }
@@ -830,7 +829,6 @@ function resultsToHTML(listOfResults) {
             }
         }
 
-        
         // Add buttons to the end of the page
         resultContentHTML += `
         <p>The final budget amount and percentage can vary due to rounding mistakes.</p>
