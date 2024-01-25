@@ -8,6 +8,9 @@ The Embra Ads Assistant is a tool that helps companies HR department in their ef
 
 ## Table of Contents
 
+
+
+
 ## User Experience (UX)
 
                     ### User Stories
@@ -52,7 +55,7 @@ Weights used are:
 ### Wireframes
 
 ![Index.html wireframes](documentation/wireframes/wireframes.png)
-
+Wireframes for each step of the process the programm leads through.
 
 ## Features
 
@@ -87,25 +90,34 @@ Weights used are:
     - Budget has to be within a reasonable range of a min. of 300€ and a max. of 20.000€
     - If the choosen budget is not withing that range, an alert is triggerd when trying to go to the next step
 
-                        - Step 4: Results
-                            - 
+- Step 4: Results
+    - Results are ordered by the most fitting platform at the top and going down in quality of the match.
+    - Each platform has an allocated absolute budget and a percentage of the absolute budget.
+    - Each platform result shows the calculated clicks that are to expect for the budget.
+    - Platforms are devided into 5 ranks, depending on the quality of the match. The ranks are:
+        - Top platform
+        - Second best platform
+        - Okay platforms
+        - Not good platforms
+        - Don't use platforms
+    - If non of the top platforms for the choosen profession has been selected by the user, on the button of the page will appear a recommendation for what additional top platform to use beside the already selected ones.
 
 - Imprint page 
     - Only as placeholder for later
 
 
-### Logic features
+                            ### Logic features
 
-- 6 professions can be selected and more can be added by editing the json file
-- 4 levels of seniority can be selected
+                            - 6 professions can be selected and more can be added by editing the json file
+                            - 4 levels of seniority can be selected
 
 
-### Technical features
+                            ### Technical features
 
-- Implementation of JSON files as datasource for easy update
-- List of platforms is dynamicaly created using information from the JSON file
+                            - Implementation of JSON files as datasource for easy update
+                            - List of platforms is dynamicaly created using information from the JSON file
 
-- Logos of platforms are implemented as images and not with FontAwesome for data privacy reasons.
+                            - Logos of platforms are implemented as images and not with FontAwesome for data privacy reasons.
 
 
 ### Accessibility
@@ -168,7 +180,7 @@ The process of deploying the website are as followed:
 
 ### Validator Testing
 
-HTML:
+#### HTML:
 
 W3C HTML validation for the index.html site:
 ![Index.html W3C Validator](documentation/images/index-html-validation.png)
@@ -178,14 +190,16 @@ W3C HTML validation for the imprint.html site:
 
 - No errors could be found by the W3C validator.
 
-CSS:
+##### CSS:
+
 Jigsaw CSS validation for the styles.css
 ![Style.css Jigsaw Validator](documentation/images/css-validation.png)
 
 - No errors could be found by the Jigsaw validator.
 
 
-JavaScrips:
+#### JavaScrips:
+
 JSHint validation for the script.hs
 
 ![Style.css Jigsaw Validator](documentation/images/js-validation.png)
@@ -202,8 +216,9 @@ JSHint validation for the script.hs
 
                                     ### Lighthouse Testing
 
-                                    ### Known & unfixed bugs
+### Known & unfixed bugs
 
+- No errors have been found, that would qualify as bugs.
 
 
 ## Credits
@@ -302,3 +317,4 @@ JSHint validation for the script.hs
     - In a next version I would implement a feature, that the former selected values are still selected, even when going back and forth between steps
 - I worked with arrays and the indexing in each array has to be consistently the same to the selected platform. That can potentially lead to problems.
     - In a new version of the application I would try working with more objects instead of so many arrays.
+- From my understanding of the concept of memory leaks, the way I use eventListeners on buttons to go back and forth between steps, could lead to a browser crash, when the memory heap gets full. This would only happen after many thounsand times of going back in forth, but should be fixed in a new version.

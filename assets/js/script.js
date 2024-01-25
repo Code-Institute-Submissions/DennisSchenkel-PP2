@@ -733,7 +733,7 @@ function resultsToHTML(listOfResults) {
                 } else if (parseInt(i) == 1) {
                     resultContentHTML += `
                     <div class="result-element good-platform">
-                        <h3>Second best Platform</h3><br> 
+                        <h3>Second best platform</h3><br> 
                             <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
                             <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
                             <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
