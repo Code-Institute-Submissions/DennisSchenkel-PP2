@@ -96,6 +96,9 @@ header {
     width: 60px;
     background-color:lightslategrey;
     border-radius: 100%;
+    border-style: solid;
+    border-width: 4px;
+    border-color: lightslategray;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,6 +110,10 @@ header {
     margin: 10px 0px 0px 0px;
     display: flex;
     justify-content: center;
+}
+
+#step_name p {
+    text-align: center;
 }
 
 
@@ -141,7 +148,7 @@ main {
 
 /* Platform logos at step 2 */
 #platform-imgs {
-    display: grid; 
+    display: grid;
     grid-template-rows: auto; 
     grid-template-columns: 25% 25% 25% 25%; 
 }
@@ -267,4 +274,59 @@ footer {
     display: flex;
     justify-content: center;
     border-top-left-radius: 1cap;
+}
+
+
+/* Medie query: displays smaller then 350px down to 280px */
+@media screen and (max-width: 280px) {
+    
+    /* Steps in header */
+    .steps_group {
+        padding: 20px 0px 20px 0px;
+        gap: 5px;
+    }
+    
+    .step {
+        height: 40px;
+        width: 40px;
+    }
+
+    .step_active {
+        height: 40px;
+        width: 40px;
+    }
+
+    .step_done {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Content area in header and main */
+    .content {
+        width: 260px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    /* Profession selection */
+    #profession_dropdown {
+        margin: 0px 0px 0px 15px;
+    }
+
+    /* Platform selection */
+    #platform-imgs {
+        grid-template-columns: 33% 33% 33%; 
+    }
+
+    /* Budget selection */
+    #budget {
+        width: 170px;
+        margin: 30px 10px 20px 10px;
+    }
+
+    /* Bottons for step navigation */
+    .buttons {
+        width: 100px;
+        padding: 15px 10px 15px 10px;
+    }
 }

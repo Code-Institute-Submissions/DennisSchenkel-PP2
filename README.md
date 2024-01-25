@@ -35,7 +35,8 @@ Users that are looking for the best platforms to use, also have to fill in all t
 
 Since the focus of the tool is in its functionality, the design is very minimalistic and without images, videos or any special design elements.
 
-To keep it simple, the tool is designed with a width of 350px and does not use any media queries.
+- To keep it simple, the tool is designed with a width of 350px and does not need any media queries for the mist devices.
+- From a device width of 350px and down to 280px the media queries are set.
 
 
 ### Color Scheme
@@ -90,7 +91,7 @@ Wireframes for each step of the process the programm leads through.
     - When selected, the colore changes permanently
         - Done by changing the opacity since the image has a color itself
     - Logos can be deselected and change back their color.
-    - At least one platform has to beselected. Otherwise a alert is triggert and proceeding is not possible until one or more platforms have been selected
+    - At least one platform has to be selected. Otherwise an alert is triggered and proceeding is not possible until one or more platforms have been selected
 
 - Step 3: Budget selection
     - Budget has to be within a reasonable range of a min. of 300€ and a max. of 20.000€
@@ -359,7 +360,14 @@ For each profession the following four seniority levels are available.
 - Check for Aria labeling
 - Delete empty lines
 - Beautify results
+- How is the JS file structured, Navi, Buttons, HTML Content, Steps, 
+- Explain why width is set to 350px fix <- weg machen
 
+- explain das json ist besser für more maintainable
+
+
+- Media query für alles kleiner als 350px (am besten auf 280px)
+    - Logos in 3er reihen
 
 
 
