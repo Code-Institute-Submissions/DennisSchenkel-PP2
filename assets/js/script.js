@@ -341,7 +341,7 @@ function loadLogos() {
             let imgSelected = platforms.platforms[i].imgLogoURL;
             let platformName = platforms.platforms[i].platform;
 
-            logoList += `<div class="img-raster-element"><img id="${platformName}" class="platform-logos" src="${imgSelected}"><p>${platformName}</p></div>`;
+            logoList += `<div class="img-raster-element"><img id="${platformName}" class="platform-logos" src="${imgSelected}" alt="Logo of ${platformName}"><p>${platformName}</p></div>`;
 
             platformImages.innerHTML = logoList;
         }
