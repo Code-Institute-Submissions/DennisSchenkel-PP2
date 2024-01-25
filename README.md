@@ -13,17 +13,22 @@ The Embra Ads Assistant is a tool that helps companies HR department in their ef
 
 ## User Experience (UX)
 
-                    ### User Stories
+### User Stories
 
-                    - Find the right platforms to use
+When it comes to users of the Embra Ads Assistent, most likely the users will be Marketing Managers, HR Managers or Employer Branding Managers.
 
-                    - Allocate budgets
+Users as defined above are regularly trying to reach people that match their criteria as talent suitable to fill an open position at their company. To reach this goal, they create ads for a variety of platforms and run them against a then to be defined target audience on the individual platform. But a lot of time, the platform is not the best choice for reaching the desired audience. Maybe a small part of the target audience is present on the platform, but the cost for reaching them would be much more expensive and inefficient, than it would be on a different platform. So for the users, it is important to get good information about what platform to use to best reach the target audience intended.
 
-                    - Find new platforms to use
+These users can have one or multiple of the following goals when using the Embra Ads Assist.
 
-                    #### First time visitors should be able to
+- **Find the right platforms to use from their disposal** <br>
+The users are led through the process and are asked to fill in all relevant information about the profession they try to fill an open position for, the platforms to use and the budget. At step two, they are asked to select all platforms, their company is already using to reach potential applicants. Users have to select a minimum of one platform at that step. After the definition of the budget to use, the user is led to the final results, that gives them more information. On the result page, the users can see what platforms of the selected ones are the best capable of reaching the desired target audience. It also shows, how much of the overall budget should be allocated to each platform. In case none of the selected platforms is a platform best suited to reaching the target audience, the assistant gives a recommendation for other platforms that would be very good to use.
 
-                    #### Returning visitors should be able to
+- **Allocate budgets to platforms best fitting** <br>
+Similar to the first user scenario, users who are looking to best allocate their budget to specific platforms, are led through the process and are asked to fill in all the information. After going through the three steps where they have to fill in this information, the fourth step shows the results. Here the users can see, where they should allocate their budget to on the one hand reach the right target audience and on the other hand spread the budget on a reasonable range of different platforms, to not be reliant on just one single platform.
+
+- **Find new platforms to use** <br>
+Users that are looking for the best platforms to use, also have to fill in all the information. Although they might not already use a lot of platforms, they can just select all provided platforms and then in the results see, which one they should be using. If they already use some platforms and have only selected these, depending on the selected platforms, some more platforms to use will be recommended in the results, if these platforms better than everything that was selected by the users. In that way the users find new platforms to use to reach their goals.
 
 
 ## Design
@@ -56,6 +61,7 @@ Weights used are:
 
 ![Index.html wireframes](documentation/wireframes/wireframes.png)
 Wireframes for each step of the process the programm leads through.
+
 
 ## Features
 
@@ -129,10 +135,6 @@ To garantee a good accessibility, to the following aspects have been payed atten
 - When choosing the colors I aimed for a suffciant contrast.
 
 
-
-
-
-
 ## Technologies used
 
 For creating this website, the following technologies have been used.
@@ -190,6 +192,7 @@ W3C HTML validation for the imprint.html site:
 
 - No errors could be found by the W3C validator.
 
+
 ##### CSS:
 
 Jigsaw CSS validation for the styles.css
@@ -214,11 +217,49 @@ JSHint validation for the script.hs
 - Most warnings are associated with the import of the two json files, which are done correctly but JSHint seems to not like.
 
 
-                                    ### Lighthouse Testing
+### Lighthouse Testing
+
+Lighthouse test results for the index.html
+![Lighthouse test for index.html](documentation/images/lighthouse-index.png)
+
+Since Lighthouse only test the frontpage with the standard test, I did snapshot test for all the other steps.
+
+Snapshot test for the start page
+![Lighthouse snapshot test for start](documentation/images/lighthouse-snapshot-start.png)
+
+Snapshot test for step 1
+![Lighthouse snapshot test for step 1](documentation/images/lighthouse-snapshot-step1.png)
+
+Snapshot test for step 2
+![Lighthouse snapshot test for step 2](documentation/images/lighthouse-snapshot-step1.png)
+
+Snapshot test for step 3
+![Lighthouse snapshot test for step 3](documentation/images/lighthouse-snapshot-step1.png)
+
+Snapshot test for step 4
+![Lighthouse snapshot test for step 4](documentation/images/lighthouse-snapshot-step1.png)
+
+
+                                    ### Manual testing
+
+
+
 
 ### Known & unfixed bugs
 
 - No errors have been found, that would qualify as bugs.
+
+
+### Possible improvements
+
+- For a real world project I would prefere to have a selection of multiple professions with a text input field.
+- With consideration of time and scope for this project, I decided to go with the selection of only one profession with a dropdown.
+- For improved navigation I would add keydown eventListener for enter end delete for goint to the next step (enter) or going a step back (delete).
+- When going one step back, the former selected information are deleted from the array and they have to be put in again.
+    - In a next version I would implement a feature, that the former selected values are still selected, even when going back and forth between steps
+- I worked with arrays and the indexing in each array has to be consistently the same to the selected platform. That can potentially lead to problems.
+    - In a new version of the application I would try working with more objects instead of so many arrays.
+- From my understanding of the concept of memory leaks, the way I use eventListeners on buttons to go back and forth between steps, could lead to a browser crash, when the memory heap gets full. This would only happen after many thounsand times of going back in forth, but should be fixed in a new version.
 
 
 ## Credits
@@ -227,10 +268,12 @@ JSHint validation for the script.hs
 
 - All content was written and created by Dennis Schenkel.
 
+
 ###  Media
 
 - The platform icons have been downloaded from FontAwesome and edited with Adobe Illustrator.
 - No further images or videos where used.
+
 
 ###  Acknowledgments
 
@@ -238,6 +281,38 @@ JSHint validation for the script.hs
 - Thanks to Kay and the community for awesome weekly calls and exchange.
 
 
+
+
+
+
+## Used data
+
+### Professions
+
+For this project the following professions where added as data with the integration of a JSON file.
+
+- Software Developer
+- Software Engineer
+- Project Manager (Software)
+- Marketing Manager
+- Sales Manager
+- HR Manager
+
+#### Seniority Levels
+
+For each profession the following four seniority levels are available.
+
+- Senior
+- Midlevel
+- Junior
+- Student
+
+#### Profession Data
+
+- Platform
+- Platform Rating
+- Demand Multiplier
+- Seniority Multiplyer
 
 
 
@@ -266,21 +341,7 @@ JSHint validation for the script.hs
 - Spotify
 
 
-## Professions
 
-- Software Developer
-- Software Engineer
-- Project Manager (Software)
-- Marketing Manager
-- Sales Manager
-- HR Manager
-
-### Profession Data
-
-- Platform
-- Platform Rating
-- Demand Multiplier
-- Seniority Multiplyer
 
 ### Platform Rating
 
@@ -290,12 +351,7 @@ JSHint validation for the script.hs
 - Okay (Value 1)
 - Bad (Value 0)
 
-### Seniority Levels
 
-- Senior
-- Midlevel
-- Junior
-- Student
 
 
 ## ToDos
@@ -308,13 +364,3 @@ JSHint validation for the script.hs
 
 
 
-## Possible improvements
-
-- For a real world project I would prefere to have a selection of multiple professions with a text input field.
-- With consideration of time and scope for this project, I decided to go with the selection of only one profession with a dropdown.
-- For improved navigation I would add keydown eventListener for enter end delete for goint to the next step (enter) or going a step back (delete).
-- When going one step back, the former selected information are deleted from the array and they have to be put in again.
-    - In a next version I would implement a feature, that the former selected values are still selected, even when going back and forth between steps
-- I worked with arrays and the indexing in each array has to be consistently the same to the selected platform. That can potentially lead to problems.
-    - In a new version of the application I would try working with more objects instead of so many arrays.
-- From my understanding of the concept of memory leaks, the way I use eventListeners on buttons to go back and forth between steps, could lead to a browser crash, when the memory heap gets full. This would only happen after many thounsand times of going back in forth, but should be fixed in a new version.
