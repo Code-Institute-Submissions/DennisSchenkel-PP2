@@ -316,9 +316,25 @@ Snapshot test for step 4
 
 | **Test** | **Description** | **Expected Outcome** | **Result** |
 | --- | --- | --- | --- |
-| **Start** | --- | --- | --- |
+| **Start** |  |  |  |
 | Start process | Click on the start button in the start page | Changing HTML to display the first step of the process | Pass |
-| **Footer** | --- | --- | --- |
+| **Step 1** |  |  |  |
+| Start process | Click on the start button in the start page | Changing HTML to display the first step of the process | Pass |
+| **Step Indicator** |  |  |  |
+| Step 1 circle active | Mark circle step indicator as active | The first of the white circles in the header gets a dark colored border | Pass |
+| Step 1 text active  | Changen text of step indecator in header | Text in header changes to "Step 1: Select talent to reach" | Pass |
+| Step 1 circle done  | Mark circle step indicator as done | When going to step 2 the borderd circle of step 1 gets filled out and the number gets white | Pass |
+| Step 2 circle active | Mark circle step indicator as active | The second of the white circles in the header gets a dark colored border | Pass |
+| Step 2 text active | Change text of step indecator in header | Text in header changes to "Step 2: Choose platforms to use" | Pass |
+| Step 2 circle done  | Mark circle step indicator as done | When going to step 3 the borderd circle of step 2 gets filled out and the number gets white | Pass |
+| Step 3 circle active | Mark circle step indicator as active | The third of the white circles in the header gets a dark colored border | Pass |
+| Step 3 text active | Change text of step indecator in header | Text in header changes to "Step 3: Define budget to allocate" | Pass |
+| Step 3 circle done  | Mark circle step indicator as done | When going to step 4 the borderd circle of step 3 gets filled out and the number gets white | Pass |
+| Step 4 circle active | Mark circle step indicator as active | The fourth of the white circles in the header gets a dark colored border | Pass |
+| Step 4 text active | Change text of step indecator in header | Text in header changes to "Step 4: Results & recommendations" | Pass |
+| **Navigation Buttons** |  |  |  |
+| ddd | ddd | ddd | ddd |
+| **Footer** |  |  |  |
 | Responsiveness - Footer imprint element | Check for responsivenes of footer element | Footer element with imprint link should always be lokated at the bottom right of the page and stay in this position when window size is changed | Pass |
 | Footer Imprint Link | Click on the logo in footer | Loading of the imprint.html in the same tab | Pass |
 
