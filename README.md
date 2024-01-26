@@ -45,7 +45,6 @@ The Embra Ads Assistant is a tool that helps companies HR department in their ef
   * [Data Used](#data-used)
 
 
-
 ## User Experience (UX)
 
 ### User Stories
@@ -313,9 +312,14 @@ Snapshot test for step 4
 ![Lighthouse snapshot test for step 4](documentation/images/lighthouse-snapshot-step1.png)
 
 
-                                    ### Manual testing
+### Manual testing
 
-
+| **Test** | **Description** | **Expected Outcome** | **Result**|
+| **Start** | | | |
+| Start process | Click on the start button in the start page | Changing HTML to display the first step of the process | Pass |
+| **Footer** | | | |
+| Responsiveness - Footer imprint element | Check for responsivenes of footer element | Footer element with imprint link should always be lokated at the bottom right of the page and stay in this position when window size is changed | Pass |
+| Footer Imprint Link | Click on the logo in footer | Loading of the imprint.html in the same tab | Pass |
 
 
 ### Known & Unfixed Bugs
