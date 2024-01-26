@@ -685,24 +685,52 @@ function resultsToHTML(listOfResults) {
                 } else if (resultElement.PlatformRating === 1) {
                     resultContentHTML += `  
                     <div class="result-element semibad-platform">
-                            <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
-                            <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
-                            <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
-                            <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
-                            <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
-                        <br>
-                        <p><b>This is not a good platform for your purposes.<br>But try it with a little budget</b></p>
-                        <br>
+                        <div class="platform-name">
+                            <p><b>${resultElement.PlatformName}</b></p>
+                        </div>        
+                            <div class="single-result-element">
+                                <div class="platform-budget">
+                                    <p>Platform<br>budget:</p>
+                                    <b>${resultElement.BudgetAmount.toFixed(2)}€</b><br>
+                                    <span>(${(resultElement.BudgetPercentage * 100).toFixed(2)}%)</span>
+                                </div>
+
+                                <div class="platform-info">
+                                    <p>Platform<br>clicks:</p>
+                                    <b>${resultElement.PlatformClicks}</b><br>
+                                </div>
+
+                                <div class="platform-info">
+                                    <p>Platform<br>CPC:</p>
+                                    <b>${resultElement.PlatformCPC}€</b><br>
+                                </div>
+                            </div>
+                                <br>
+                                <p><b>This is not a good platform for your purposes.<br>But try it with a little budget</b></p>
+                                <br>
                     </div>
-                        `;
+                    `;
                 } else if (resultElement.PlatformRating === 2) {
                     resultContentHTML += `  
                     <div class="result-element mediocre-platform">
-                            <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
-                            <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
-                            <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
-                            <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
-                            <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                        <div class="platform-name">
+                            <p><b>${resultElement.PlatformName}</b></p>
+                        </div>        
+                        <div class="single-result-element">
+                            <div class="platform-budget">
+                                <p>Platform<br>budget:</p>
+                                <b>${resultElement.BudgetAmount.toFixed(2)}€</b><br>
+                                <span>(${(resultElement.BudgetPercentage * 100).toFixed(2)}%)</span>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>clicks:</p>
+                                <b>${resultElement.PlatformClicks}</b><br>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>CPC:</p>
+                                <b>${resultElement.PlatformCPC}€</b><br>
+                            </div>
+                        </div>
                         <br>
                         <p><b>This platform is okay for your purposes.<br>Use it with a small budget but don't expect it do blow up.</b></p>
                         <br>
@@ -713,11 +741,24 @@ function resultsToHTML(listOfResults) {
                     resultContentHTML += 
                     `<div class="result-element top-platform">
                         <h3>TOP PLATFORM</h3><br>
-                            <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
-                            <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
-                            <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
-                            <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
-                            <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                        <div class="platform-name">
+                            <p><b>${resultElement.PlatformName}</b></p>
+                        </div>        
+                        <div class="single-result-element">
+                            <div class="platform-budget">
+                                <p>Platform<br>budget:</p>
+                                <b>${resultElement.BudgetAmount.toFixed(2)}€</b><br>
+                                <span>(${(resultElement.BudgetPercentage * 100).toFixed(2)}%)</span>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>clicks:</p>
+                                <b>${resultElement.PlatformClicks}</b><br>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>CPC:</p>
+                                <b>${resultElement.PlatformCPC}€</b><br>
+                            </div>
+                        </div>
                         <br>
                     </div>
                     `;
@@ -725,11 +766,24 @@ function resultsToHTML(listOfResults) {
                     resultContentHTML += `
                     <div class="result-element good-platform">
                         <h3>Second best platform</h3><br> 
-                            <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
-                            <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
-                            <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
-                            <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
-                            <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                        <div class="platform-name">
+                            <p><b>${resultElement.PlatformName}</b></p>
+                        </div>        
+                        <div class="single-result-element">
+                            <div class="platform-budget">
+                                <p>Platform<br>budget:</p>
+                                <b>${resultElement.BudgetAmount.toFixed(2)}€</b><br>
+                                <span>(${(resultElement.BudgetPercentage * 100).toFixed(2)}%)</span>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>clicks:</p>
+                                <b>${resultElement.PlatformClicks}</b><br>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>CPC:</p>
+                                <b>${resultElement.PlatformCPC}€</b><br>
+                            </div>
+                        </div>
                         <br>
                     </div>
                         `;
@@ -737,11 +791,24 @@ function resultsToHTML(listOfResults) {
                     resultContentHTML += `
                     <div class="result-element good-platform">
                         <h3>Third best Platform</h3><br>
-                            <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
-                            <div class="platform-budget"><p>Platform budget: <b>${resultElement.BudgetAmount.toFixed(2)}€</b></p></div>
-                            <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
-                            <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
-                            <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
+                        <div class="platform-name">
+                            <p><b>${resultElement.PlatformName}</b></p>
+                        </div>        
+                        <div class="single-result-element">
+                            <div class="platform-budget">
+                                <p>Platform<br>budget:</p>
+                                <b>${resultElement.BudgetAmount.toFixed(2)}€</b><br>
+                                <span>(${(resultElement.BudgetPercentage * 100).toFixed(2)}%)</span>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>clicks:</p>
+                                <b>${resultElement.PlatformClicks}</b><br>
+                            </div>
+                            <div class="platform-info">
+                                <p>Platform<br>CPC:</p>
+                                <b>${resultElement.PlatformCPC}€</b><br>
+                            </div>
+                        </div>
                         <br>
                     </div>
                         `;

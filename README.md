@@ -32,7 +32,7 @@ The Embra Ads Assistant is a tool that helps companies HR department in their ef
   * [Validator Testing](#validator-testing)
   * [Lighthouse Testing](#lighthouse-testing)
   * [Manual Testing](#manual-testing)
-  * [Kown & Unfixed Bugs](#known-unfixed-bugs)
+  * [Kown And Unfixed Bugs](#known--unfixed-bugs)
   * [Learnings](#learnings)
   * [Possible Improvements](#possible-improvements)
 
@@ -440,8 +440,6 @@ For this project, the following platforms and related data were added as data wi
 
 ## ToDos
 
-- Check for Aria labeling
-- Beautify results
 - Manual testing
 
 

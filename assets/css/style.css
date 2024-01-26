@@ -243,6 +243,44 @@ main {
     padding: 10px 10px 10px 10px;
 }
 
+.single-result-element {
+    display: flex;
+    justify-content: space-around;
+}
+
+.platform-name {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.platform-info {
+    text-align: center;
+    font-size: 20px;
+}
+
+.platform-info p {
+    margin-bottom: 20px;   
+    font-size: 14px;
+}
+
+.platform-budget {
+    text-align: center;
+    font-size: 20px;
+}
+
+.platform-budget span {
+    font-size: 12px;
+}
+
+.platform-budget p {
+    margin-bottom: 20px;   
+    font-size: 14px;
+}
+
+
+
+
+
 /* Buttons for step navigation */
 .nav_buttons {
     display: flex;
