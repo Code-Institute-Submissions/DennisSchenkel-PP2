@@ -1,10 +1,10 @@
 // ------- General ------------------------------------------------------------------------------------------------------------
 
-// Import professions.json
-import professions from "../data/professions.json" assert { type: 'json' };
+// Import professions.js
+import professions from "../data/professions.js";
 
-// Import platforms.json
-import platforms from "../data/platforms.json" assert { type: 'json' };
+// Import platforms.js
+import platforms from "../data/platforms.js";
 
 // Parameters for calculation Arrey(Profession, Seniority, Array{Selectet Platforms}, Budget)
 let parameters = {};
@@ -690,7 +690,6 @@ function resultsToHTML(listOfResults) {
                             <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
                             <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
                             <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
-                            <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                         <br>
                         <p><b>This is not a good platform for your purposes.<br>But try it with a little budget</b></p>
                         <br>
@@ -704,7 +703,6 @@ function resultsToHTML(listOfResults) {
                             <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
                             <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
                             <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
-                            <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                         <br>
                         <p><b>This platform is okay for your purposes.<br>Use it with a small budget but don't expect it do blow up.</b></p>
                         <br>
@@ -720,7 +718,6 @@ function resultsToHTML(listOfResults) {
                             <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
                             <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
                             <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
-                            <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                         <br>
                     </div>
                     `;
@@ -733,7 +730,6 @@ function resultsToHTML(listOfResults) {
                             <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
                             <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
                             <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
-                            <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                         <br>
                     </div>
                         `;
@@ -746,7 +742,6 @@ function resultsToHTML(listOfResults) {
                             <div class="platform-budget-percentage"><p>Platform budget percentage: <b>${(resultElement.BudgetPercentage * 100).toFixed(2)}%</b></p></div>
                             <div class="platform-cpc"><p>Platform CPC: <b>${resultElement.PlatformCPC}€</b></p></div>
                             <div class="platform-clicks"><p>Platform Clicks: <b>${resultElement.PlatformClicks}</b></p></div>
-                            <div class="platform-rating"><p>Platform Rating: <b>${resultElement.PlatformRating}</b></p></div>
                         <br>
                     </div>
                         `;

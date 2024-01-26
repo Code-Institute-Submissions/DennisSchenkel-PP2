@@ -213,7 +213,7 @@ The process of deploying the website are as followed:
 
 W3C HTML validation for the index.html site:
 
-![Index.html W3C Validator](documentation/images/Index-html-validation)
+![Index.html W3C Validator](documentation/images/Index-html-validation.png)
 
 W3C HTML validation for the imprint.html site:
 
@@ -314,7 +314,8 @@ Snapshot test for step 4
 ###  Acknowledgments
 
 - Thanks to Gareth McGirr for providing great mentorship as part of the Code Academy course.
-- Thanks to Kay and the community for awesome weekly calls and exchange.
+- Thanks to Kay for they effort and support for solving the JSON issue and checking back with the rest of the Code Institute team.
+- Thanks the community for the awesome weekly calls and exchange.
 
 
 
@@ -394,10 +395,14 @@ For each profession the following four seniority levels are available.
 ## ToDos
 
 - Check for Aria labeling
-- Delete empty lines
 - Beautify results
 - Tabel of content
 - Manual testing
 - How is the JS file structured, Navi, Buttons, HTML Content, Steps, 
+- Get rid of JSON
 
 
+### Learnings
+
+- At the start of the project I went with importing the professions and platform data from JSON files. Close to the end of the project, with the support of Kay, I learned that only the Chrome Browser is capable of using the JSON import.<br>
+To resolve this problem I -------------------------------------------------------------------------------------
