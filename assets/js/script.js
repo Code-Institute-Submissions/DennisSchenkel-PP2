@@ -674,6 +674,7 @@ function resultsToHTML(listOfResults) {
             if (platforms.platforms.hasOwnProperty(i)) {
                 let resultElement = listOfResults[i];
                 if (resultElement.PlatformRating === 0) {
+                    // HTML for bad platforms
                     resultContentHTML += `  
                     <div class="result-element bad-platform">
                         <div class="platform-name">
@@ -685,6 +686,7 @@ function resultsToHTML(listOfResults) {
                     </div>
                         `;
                 } else if (resultElement.PlatformRating === 1) {
+                    // HTML for semi bad platform
                     resultContentHTML += `  
                     <div class="result-element semibad-platform">
                         <div class="platform-name">
@@ -713,6 +715,7 @@ function resultsToHTML(listOfResults) {
                     </div>
                     `;
                 } else if (resultElement.PlatformRating === 2) {
+                    // HTML for okay platforms
                     resultContentHTML += `  
                     <div class="result-element mediocre-platform">
                         <div class="platform-name">
@@ -740,6 +743,7 @@ function resultsToHTML(listOfResults) {
 
                         `;        
                 } else if (parseInt(i) == 0) {
+                    // HTML for best/top platforms
                     resultContentHTML += 
                     `<div class="result-element top-platform">
                         <h3>TOP PLATFORM</h3><br>
@@ -765,6 +769,7 @@ function resultsToHTML(listOfResults) {
                     </div>
                     `;
                 } else if (parseInt(i) == 1) {
+                    // HTML for second best platform
                     resultContentHTML += `
                     <div class="result-element good-platform">
                         <h3>Second best platform</h3><br> 
@@ -790,6 +795,7 @@ function resultsToHTML(listOfResults) {
                     </div>
                         `;
                 } else if (parseInt(i) == 2) {
+                    // HTML for third best platform
                     resultContentHTML += `
                     <div class="result-element good-platform">
                         <h3>Third best Platform</h3><br>
