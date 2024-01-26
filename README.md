@@ -282,7 +282,6 @@ JSHint validation for the script.hs
 - 14 warnings were associated with the initial import of the two JSON files, because this is only possible with a limited amount of browsers.
 
 
-
 ### Lighthouse Testing
 
 Lighthouse test results for the index.html
@@ -484,12 +483,3 @@ For this project, the following platforms and related data were added as data wi
 - Good (Value 2)
 - Okay (Value 1)
 - Bad (Value 0)
-
-
-
-
-## ToDos
-
-- Manual testing
-
-
