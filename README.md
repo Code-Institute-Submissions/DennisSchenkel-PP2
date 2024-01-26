@@ -8,6 +8,41 @@ The Embra Ads Assistant is a tool that helps companies HR department in their ef
 
 ## Table of Contents
 
+* [User Experience](#user-experience-ux)
+  * [User Stories](#user-stories)
+
+* [Design](#design)
+  * [Color Scheme](#color-scheme)
+  * [Typography](#typography)
+  * [Wireframes](#wireframes)
+
+* [Features](#features)
+  * [Frontend Features](#frontend-features)
+  * [Logic Features](#logic-features)
+  * [Technical Features](#technical-features)
+  * [Accessibility](#accessibility)
+
+* [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+
+* [Deployment](#deployment)
+
+* [Testing](#testing)
+  * [Validator Testing](#validator-testing)
+  * [Lighthouse Testing](#lighthouse-testing)
+  * [Manual Testing](#manual-testing)
+  * [Kown & Unfixed Bugs](#known-unfixed-bugs)
+  * [Learnings](#learnings)
+  * [Possible Improvements](#possible-improvements)
+
+* [Credits](#credits)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgments](#acknowledgments)
+
+* [Appendix](#appendix)
+  * [Data Used](#data-used)
 
 
 
@@ -28,7 +63,7 @@ The users are led through the process and are asked to fill in all relevant info
 Similar to the first user scenario, users who are looking to best allocate their budget to specific platforms, are led through the process and are asked to fill in all the information. After going through the three steps where they have to fill in this information, the fourth step shows the results. Here the users can see, where they should allocate their budget to on the one hand reach the right target audience and on the other hand spread the budget on a reasonable range of different platforms, to not be reliant on just one single platform.
 
 - **Find new platforms to use** <br>
-Users that are looking for the best platforms to use, also have to fill in all the information. Although they might not already use a lot of platforms, they can just select all provided platforms and then in the results see, which one they should be using. If they already use some platforms and have only selected these, depending on the selected platforms, some more platforms to use will be recommended in the results, if these platforms better than everything that was selected by the users. In that way the users find new platforms to use to reach their goals.
+Users that are looking for the best platforms to use, also have to fill in all the information. Although they might not already use a lot of platforms, they can just select all provided platforms and then in the results see, which one they should be using. If they already use some platforms and have only selected these, depending on the selected platforms, some more platforms to use will be recommended in the results, if these platforms better than everything that was selected by the users. In that way, the users find new platforms to use to reach their goals.
 
 
 ## Design
@@ -66,7 +101,7 @@ Wireframes for each step of the process the programm leads through.
 
 ## Features
 
-### Frontend features
+### Frontend Features
 
 - **Process flow in header**
     - The steps in the header change depending on the active step
@@ -75,57 +110,57 @@ Wireframes for each step of the process the programm leads through.
 
 - **Navigation**
     - On the front page is only one button to start the process.
-    - On all steps within the process the user has two buttons to use.
+    - On all steps within the process, the user has two buttons to use.
         - Next step
         - Previous step
-    - On the final result page the "Next step" button is called "Restart" and redirects to the index.html
+    - On the final result page, the "Next step" button is called "Restart" and redirects to the index.html
     - On the right side of the footer on every page is a link to the imprint.html
 
 
 - **Step 1: Profession selection**
-    - The profession of the taget group can be selected by using a dropdown menu
-    - The level of seniority has to be choosen by using one of four radio buttons
-        - If no seniority level was selected, an alert is triggerd and proceesing is not possible until one was selected
+    - The profession of the target group can be selected by using a dropdown menu
+    - The level of seniority has to be chosen by using one of four radio buttons
+        - If no seniority level was selected, an alert is triggered and proceeding is not possible until one was selected
 
 
 - **Step 2: Platform selection**
     - Logos change color when hovering over them
         - Done by changing the opacity since the image has a color itself
-    - When selected, the colore changes permanently
+    - When selected, the color changes permanently
         - Done by changing the opacity since the image has a color itself
     - Logos can be deselected and change back their color.
-    - At least one platform has to be selected. Otherwise an alert is triggered and proceeding is not possible until one or more platforms have been selected
+    - At least one platform has to be selected. Otherwise, an alert is triggered and proceeding is not possible until one or more platforms have been selected
 
 
 - **Step 3: Budget selection**
     - Budget has to be within a reasonable range of a min. of 300€ and a max. of 20.000€
-    - If the choosen budget is not withing that range, an alert is triggerd when trying to go to the next step
+    - If the chosen budget is not within that range, an alert is triggered when trying to go to the next step
 
 
 - **Step 4: Results**
     - Results are ordered by the most fitting platform at the top and going down in quality of the match.
     - Each platform has an allocated absolute budget and a percentage of the absolute budget.
     - Each platform result shows the calculated clicks that are to expect for the budget.
-    - Platforms are devided into 5 ranks, depending on the quality of the match. The ranks are:
+    - Platforms are divided into 5 ranks, depending on the quality of the match. The ranks are:
         - Top platform
         - Second best platform
         - Okay platforms
         - Not good platforms
         - Don't use platforms
-    - If non of the top platforms for the choosen profession has been selected by the user, on the button of the page will appear a recommendation for what additional top platform to use beside the already selected ones.
+    - If none of the top platforms for the chosen profession has been selected by the user, on the button of the page will appear a recommendation for what additional top platform to use beside the already selected ones.
 
 
 - **Imprint page**
     - Only as placeholder for later
 
 
-### Logic features
+### Logic Features
 
 **Multipliers and average Cost per Click**
-- Six professions can be selected and more can be added by editing the seperate JS file.
-- Each profession has four levels of seniority that can be selected, each with a seniority multiplier asigned to it.
+- Six professions can be selected and more can be added by editing the separate JS file.
+- Each profession has four levels of seniority that can be selected, each with a seniority multiplier assigned to it.
 - Every profession has a demand multiplier assigned that indicated the demand for talent of this profession in the market.
-- The sum of demand and seniority multiplier is later multiplied with the average platform Cost per Click (CPC) to demonstate rising costs with higher seniority and more demanded talent.
+- The sum of demand and seniority multiplier is later multiplied with the average platform Cost per Click (CPC) to demonstrate rising costs with higher seniority and more demanded talent.
 
 
 **Platform rating and budget allocation**
@@ -135,20 +170,20 @@ Wireframes for each step of the process the programm leads through.
 
 
 **Cost per Click and amount of clicks**
-- With the average CPC (Cost per Click) of each platform and the multiplierst, each platform gets a unique calculated CPC for the selected profession at a selected seniority level.
-- The allocated budget is then devided by the CPC of the platform and the amount of clicks is calculated and rounded to a full number.
+- With the average CPC (Cost per Click) of each platform and the multipliers, each platform gets a unique calculated CPC for the selected profession at a selected seniority level.
+- The allocated budget is then divided by the CPC of the platform and the amount of clicks is calculated and rounded to a full number.
 
 
 **Platform recommendation**
 - Platforms are recommended by the rating for the selected profession.
-- Recommendations are orderd top to bottom from best to worse.
+- Recommendations are ordered top to bottom from best to worse.
 - If no platform with the best rating of 5 was selected, at the end of the recommendation list comes an additional recommendation with the platforms best suited for reaching the selected profession (rating of 5).
 
 
-### Technical features
+### Technical Features
 
-- Import of JS files as datasource for easy update, so that even none technical users can update it without having to enter the complete code or a database.
-- List of platforms and the logos are dynamicaly created using information from the JS file
+- Import of JS files as data source for easy update, so that even none technical users can update it without having to enter the complete code or a database.
+- List of platforms and the logos are dynamically created using information from the JS file
 - Logos of platforms are implemented as images and not with FontAwesome for data privacy reasons.
 - All input fields are checking for required input and trigger an alarm if not correctly filled out.
 
@@ -157,12 +192,12 @@ Wireframes for each step of the process the programm leads through.
 
 To garantee a good accessibility, to the following aspects have been payed attention:
 
-- Use of Sementic HTML on all pages.
+- Use of Semantic HTML on all pages.
 - Aria-Labels added to all links and buttons.
-- When choosing the colors I aimed for a suffciant contrast.
+- When choosing the colors I aimed for a sufficiant contrast.
 
 
-## Technologies used
+## Technologies Used
 
 For creating this website, the following technologies have been used.
 
@@ -181,12 +216,12 @@ Languages used are the following:
 - [GitHub](https://github.com/) - As host for the repository and to deploy the website to make the preview visible to visitors
 - [Git](https://git-scm.com/) - Used as integrated feature in Visual Studio Code for version control in combination with GitHub
 - [Google Fonts](https://fonts.google.com/) - To import the 'Lato' font
-- [Font Awesome](https://fontawesome.com/) - Icons for the platform selection and results. FontAwesome was not integrated by using JavaScript but by downloading in icon files and uploading them to the images directory.
+- [Font Awesome](https://fontawesome.com/) - Icons for the platform selection and results. FontAwesome was not integrated by using JavaScript, but by downloading in icon files and uploading them to the images directory.
 
 - [Balsamiq](https://balsamiq.com/) - For wireframes
 - [Adobe](https://www.adobe.com/de/products/illustrator.html) Illustrator - For editing the FontAwesome icons.
 - [ui.dev](https://ui.dev/amiresponsive) - For generating the Mockup
-- [coolors](https://coolors.co/) - For generating the color sheme vizualisation
+- [coolors](https://coolors.co/) - For generating the color sheme visualisation
 - [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) - For performance and accessibility testing
 
 
@@ -196,11 +231,11 @@ This page is deployed on GitHub pages.
 The process of deploying the website are as followed:
 - When logged in to GitHub, the 'Settings' navigation item is to find in the top navigation bar. This has to selected.
 - On the then opening page is a navigation bar on the left side. Here choose 'Pages'.
-- In the now opening settings page the  following settings habe to be made.
+- In the now opening settings page the  following settings have to be made.
 - In the dropdown menu choose 'Deploy from branch'.
-- In the first dropdown below chooss 'main'.
-- In the secon dropdown choose '/root'.
-- After saving these settings the page is deployed.
+- In the first dropdown below choose 'main'.
+- In the second dropdown choose '/root'.
+- After saving these settings, the page is deployed.
 - GitHub needs a few seconds and after refreshing the page a button to the deployed page is displayed in the top with 'Visit site' on it.
 
 [Find the deployed project here](https://dennisschenkel.github.io/PP2/)
@@ -237,15 +272,15 @@ JSHint validation for the script.hs
 
 ![Style.css Jigsaw Validator](documentation/images/js-validation.png)
 
-- JSHints shows a total of 2 warnings. None of them are errors and prevent the code from working as planed.
-- When first testing the JSHint showed multiple warnings that have been fixed.
+- JSHints shows a total of 2 warnings. None of them are errors and prevent the code from working as planned.
+- When first testing, the JSHint showed multiple warnings that have been fixed.
 
-- After a first validation multiple missing semicolons were added and unnecessary semicolons have been deleted.
+- After a first validation, multiple missing semicolons were added, and unnecessary semicolons have been deleted.
 - Multiple "use strict" statements were added as recommended by JSHint.
-- One "use strict" is missing as mentioned by JSHint, but when added, it leads to a different warning. So is was not added.
-- On multiple for loops addidtional if statements with .hasOwnProperty(i) have been added as recommended by JSHint.
-- In one case a function declared within a loop is referencing to an outer scoped variable, which may leed to confusion regarding the sementics.
-- 14 warnings where associated with the initial import of the two JSON files, because this is only possible with a limited amount of browsers.
+- One "use strict" is missing as mentioned by JSHint, but when added, it leads to a different warning. So it was not added.
+- On multiple for loops additional if statements with .hasOwnProperty(i) have been added as recommended by JSHint.
+- In one case, a function declared within a loop is referencing to an outer scoped variable, which may led to confusion regarding the semantics.
+- 14 warnings were associated with the initial import of the two JSON files, because this is only possible with a limited amount of browsers.
 
 
 
@@ -255,7 +290,7 @@ Lighthouse test results for the index.html
 
 ![Lighthouse test for index.html](documentation/images/lighthouse-index.png)
 
-Since Lighthouse only test the frontpage with the standard test, I did snapshot test for all the other steps.
+Since Lighthouse only test the front page with the standard test, I did snapshot test for all the other steps.
 
 Snapshot test for the start page
 
@@ -283,27 +318,27 @@ Snapshot test for step 4
 
 
 
-### Known & unfixed bugs
+### Known & Unfixed Bugs
 
 - No errors have been found, that would qualify as bugs.
 
 
 ### Learnings
 
-- At the start of the project I went with importing the professions and platform data from JSON files. Close to the end of the project, with the support of Kay, I learned that only the Chrome Browser is capable of using the JSON import.<br>
-To resolve this problem I changes the JSON files to JS files and created objects in them, that previously have been the JSON file. On the bottom comes an export statement and in the main JS file comes the import of the JS foles instead the JSON files. The changes where made in just a few minutes.
+- At the start of the project, I went with importing the professions and platform data from JSON files. Close to the end of the project, with the support of Kay, I learned that only the Chrome Browser is capable of using the JSON import.<br>
+To resolve this problem, I changed the JSON files to JS files and created objects in them, that previously have been the JSON file. On the bottom comes an export statement and in the main JS file comes the import of the JS files instead of the JSON files. The changes were made in just a few minutes.
 
 
-### Possible improvements
+### Possible Improvements
 
-- For a real world project I would prefere to have a selection of multiple professions with a text input field.
+- For a real world project, I would prefer to have a selection of multiple professions with a text input field.
 - With consideration of time and scope for this project, I decided to go with the selection of only one profession with a dropdown.
-- For improved navigation I would add keydown eventListener for enter end delete for goint to the next step (enter) or going a step back (delete).
+- For improved navigation, I would add keydown eventListener for enter and delete for going to the next step (enter) or going a step back (delete).
 - When going one step back, the former selected information are deleted from the array and they have to be put in again.
     - In a next version I would implement a feature, that the former selected values are still selected, even when going back and forth between steps
-- I worked with arrays and the indexing in each array has to be consistently the same to the selected platform. That can potentially lead to problems.
-    - In a new version of the application I would try working with more objects instead of so many arrays.
-- From my understanding of the concept of memory leaks, the way I use eventListeners on buttons to go back and forth between steps, could lead to a browser crash, when the memory heap gets full. This would only happen after many thounsand times of going back in forth, but should be fixed in a new version.
+- I worked with arrays, and the indexing in each array has to be consistently the same to the selected platform. That can potentially lead to problems.
+    - In a new version of the application, I would try working with more objects instead of so many arrays.
+- From my understanding of the concept of memory leaks, the way I use eventListeners on buttons to go back and forth between steps, could lead to a browser crash, when the memory heap gets full. This would only happen after many thousand times of going back and forth, but should be fixed in a new version.
 
 
 ## Credits
@@ -316,25 +351,33 @@ To resolve this problem I changes the JSON files to JS files and created objects
 ###  Media
 
 - The platform icons have been downloaded from FontAwesome and edited with Adobe Illustrator.
-- No further images or videos where used.
+- No further images or videos were used.
 
 
 ###  Acknowledgments
 
 - Thanks to Gareth McGirr for providing great mentorship as part of the Code Academy course.
 - Thanks to Kay for they effort and support for solving the JSON issue and checking back with the rest of the Code Institute team.
-- Thanks the community for the awesome weekly calls and exchange.
+- Thanks to the community for the awesome weekly calls and exchange.
 
 
+## Appendix
+
+### Used data
+
+#### Professions.JS
+
+For this project, the following professions and related data were added as data with the integration of a separate professions.js file.
 
 
+##### Profession Data
+
+- Platform Rating - A rating from 0 to 5 for as how well each platform is suitable to reach each profession
+- Demand Multiplier - A multiplier that indicates how strong the demand for talents with that profession is
+- Seniority Multiplier - A multiplier that indicates how much more expensive it is to reach each seniority level
 
 
-## Used data
-
-### Professions
-
-For this project the following professions where added as data with the integration of a seperate JS file.
+##### Professions
 
 - Software Developer
 - Software Engineer
@@ -344,9 +387,9 @@ For this project the following professions where added as data with the integrat
 - HR Manager
 
 
-#### Seniority Levels
+##### Seniority Levels
 
-For each profession the following four seniority levels are available.
+For each profession, the following four seniority levels are available.
 
 - Senior
 - Midlevel
@@ -354,24 +397,19 @@ For each profession the following four seniority levels are available.
 - Student
 
 
-#### Profession Data
+#### Platforms.JS
 
-- Platform
-- Platform Rating
-- Demand Multiplier
-- Seniority Multiplyer
+For this project, the following platforms and related data were added as data with the integration of a separate platforms.js file.
 
 
+##### Platforms Data
 
-## Platforms
-
-### Platforms Data
-
-- Name
-- Average Cost Per Click (CPC)
+- Name - Name of the platform
+- Average Cost Per Click (CPC) - The average cost for each click on an ad at each platform
+- Relative link to platform icon - Link to the icons on the webserver for automatically loading the platforms grid
 
 
-### Platforms Added
+##### Platforms Added
 
 - LinkedIn
 - Xing
@@ -389,7 +427,7 @@ For each profession the following four seniority levels are available.
 - Spotify
 
 
-### Platform Rating
+##### Platform Rating
 
 - Perfect (Value 5)
 - Great (Value 4)
@@ -404,8 +442,6 @@ For each profession the following four seniority levels are available.
 
 - Check for Aria labeling
 - Beautify results
-- Tabel of content
 - Manual testing
-- How is the JS file structured, Navi, Buttons, HTML Content, Steps, 
 
 
