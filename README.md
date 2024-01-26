@@ -317,26 +317,55 @@ Snapshot test for step 4
 | **Test** | **Description** | **Expected Outcome** | **Result** |
 | --- | --- | --- | --- |
 | **Start** |  |  |  |
-| Start process | Click on the start button in the start page | Changing HTML to display the first step of the process | Pass |
+| Start navigation start | Click on the start button in the start page | Changing HTML to display the step 1 of the process. | Pass |
 | **Step 1** |  |  |  |
-| Start process | Click on the start button in the start page | Changing HTML to display the first step of the process | Pass |
-| **Step Indicator** |  |  |  |
-| Step 1 circle active | Mark circle step indicator as active | The first of the white circles in the header gets a dark colored border | Pass |
-| Step 1 text active  | Changen text of step indecator in header | Text in header changes to "Step 1: Select talent to reach" | Pass |
-| Step 1 circle done  | Mark circle step indicator as done | When going to step 2 the borderd circle of step 1 gets filled out and the number gets white | Pass |
-| Step 2 circle active | Mark circle step indicator as active | The second of the white circles in the header gets a dark colored border | Pass |
-| Step 2 text active | Change text of step indecator in header | Text in header changes to "Step 2: Choose platforms to use" | Pass |
-| Step 2 circle done  | Mark circle step indicator as done | When going to step 3 the borderd circle of step 2 gets filled out and the number gets white | Pass |
-| Step 3 circle active | Mark circle step indicator as active | The third of the white circles in the header gets a dark colored border | Pass |
-| Step 3 text active | Change text of step indecator in header | Text in header changes to "Step 3: Define budget to allocate" | Pass |
-| Step 3 circle done  | Mark circle step indicator as done | When going to step 4 the borderd circle of step 3 gets filled out and the number gets white | Pass |
-| Step 4 circle active | Mark circle step indicator as active | The fourth of the white circles in the header gets a dark colored border | Pass |
-| Step 4 text active | Change text of step indecator in header | Text in header changes to "Step 4: Results & recommendations" | Pass |
-| **Navigation Buttons** |  |  |  |
-| ddd | ddd | ddd | ddd |
+| Profession selection | Select profession from dropdown | Each profession in the dropdown is selectable. | Pass |
+| Seniority selection | Select seniority from radio buttons | Each seniority is selectable. Former selected seniority elements are no longer selected. | Pass |
+| Navigation next| Click on the next button at the bottom | Changing HTML to display the step 2 of the process. | Pass |
+| Navigation previous | Click on the previous button at the bottom | Going to the index.html and loading it completely new. | Pass |
+| Input validation | Validating if a seniority level was selected | When going to step 2 and no seniority level was selected, an alert is triggered and shown in the top. Proceeding to the next step is not possible without a valid input. | Pass |
+| **Step 2** |  |  |  |
+| Platform hovering effect | Platform icons show a hovering effect when a mouse hovers over them. | Icons show hover effect and get a darker color as long as the mouse stays on them. | Pass |
+| Platform selection | Select platforms from list of platforms | When clicking on a platform icon, the selected icon permanently gets a darker color. | Pass |
+| Platform deselection | Deselect platforms from list of platforms | When clicking on an already selected icon, this icon no longer permanently in a darker color. Hover effect can now happen again. | Pass |
+| Responsiveness - Logo grid | Change of the display of the logos on a resolution of 350px and lower | When having a resolution of 350px or lower, all logos are displayed in a grid with three columns instead of four. | Pass |
+| Navigation next| Click on the next button at the bottom | Changing HTML to display the step 3 of the process. | Pass |
+| Navigation previous | Click on the previous button at the bottom | Changing HTML to display the step 1 of the process. | Pass |
+| Input validation | Validating if at least one platform was selected | When going to step 3 and no platform was selected, an alert is triggered and shown in the top. Proceeding to the next step is not possible without a valid input. | Pass |
+| **Step 3** |  |  |  |
+| Budget definition | Define budget to allocate | The input field can be used to enter a number but no non-numeric characters. | Pass |
+| Navigation next| Click on the next button at the bottom | Changing HTML to display the step 4 of the process. | Pass |
+| Navigation previous | Click on the previous button at the bottom | Changing HTML to display the step 2 of the process. | Pass |
+| Input validation 1 | Validating if a valid budget of 300€ or more was entered | When going to step 4 and a budget lower than 300€ was defined, an alert is triggered and shown in the top. Proceeding to the next step is not possible without a valid input. | Pass |
+| Input validation 2 | Validating if a valid budget over 20.000€ or less was entered | When going to step 4 and a budget of more than 20.000€ was defined, an alert is triggered and shown in the top. Proceeding to the next step is not possible without a valid input. | Pass |
+| **Step 4** |  |  |  |
+| Result list | Selected platforms are ordered in a logical order and information are understandable | Selected platforms are ordered from good to bad when it comes to achieving the user's goals. Budget, percentage, clicks and CPC is calculated and displayed correctly. | Pass |
+| Final recommendation | Depending on the selected platforms a final recommendation is shown | When only bad platforms for the profession have been selected, the best platforms for the selected profession is displayed at the bottom of the result list. | Pass |
+| Navigation previous | Click on the previous button at the bottom | Changing HTML to display the step 3 of the process. | Pass |
+| Navigation restart | Click on the restart button at the bottom | Going to the index.html and loading it completely new. | Pass |
+| **Header Step Indicator** |  |  |  |
+| Step 1 circle active | Mark circle step indicator as active | The first of the white circles in the header gets a dark-colored border. | Pass |
+| Step 1 text active  | Change text of step indicator in header | Text in header changes to "Step 1: Select talent to reach". | Pass |
+| Step 1 circle done  | Mark circle step indicator as done | When going to step 2 the bordered circle of step 1 gets filled out and the number gets white. | Pass |
+| Step 1 circle back  | Change of circle step indicator in header | When going back to the start page from step 1, the bordered circle of step 1 gets back to white again and all circles are completely white. | Pass |
+| Step 1 text back  | Change text of step indicator in header | Text in header changes back to "Start". | Pass |
+| Step 2 circle active | Mark circle step indicator as active | The second of the white circles in the header gets a dark-colored border. | Pass |
+| Step 2 text active | Change text of step indicator in header | Text in header changes to "Step 2: Choose platforms to use". | Pass |
+| Step 2 circle done  | Mark circle step indicator as done | When going to step 3 the bordered circle of step 2 gets filled out and the number gets white. | Pass |
+| Step 2 circle back  | Change of circle step indicator in header | When going back to step 1 from step 2, the bordered circle of step 2 gets back to white again and the circle of step 1 is no longer filled out but only with the border again. Former white number of the now active gets black again. | Pass |
+| Step 2 text back  | Change text of step indicator in header | Text in header changes back to "Step 1: Select talent to reach". | Pass |
+| Step 3 circle active | Mark circle step indicator as active | The third of the white circles in the header gets a dark-colored border. | Pass |
+| Step 3 text active | Change text of step indicator in header | Text in header changes to "Step 3: Define budget to allocate". | Pass |
+| Step 3 circle done  | Mark circle step indicator as done | When going to step 4 the bordered circle of step 3 gets filled out and the number gets white. | Pass |
+| Step 3 circle back  | Change of circle step indicator in header | When going back to step 2 from step 3, the bordered circle of step 3 gets back to white again and the circle of step 2 is no longer filled out but only with the border again. Former white number of the now active gets black again. | Pass |
+| Step 3 text back  | Change text of step indicator in header | Text in header changes back to "Step 2: Choose platforms to use". | Pass |
+| Step 4 circle active | Mark circle step indicator as active | The fourth of the white circles in the header gets a dark-colored border. | Pass |
+| Step 4 text active | Change text of step indicator in header | Text in header changes to "Step 4: Results & recommendations". | Pass |
+| Step 4 circle back  | Change of circle step indicator in header | When going back to step 3 from step 4, the bordered circle of step 4 gets back to white again and the circle of step 3 is no longer filled out but only with the border again. Former white number of the now active gets black again. | Pass |
+| Step 4 text back  | Change text of step indicator in header | Text in header changes back to "Step 3: Define budget to allocate". | Pass |
 | **Footer** |  |  |  |
-| Responsiveness - Footer imprint element | Check for responsivenes of footer element | Footer element with imprint link should always be lokated at the bottom right of the page and stay in this position when window size is changed | Pass |
-| Footer Imprint Link | Click on the logo in footer | Loading of the imprint.html in the same tab | Pass |
+| Responsiveness - Footer imprint element | Check for responsiveness of footer element | Footer element with imprint link should always be located at the bottom right of the page and stay in this position when window size is changed. | Pass |
+| Footer Imprint Link | Click on the logo in footer | Loading of the imprint.html in the same tab. | Pass |
 
 
 ### Known & Unfixed Bugs
