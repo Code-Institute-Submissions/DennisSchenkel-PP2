@@ -413,6 +413,8 @@ To resolve this problem, I changed the JSON files to JS files and created object
 ### Content
 
 - All content was written and created by Dennis Schenkel.
+- All data was created by Dennis Schenkel. 
+  - Platform information, multipliers, CPCs etc. come from personal experience or educated guesses. 
 
 
 ###  Media
