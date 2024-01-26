@@ -103,6 +103,9 @@ Wireframes for each step of the process the programm leads through.
 ### Frontend Features
 
 - **Process flow in header**
+    
+    ![Header process flow](documentation/images/header.png)
+    
     - The steps in the header change depending on the active step
     - Steps also change when going back to a previous step
 
@@ -117,12 +120,18 @@ Wireframes for each step of the process the programm leads through.
 
 
 - **Step 1: Profession selection**
+    
+    ![Screenshot Step 1](documentation/images/step1.png)
+    
     - The profession of the target group can be selected by using a dropdown menu
     - The level of seniority has to be chosen by using one of four radio buttons
         - If no seniority level was selected, an alert is triggered and proceeding is not possible until one was selected
 
 
 - **Step 2: Platform selection**
+
+    ![Screenshot Step 2](documentation/images/step2.png)
+
     - Logos change color when hovering over them
         - Done by changing the opacity since the image has a color itself
     - When selected, the color changes permanently
@@ -132,11 +141,17 @@ Wireframes for each step of the process the programm leads through.
 
 
 - **Step 3: Budget selection**
+
+    ![Screenshot Step 3](documentation/images/step3.png)
+
     - Budget has to be within a reasonable range of a min. of 300€ and a max. of 20.000€
     - If the chosen budget is not within that range, an alert is triggered when trying to go to the next step
 
 
 - **Step 4: Results**
+
+    ![Screenshot Step 4](documentation/images/step4.png)
+
     - Results are ordered by the most fitting platform at the top and going down in quality of the match.
     - Each platform has an allocated absolute budget and a percentage of the absolute budget.
     - Each platform result shows the calculated clicks that are to expect for the budget.
@@ -146,6 +161,9 @@ Wireframes for each step of the process the programm leads through.
         - Okay platforms
         - Not good platforms
         - Don't use platforms
+
+    ![Screenshot Step 4 - Final Recommendation](documentation/images/step4-recommendation.png)
+
     - If none of the top platforms for the chosen profession has been selected by the user, on the button of the page will appear a recommendation for what additional top platform to use beside the already selected ones.
 
 
