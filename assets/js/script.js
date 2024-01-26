@@ -676,7 +676,9 @@ function resultsToHTML(listOfResults) {
                 if (resultElement.PlatformRating === 0) {
                     resultContentHTML += `  
                     <div class="result-element bad-platform">
-                            <div class="platform-name"><p>Platform name: <b>${resultElement.PlatformName}</b></p></div>
+                        <div class="platform-name">
+                            <p><b>${resultElement.PlatformName}</b></p>
+                        </div>      
                         <br>
                         <p><b>Don't use this platform for reaching your target audience.<br>It will not be of good use.</b></p>
                         <br>
