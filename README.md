@@ -122,7 +122,7 @@ Wireframes for each step of the process the programm leads through.
 ### Logic features
 
 **Multipliers and average Cost per Click**
-- Six professions can be selected and more can be added by editing the json file.
+- Six professions can be selected and more can be added by editing the seperate JS file.
 - Each profession has four levels of seniority that can be selected, each with a seniority multiplier asigned to it.
 - Every profession has a demand multiplier assigned that indicated the demand for talent of this profession in the market.
 - The sum of demand and seniority multiplier is later multiplied with the average platform Cost per Click (CPC) to demonstate rising costs with higher seniority and more demanded talent.
@@ -147,8 +147,8 @@ Wireframes for each step of the process the programm leads through.
 
 ### Technical features
 
-- Implementation of JSON files as datasource for easy update, so that even none technical users can update it without having to enter the complete code or a database.
-- List of platforms and the logos are dynamicaly created using information from the JSON file
+- Import of JS files as datasource for easy update, so that even none technical users can update it without having to enter the complete code or a database.
+- List of platforms and the logos are dynamicaly created using information from the JS file
 - Logos of platforms are implemented as images and not with FontAwesome for data privacy reasons.
 - All input fields are checking for required input and trigger an alarm if not correctly filled out.
 
@@ -237,14 +237,16 @@ JSHint validation for the script.hs
 
 ![Style.css Jigsaw Validator](documentation/images/js-validation.png)
 
-- After a first validation multiple missing were added and unnecessary semicolons have been deleted.
+- JSHints shows a total of 2 warnings. None of them are errors and prevent the code from working as planed.
+- When first testing the JSHint showed multiple warnings that have been fixed.
+
+- After a first validation multiple missing semicolons were added and unnecessary semicolons have been deleted.
 - Multiple "use strict" statements were added as recommended by JSHint.
 - One "use strict" is missing as mentioned by JSHint, but when added, it leads to a different warning. So is was not added.
 - On multiple for loops addidtional if statements with .hasOwnProperty(i) have been added as recommended by JSHint.
 - In one case a function declared within a loop is referencing to an outer scoped variable, which may leed to confusion regarding the sementics.
+- 14 warnings where associated with the initial import of the two JSON files, because this is only possible with a limited amount of browsers.
 
-- Furthermore JSHints shows a total of 16 warnings. Non of them are errors and prevent the code from working as planed.
-- Most warnings are associated with the import of the two json files, which are done correctly but JSHint seems to not like.
 
 
 ### Lighthouse Testing
@@ -284,6 +286,12 @@ Snapshot test for step 4
 ### Known & unfixed bugs
 
 - No errors have been found, that would qualify as bugs.
+
+
+### Learnings
+
+- At the start of the project I went with importing the professions and platform data from JSON files. Close to the end of the project, with the support of Kay, I learned that only the Chrome Browser is capable of using the JSON import.<br>
+To resolve this problem I changes the JSON files to JS files and created objects in them, that previously have been the JSON file. On the bottom comes an export statement and in the main JS file comes the import of the JS foles instead the JSON files. The changes where made in just a few minutes.
 
 
 ### Possible improvements
@@ -326,7 +334,7 @@ Snapshot test for step 4
 
 ### Professions
 
-For this project the following professions where added as data with the integration of a JSON file.
+For this project the following professions where added as data with the integration of a seperate JS file.
 
 - Software Developer
 - Software Engineer
@@ -399,10 +407,5 @@ For each profession the following four seniority levels are available.
 - Tabel of content
 - Manual testing
 - How is the JS file structured, Navi, Buttons, HTML Content, Steps, 
-- Get rid of JSON
 
 
-### Learnings
-
-- At the start of the project I went with importing the professions and platform data from JSON files. Close to the end of the project, with the support of Kay, I learned that only the Chrome Browser is capable of using the JSON import.<br>
-To resolve this problem I -------------------------------------------------------------------------------------
